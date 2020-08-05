@@ -28,14 +28,16 @@ export default class Header extends Component {
     }
   }
 
+  /**
+   * This method is used to check the scrolling distance
+   * from top of the page to toggle transparent mode of header
+   */
   handleCheckWindowScroll = () => {
     if (window.pageYOffset > 65 && this.state.isTransparent) {
-      console.log('should not transparent');
       this.setState({
         isTransparent: false,
       });
     } else if (window.pageYOffset <= 65 && !this.state.isTransparent) {
-      console.log('should not transparent');
       this.setState({
         isTransparent: true,
       });
