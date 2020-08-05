@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from './App.module.scss';
-import { Layout } from 'antd';
+import MainLayout from './hoc/MainLayout/MainLayout';
 
 function App() {
   return (
     <div className={classes.App}>
-      <Layout>This is content</Layout>
+      <MainLayout>This is content</MainLayout>
     </div>
   );
 }
