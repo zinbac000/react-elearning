@@ -13,6 +13,33 @@ export default class Header extends Component {
   state = {
     drawerOpen: false,
     searchModalOpen: false,
+    isTransparent: !!this.props.transparentOnTop,
+  };
+
+  componentDidMount() {
+    if (this.props.transparentOnTop) {
+      window.addEventListener('scroll', this.handleCheckWindowScroll);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.transparentOnTop) {
+      window.removeEventListener('scroll', this.handleCheckWindowScroll);
+    }
+  }
+
+  handleCheckWindowScroll = () => {
+    if (window.pageYOffset > 65 && this.state.isTransparent) {
+      console.log('should not transparent');
+      this.setState({
+        isTransparent: false,
+      });
+    } else if (window.pageYOffset <= 65 && !this.state.isTransparent) {
+      console.log('should not transparent');
+      this.setState({
+        isTransparent: true,
+      });
+    }
   };
 
   handleShowDrawer = () => this.setState({ drawerOpen: true });
@@ -25,7 +52,12 @@ export default class Header extends Component {
 
   render() {
     return (
-      <header className={classes.Header}>
+      <header
+        className={[
+          classes.Header,
+          this.state.isTransparent ? classes.Transparent : null,
+        ].join(' ')}
+      >
         <DrawerToggler clicked={this.handleShowDrawer} />
         <Drawer
           closable={false}

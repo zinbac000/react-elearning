@@ -5,7 +5,59 @@ import MainLayout from './hoc/MainLayout/MainLayout';
 function App() {
   return (
     <div className={classes.App}>
-      <MainLayout>This is content</MainLayout>
+      <MainLayout>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+        <p>This is content</p>
+      </MainLayout>
     </div>
   );
 }

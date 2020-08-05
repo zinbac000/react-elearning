@@ -8,8 +8,7 @@ export default class MainLayout extends Component {
   render() {
     return (
       <div className={classes.Layout}>
-        {/* SideDrawer */}
-        <Header />
+        <Header transparentOnTop />
         <main>{this.props.children}</main>
         <Footer />
       </div>
