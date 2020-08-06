@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Drawer, Button, Modal } from 'antd';
+import { Drawer, Button, Modal, Dropdown } from 'antd';
 import { SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
 import classes from './Header.module.scss';
@@ -8,6 +8,8 @@ import DrawerToggler from './DrawerToggler/DrawerToggler';
 
 import Logo from '../../UI/Logo/Logo';
 import logo from '../../../assets/img/logo.svg';
+import AutoCompleteSearch from '../../UI/AutoCompleteSearch/AutoCompleteSearch';
+import CategoryMenuList from './CategoryMenuList/CategoryMenuList';
 
 export default class Header extends Component {
   state = {
@@ -75,8 +77,53 @@ export default class Header extends Component {
         <div className={classes.Logo}>
           <Logo logo={logo} />
         </div>
-        <nav>
+        <Dropdown
+          placement="bottomCenter"
+          overlay={
+            <CategoryMenuList
+              categories={[
+                'Thiết kế giao diện',
+                'Lập trình di động',
+                'Lập trình web',
+              ]}
+            />
+          }
+        >
+          <Button type="link" className={[classes.Link, classes.onDesktop]}>
+            Categories
+          </Button>
+        </Dropdown>
+
+        <div className={classes.onDesktop}>
+          <AutoCompleteSearch
+            width={300}
+            onFetch={async (value) => ['test', 'test1', 'test2']}
+            onSearch={(value) => {
+              console.log(value);
+            }}
+          />
+        </div>
+
+        <div className={classes.Right}>
+          <Dropdown
+            placement="bottomCenter"
+            overlay={
+              <CategoryMenuList
+                categories={[
+                  'Thiết kế giao diện',
+                  'Lập trình di động',
+                  'Lập trình web',
+                ]}
+              />
+            }
+          >
+            <Button type="link" className={[classes.Link, classes.onDesktop]}>
+              My Courses
+            </Button>
+          </Dropdown>
+
           <Button
+            className={classes.onMobile}
             onClick={this.handleShowSearchModal}
             type="link"
             icon={<SearchOutlined className={classes.IconLink} />}
@@ -84,18 +131,43 @@ export default class Header extends Component {
           <Modal
             closable={false}
             style={{ top: 0, left: 0, right: 0 }}
-            bodyStyle={{ height: '65px' }}
+            bodyStyle={{
+              height: '65px',
+              display: 'flex',
+              padding: 0,
+              alignItems: 'center',
+            }}
             visible={this.state.searchModalOpen}
             onCancel={this.handleCloseSearchModal}
             footer={null}
           >
-            Search for anything...
+            <AutoCompleteSearch
+              width="100%"
+              onSearch={(value) => {
+                this.handleCloseSearchModal();
+                console.log(value);
+              }}
+              onFetch={async (value) => ['test', 'test1', 'test2']}
+            />
           </Modal>
-          <Button
-            type="link"
-            icon={<ShoppingCartOutlined className={classes.IconLink} />}
-          />
-        </nav>
+          <Dropdown
+            placement="bottomCenter"
+            overlay={
+              <CategoryMenuList
+                categories={[
+                  'Thiết kế giao diện',
+                  'Lập trình di động',
+                  'Lập trình web',
+                ]}
+              />
+            }
+          >
+            <Button
+              type="link"
+              icon={<ShoppingCartOutlined className={classes.IconLink} />}
+            />
+          </Dropdown>
+        </div>
       </header>
     );
   }
