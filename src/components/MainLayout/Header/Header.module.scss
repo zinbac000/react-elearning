@@ -1,10 +1,63 @@
 .Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 65px;
   padding: 0 15px;
 
   background-color: #303956;
   color: #c1c4cd;
+
+  transition: all 0.3s ease;
+}
+
+.Right {
+  margin-left: auto;
+}
+
+.Transparent {
+  background-color: #30395600;
+}
+
+.Logo {
+  height: 60%;
+  margin-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+  }
+}
+
+.IconLink {
+  transition: all 0.3s !important;
+}
+
+.IconLink,
+.Link {
+  font-weight: bold;
+  color: #c1c4cd;
+
+  &:hover,
+  &:active,
+  &:visited {
+    color: #ffffff;
+  }
+}
+
+.onDesktop {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .onMobile {
+    display: none;
+  }
+
+  .onDesktop {
+    display: initial;
+  }
 }
