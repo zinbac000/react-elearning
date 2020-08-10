@@ -1,0 +1,41 @@
+.UserWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #424c6e;
+}
+
+.UserMenuDrawer {
+  position: absolute;
+}
+
+.UserBtn {
+  margin: 8px 0;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.UserAvatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+}
+
+.UserWelcome {
+  width: calc(100% - 64px - 20px);
+  margin: 0 8px 0 16px;
+
+  color: white;
+  font-size: 14px;
+
+  h4 {
+    margin-bottom: 0;
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}

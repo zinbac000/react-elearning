@@ -1,2 +1,21 @@
 @import './shared/scss/base/reset';
 @import './shared/scss/base/antd-custom';
+
+.userDrawerIcon {
+  color: white;
+  font-size: 12px;
+}
+
+.onDesktop {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .onMobile {
+    display: none;
+  }
+
+  .onDesktop {
+    display: initial;
+  }
+}

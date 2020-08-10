@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
-import { Drawer, Button, Modal, Dropdown } from 'antd';
+import { Drawer, Button, Modal, Dropdown, Menu } from 'antd';
 import { SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
 import classes from './Header.module.scss';
@@ -9,41 +10,12 @@ import DrawerToggler from './DrawerToggler/DrawerToggler';
 import Logo from '../../UI/Logo/Logo';
 import logo from '../../../assets/img/logo.svg';
 import AutoCompleteSearch from '../../UI/AutoCompleteSearch/AutoCompleteSearch';
-import CategoryMenuList from './CategoryMenuList/CategoryMenuList';
+import UserAuth from '../../Auth/UserAuth/UserAuth';
 
 export default class Header extends Component {
   state = {
     drawerOpen: false,
     searchModalOpen: false,
-    isTransparent: !!this.props.transparentOnTop,
-  };
-
-  componentDidMount() {
-    if (this.props.transparentOnTop) {
-      window.addEventListener('scroll', this.handleCheckWindowScroll);
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.props.transparentOnTop) {
-      window.removeEventListener('scroll', this.handleCheckWindowScroll);
-    }
-  }
-
-  /**
-   * This method is used to check the scrolling distance
-   * from top of the page to toggle transparent mode of header
-   */
-  handleCheckWindowScroll = () => {
-    if (window.pageYOffset > 65 && this.state.isTransparent) {
-      this.setState({
-        isTransparent: false,
-      });
-    } else if (window.pageYOffset <= 65 && !this.state.isTransparent) {
-      this.setState({
-        isTransparent: true,
-      });
-    }
   };
 
   handleShowDrawer = () => this.setState({ drawerOpen: true });
@@ -54,14 +26,24 @@ export default class Header extends Component {
 
   handleCloseSearchModal = () => this.setState({ searchModalOpen: false });
 
+  menu = (
+    <Menu>
+      {[
+        'Thiết kế giao diện',
+        'Lập trình di động',
+        'Lập trình web',
+        'Lập trình ios a',
+      ].map((item, index) => (
+        <Menu.Item key={index}>
+          <a href="#">{item}</a>
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
+
   render() {
     return (
-      <header
-        className={[
-          classes.Header,
-          this.state.isTransparent ? classes.Transparent : null,
-        ].join(' ')}
-      >
+      <header className={classes.Header}>
         <DrawerToggler clicked={this.handleShowDrawer} />
         <Drawer
           closable={false}
@@ -69,32 +51,29 @@ export default class Header extends Component {
           visible={this.state.drawerOpen}
           placement="left"
           key="left"
+          push={0}
         >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          <div className="sideMenu">
+            <UserAuth />
+          </div>
         </Drawer>
         <div className={classes.Logo}>
           <Logo logo={logo} />
         </div>
         <Dropdown
+          overlayClassName={classes.Header__OverlayDropdown}
+          align={{
+            offset: [0, 16],
+          }}
           placement="bottomCenter"
-          overlay={
-            <CategoryMenuList
-              categories={[
-                'Thiết kế giao diện',
-                'Lập trình di động',
-                'Lập trình web',
-              ]}
-            />
-          }
+          overlay={this.menu}
         >
-          <Button type="link" className={[classes.Link, classes.onDesktop]}>
+          <Button type="link" className={[classes.Link, 'onDesktop']}>
             Categories
           </Button>
         </Dropdown>
 
-        <div className={classes.onDesktop}>
+        <div className={'onDesktop'}>
           <AutoCompleteSearch
             width={300}
             onFetch={async (value) => ['test', 'test1', 'test2']}
@@ -106,37 +85,27 @@ export default class Header extends Component {
 
         <div className={classes.Right}>
           <Dropdown
+            overlayClassName={classes.Header__OverlayDropdown}
+            align={{
+              offset: [0, 16],
+            }}
             placement="bottomCenter"
-            overlay={
-              <CategoryMenuList
-                categories={[
-                  'Thiết kế giao diện',
-                  'Lập trình di động',
-                  'Lập trình web',
-                ]}
-              />
-            }
+            overlay={this.menu}
           >
-            <Button type="link" className={[classes.Link, classes.onDesktop]}>
+            <Button type="link" className={[classes.Link, 'onDesktop']}>
               My Courses
             </Button>
           </Dropdown>
 
           <Button
-            className={classes.onMobile}
+            className={'onMobile'}
             onClick={this.handleShowSearchModal}
             type="link"
             icon={<SearchOutlined className={classes.IconLink} />}
           />
           <Modal
             closable={false}
-            style={{ top: 0, left: 0, right: 0 }}
-            bodyStyle={{
-              height: '65px',
-              display: 'flex',
-              padding: 0,
-              alignItems: 'center',
-            }}
+            className={classes.Header__SearchModal}
             visible={this.state.searchModalOpen}
             onCancel={this.handleCloseSearchModal}
             footer={null}
@@ -145,28 +114,26 @@ export default class Header extends Component {
               width="100%"
               onSearch={(value) => {
                 this.handleCloseSearchModal();
-                console.log(value);
               }}
               onFetch={async (value) => ['test', 'test1', 'test2']}
             />
           </Modal>
           <Dropdown
+            overlayClassName={classes.Header__OverlayDropdown}
+            align={{
+              offset: [0, 16],
+            }}
             placement="bottomCenter"
-            overlay={
-              <CategoryMenuList
-                categories={[
-                  'Thiết kế giao diện',
-                  'Lập trình di động',
-                  'Lập trình web',
-                ]}
-              />
-            }
+            overlay={this.menu}
           >
             <Button
               type="link"
               icon={<ShoppingCartOutlined className={classes.IconLink} />}
             />
           </Dropdown>
+          <div className={'onDesktop'}>
+            <UserAuth />
+          </div>
         </div>
       </header>
     );

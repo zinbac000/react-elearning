@@ -1,9 +1,4 @@
 .Header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
   display: flex;
   align-items: center;
   height: 65px;
@@ -12,27 +7,70 @@
   background-color: #303956;
   color: #c1c4cd;
 
-  transition: all 0.3s ease;
+  &__OverlayDropdown {
+    border: 1px solid rgba($color: lightgrey, $alpha: 0.5);
+
+    :global(.ant-dropdown-menu-item) {
+      white-space: normal;
+      cursor: unset;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      a {
+        white-space: nowrap;
+        padding: 8px 16px;
+        color: gray;
+
+        &:hover {
+          color: #303956;
+        }
+      }
+    }
+  }
+
+  &__SearchModal {
+    top: 0;
+    left: 0;
+    right: 0;
+
+    min-width: 100%;
+    margin: 0;
+
+    :global(.ant-modal-content) {
+      border-radius: 0;
+    }
+
+    :global(.ant-modal-body) {
+      display: flex;
+      align-items: center;
+
+      height: 65px;
+      padding: 0;
+    }
+  }
 }
 
 .Right {
+  display: flex;
+  align-items: center;
   margin-left: auto;
 }
 
-.Transparent {
-  background-color: #30395600;
-}
-
 .Logo {
-  height: 60%;
+  height: 70%;
   margin-left: 20px;
 
   @media screen and (min-width: 768px) {
+    height: 80%;
     margin-left: 0;
   }
 }
 
 .IconLink {
+  width: 33px;
+  height: 33px;
   transition: all 0.3s !important;
 }
 
@@ -45,19 +83,5 @@
   &:active,
   &:visited {
     color: #ffffff;
-  }
-}
-
-.onDesktop {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .onMobile {
-    display: none;
-  }
-
-  .onDesktop {
-    display: initial;
   }
 }

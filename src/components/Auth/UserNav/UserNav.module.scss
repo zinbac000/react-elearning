@@ -1,0 +1,73 @@
+.DropdownAvatar {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  margin-left: 16px;
+}
+
+.UserNav {
+  max-width: 288px;
+  border: 1px solid rgba($color: lightgrey, $alpha: 0.5);
+
+  &__Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px;
+  }
+
+  &__Avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+
+    margin-right: 8px;
+  }
+
+  h4 {
+    cursor: pointer;
+    margin-bottom: 0;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    &:hover {
+      color: #2e54cf;
+    }
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  :global(.ant-dropdown-menu-item) {
+    white-space: normal;
+    cursor: unset;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  :global(.ant-dropdown-menu-item-group-title) {
+    border-top: 1px solid rgba($color: lightgrey, $alpha: 0.5);
+    padding: 0;
+  }
+
+  :global(.ant-dropdown-menu-item-group-list) {
+    padding: 8px 16px;
+    margin: 0;
+
+    :global(.ant-dropdown-menu-item) {
+      a {
+        padding: 8px 0;
+        color: gray;
+
+        &:hover {
+          color: #303956;
+        }
+      }
+    }
+  }
+}

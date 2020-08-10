@@ -1,0 +1,52 @@
+.UserWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #424c6e;
+}
+
+.UserLink {
+  margin: 8px 0;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ButtonWrapper {
+  margin-left: 10px;
+}
+
+.Button {
+  min-width: 100px;
+  height: 38px;
+  border-radius: 4px;
+  padding: 0 16px;
+  margin: 0 5px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  &.LoginBtn {
+    background-color: transparent;
+
+    color: #c1c4cd;
+  }
+
+  &.SignupBtn {
+    background-color: white;
+
+    color: #424c6e;
+  }
+
+  &:hover {
+    background-color: white;
+    border-color: #424c6e;
+
+    color: #424c6e;
+  }
+
+  &:focus {
+    border-color: white;
+  }
+}

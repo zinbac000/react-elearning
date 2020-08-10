@@ -1,28 +1,23 @@
 .Logo {
-  height: 100%;
   display: flex;
   align-items: center;
-  div {
+  height: 100%;
+  cursor: pointer;
+
+  img {
+    width: auto;
     height: 100%;
     margin-right: 5px;
-    padding: 5px;
-    border-radius: 5px;
-
-    background-color: #5567ff;
-  }
-  img {
-    height: 100%;
-    width: auto;
   }
 
   span {
-    color: #ffffff;
+    display: none;
 
+    color: #ffffff;
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 2px;
 
-    display: none;
 
     @media screen and (min-width: 768px) {
       display: inline;
