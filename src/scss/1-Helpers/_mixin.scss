@@ -1,0 +1,52 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flexbox(
+  $align: null,
+  $justify: null,
+  $direction: null,
+  $wrap: null,
+  $order: null,
+  $flex: flex
+) {
+  display: $flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  order: $order;
+}
+
+@mixin flexCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin screen($size, $type: min, $pixels: br("sm")) {
+  @if $size == "sm" {
+    @media screen and (#{$type}-width: br("sm")) {
+      @content;
+    }
+  } @else if $size == "md" {
+    @media screen and (#{$type}-width: br("md")) {
+      @content;
+    }
+  } @else if $size == "lg" {
+    @media screen and (#{$type}-width: br("lg")) {
+      @content;
+    }
+  } @else if $size == "x-lg" {
+    @media screen and (#{$type}-width: br("x-lg")) {
+      @content;
+    }
+  } @else if $size == "custom" {
+    @media screen and (#{$type}-width: $pixels + px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

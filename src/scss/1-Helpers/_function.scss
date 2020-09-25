@@ -1,0 +1,23 @@
+@function bgc($color) {
+  @if map-has-key($map: $bgColors, $key: $color) {
+    @return map-get($map: $bgColors, $key: $color);
+  }
+  @warn ("{$color} color doesn't exist");
+  @return "";
+}
+
+@function bs($name) {
+  @if map-has-key($map: $bShadows, $key: $name) {
+    @return map-get($map: $bShadows, $key: $name);
+  }
+  @warn ("{$name} box-shadow style doesn't exist");
+  @return "";
+}
+
+@function br($breakpoint) {
+  @if map-has-key($map: $breakpoints, $key: $breakpoint) {
+    @return map-get($map: $breakpoints, $key: $breakpoint);
+  }
+  @warn ("{$breakpoint} doesn't exist");
+  @return "";
+}

@@ -1,0 +1,19 @@
+//--------- BACKGROUND COLORS ---------
+$bgColors: (
+  "primary": #fff,
+  "secondary": #000,
+  "navbar": #f8f8ff,
+);
+
+//--------- BOX SHADOW ---------
+$bShadows: (
+  "navbar": 0 2px 2px 0 rgba(0, 0, 0, 0.4),
+);
+
+//---------BREAKPOINT---------
+$breakpoints: (
+  "x-lg": 1200px,
+  "lg": 992px,
+  "md": 768px,
+  "sm": 576px,
+);
