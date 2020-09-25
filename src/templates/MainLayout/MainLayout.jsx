@@ -5,7 +5,7 @@ import Header from 'components/MainLayout/Header/Header';
 import Footer from 'components/MainLayout/Footer/Footer';
 // import classes from './MainLayout.module.scss';
 
-export const MainTemplate = ({ Component, ...rest }) => (
+export const MainLayout = ({ Component, ...rest }) => (
   <Route
     {...rest}
     render={(props) => (

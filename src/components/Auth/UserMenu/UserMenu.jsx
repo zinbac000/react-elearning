@@ -32,13 +32,10 @@ export default class UserMenu extends Component {
           alt="avatar"
         />
         <div className={classes.UserWelcome}>
-          <h4>Hi, Hoang Hai Hoang Hai</h4>
+          <h4>Hi, Man</h4>
           <span>Welcome back</span>
         </div>
-        <RightOutlined
-          className={"userDrawerIcon"}
-          onClick={this.showDrawer}
-        />
+        <RightOutlined className={'userDrawerIcon'} onClick={this.showDrawer} />
 
         <Drawer
           placement="right"

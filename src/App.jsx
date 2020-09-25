@@ -1,64 +1,14 @@
+import Content from 'components/Content/Content';
 import React from 'react';
-import classes from './App.module.scss';
-import MainLayout from './hoc/MainLayout/MainLayout';
+import { BrowserRouter } from 'react-router-dom';
+import { MainLayout } from 'templates/MainLayout/MainLayout';
+// import classes from './App.module.scss';
 
 function App() {
   return (
-    <div className={classes.App}>
-      <MainLayout>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-        <p>This is content</p>
-      </MainLayout>
-    </div>
+    <BrowserRouter>
+      <MainLayout exact path="/" Component={Content} />
+    </BrowserRouter>
   );
 }
 

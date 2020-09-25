@@ -1,3 +1,4 @@
 import { combineReducers } from 'redux';
+import ExampleReducer from './ExampleReducer';
 
-export const rootReducer = combineReducers();
+export const rootReducer = combineReducers({ ExampleReducer });
