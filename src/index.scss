@@ -1,8 +1,9 @@
-@import './shared/scss/base/reset';
-@import './shared/scss/base/antd-custom';
+@import './scss/main';
+@import './scss/2-Base/reset';
+@import './scss/2-Base/antd-custom';
 
 .userDrawerIcon {
-  color: white;
+  color: $txt-white;
   font-size: 12px;
 }
 
@@ -10,7 +11,7 @@
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@include screen(lg) {
   .onMobile {
     display: none;
   }

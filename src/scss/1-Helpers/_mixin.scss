@@ -1,0 +1,153 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flexbox(
+  $align: null,
+  $justify: null,
+  $direction: null,
+  $wrap: null,
+  $order: null,
+  $flex: flex
+) {
+  display: $flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  order: $order;
+}
+
+@mixin flexCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin centerAbsolute($direction: 'both') {
+  position: absolute;
+  @if $direction == 'both' {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @if $direction == 'left' {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $direction == 'top' {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin position($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number
+    {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+  position: $position;
+}
+
+@mixin absolute($args: '', $transX: null, $transY: null) {
+  @include position(absolute, $args);
+
+  @if ($transX and $transY) {
+    transform: translate($transX, $transY);
+  } @else if ($transX) {
+    transform: translateX($transX);
+  } @else if ($transY) {
+    transform: translatey($transY);
+  }
+}
+
+@mixin fixed($args: '') {
+  @include position(fixed, $args);
+}
+
+@mixin relative($args: '') {
+  @include position(relative, $args);
+}
+
+@mixin truncateText($width: null) {
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin arrow($direction: down, $size: 5px, $color: #555) {
+  width: 0;
+  height: 0;
+  @if ($direction == left) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  } @else if ($direction == right) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if ($direction == down) {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  }
+}
+
+@mixin screen($size, $pixels: brk('sm')) {
+  @if $size == 'sm' {
+    @media screen and (min-width: brk('sm')) {
+      @content;
+    }
+  } @else if $size == 'md' {
+    @media screen and (min-width: brk('md')) {
+      @content;
+    }
+  } @else if $size == 'lg' {
+    @media screen and (min-width: brk('lg')) {
+      @content;
+    }
+  } @else if $size == 'x-lg' {
+    @media screen and (min-width: brk('x-lg')) {
+      @content;
+    }
+  } @else if $size == 'custom' {
+    @media screen and (min-width: $pixels + px) {
+      @content;
+    }
+  }
+}
+
+@mixin headerLink-hover() {
+  color: $txt-white;
+  font-size: 16px;
+
+  &:hover,
+  &:active,
+  &:visited {
+    color: $txt-headerLink-hover;
+  }
+
+  @include screen(lg) {
+    color: $txt-headerLink;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+
+@mixin button-hover($defaultColor, $hoverColor: $defaultColor) {
+  background-color: $defaultColor;
+
+  &:hover {
+    background-color: $hoverColor;
+  }
+}

@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Component } from 'react';
+import React from 'react';
 import classes from './UserNav.module.scss';
 
 import { Menu, Dropdown } from 'antd';
 
-export default class UserNav extends Component {
-  userNavLink = [
+const UserNav = () => {
+  const userNavLink = [
     ['My course', 'My cart', 'Wishlist', 'Teach on Knowland'],
     [
       'Account settings',
@@ -18,7 +18,7 @@ export default class UserNav extends Component {
     ['Help', 'Logout'],
   ];
 
-  renderMenuItemGroup = this.userNavLink.map((section, index) => {
+  const renderMenuItemGroup = userNavLink.map((section, index) => {
     return (
       <Menu.ItemGroup key={`gr-${index}`}>
         {section.map((item, index) => (
@@ -30,7 +30,7 @@ export default class UserNav extends Component {
     );
   });
 
-  menu = (
+  const menu = (
     <Menu>
       <Menu.Item
         key={classes.UserNav__Wrapper}
@@ -42,30 +42,30 @@ export default class UserNav extends Component {
           alt="avatar"
         />
         <div>
-          <h4>Hi, Hoang Hai Hoang Hai</h4>
+          <h4>Hi, User</h4>
           <span>user-email@email.com</span>
         </div>
       </Menu.Item>
-      {this.renderMenuItemGroup}
+      {renderMenuItemGroup}
     </Menu>
   );
 
-  render() {
-    return (
-      <Dropdown
-        overlay={this.menu}
-        overlayClassName={classes.UserNav}
-        align={{
-          offset: [0, 16],
-        }}
-        placement="bottomRight"
-      >
-        <img
-          className={classes.DropdownAvatar}
-          src="https://picsum.photos/200/200"
-          alt="avatar"
-        />
-      </Dropdown>
-    );
-  }
-}
+  return (
+    <Dropdown
+      overlay={menu}
+      overlayClassName={classes.UserNav}
+      align={{
+        offset: [20, 15],
+      }}
+      placement="bottomRight"
+    >
+      <img
+        className={classes.DropdownAvatar}
+        src="https://picsum.photos/200/200"
+        alt="avatar"
+      />
+    </Dropdown>
+  );
+};
+
+export default UserNav;

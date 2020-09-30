@@ -7,7 +7,6 @@ export default class Logo extends Component {
     return (
       <div className={classes.Logo}>
         <img src={this.props.logo} alt="logo" />
-        <span>Knowcode</span>
       </div>
     );
   }

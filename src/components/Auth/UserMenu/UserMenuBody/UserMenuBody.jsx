@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { List, Divider } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import classes from './UserMenuBody.module.scss';
 
-export default class UserMenuBody extends Component {
-  userNavLink = [
+const UserMenuBody = ({ handleLogout, onClose }) => {
+  const userNavLink = [
     {
       header: 'Alert',
       link: ['Notifications', 'Messages', 'Wishlist'],
@@ -25,8 +25,8 @@ export default class UserMenuBody extends Component {
     },
   ];
 
-  renderNavLink = () =>
-    this.userNavLink.map((section, index) => (
+  const renderNavLink = () =>
+    userNavLink.map((section, index) => (
       <Fragment key={index}>
         <List
           header={
@@ -36,7 +36,7 @@ export default class UserMenuBody extends Component {
           dataSource={section.link}
           renderItem={(item) => (
             <a
-              onClick={this.props.handleLogout}
+              onClick={handleLogout}
               className={classes.UserSection__Navlink}
               href="#"
             >
@@ -44,24 +44,19 @@ export default class UserMenuBody extends Component {
             </a>
           )}
         />
-        {index !== this.userNavLink.length - 1 ? <Divider /> : null}
+        {index !== userNavLink.length - 1 ? <Divider /> : null}
       </Fragment>
     ));
 
-  render() {
-    return (
-      <Fragment>
-        <div className={classes.UserHeader}>
-          <LeftOutlined
-            className={'userDrawerIcon'}
-            onClick={this.props.onClose}
-          />
-          <p>Menu</p>
-        </div>
-        <div className={classes.UserSection__Wrapper}>
-          {this.renderNavLink()}
-        </div>
-      </Fragment>
-    );
-  }
-}
+  return (
+    <Fragment>
+      <div className={classes.UserHeader}>
+        <LeftOutlined className={'userDrawerIcon'} onClick={onClose} />
+        <p>Menu</p>
+      </div>
+      <div className={classes.UserSection__Wrapper}>{renderNavLink()}</div>
+    </Fragment>
+  );
+};
+
+export default UserMenuBody;
