@@ -1,23 +1,50 @@
-@function bgc($color) {
+@function bc($color) {
   @if map-has-key($map: $bgColors, $key: $color) {
     @return map-get($map: $bgColors, $key: $color);
   }
   @warn ("{$color} color doesn't exist");
-  @return "";
+  @return '';
 }
 
-@function bs($name) {
+@function tc($color) {
+  @if map-has-key($map: $txtColors, $key: $color) {
+    @return map-get($map: $txtColors, $key: $color);
+  }
+  @warn ("{$color} color doesn't exist");
+  @return '';
+}
+
+@function fs($font) {
+  @if map-has-key($map: $fnSizes, $key: $font) {
+    @return map-get($map: $fnSizes, $key: $font);
+  }
+  @warn ("{$font} font doesn't exist");
+  @return '';
+}
+
+@function bsh($name) {
   @if map-has-key($map: $bShadows, $key: $name) {
     @return map-get($map: $bShadows, $key: $name);
   }
   @warn ("{$name} box-shadow style doesn't exist");
-  @return "";
+  @return '';
 }
 
-@function br($breakpoint) {
+@function brk($breakpoint) {
   @if map-has-key($map: $breakpoints, $key: $breakpoint) {
     @return map-get($map: $breakpoints, $key: $breakpoint);
   }
   @warn ("{$breakpoint} doesn't exist");
-  @return "";
+  @return '';
+}
+
+//Auto generate z-index of element in $z-indexes list
+
+@function z($name) {
+  @if index($z-indexes, $name) {
+    @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+    @return null;
+  }
 }

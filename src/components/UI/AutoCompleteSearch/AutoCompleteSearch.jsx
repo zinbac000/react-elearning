@@ -1,69 +1,69 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { AutoComplete, Input } from 'antd';
 
 import classes from './AutoCompleteSearch.module.scss';
+import { useState } from 'react';
 
-export default class AutoCompleteSearch extends Component {
-  state = {
-    options: [],
-    dropDownOpen: false,
+const AutoCompleteSearch = ({ width, onMobile, onSearch, onFetch }) => {
+  const [options, setOptions] = useState([]);
+  const [dropDownOpen, setDropDownOpen] = useState(false);
+
+  let timeoutId = null;
+
+  const handleCloseDropdown = () => {
+    setDropDownOpen(false);
   };
 
-  timeoutId = null;
-
-  handleCloseDropdown = () => {
-    this.setState({
-      dropDownOpen: false,
-    });
+  const handleOpenDropdown = () => {
+    setDropDownOpen(true);
   };
-
-  handleOpenDropdown = () => {
-    this.setState({
-      dropDownOpen: true,
-    });
-  };
-
-  render() {
-    return (
-      <div className={classes.AutoCompleteSearch}>
-        <AutoComplete
-          dropdownMatchSelectWidth={252}
-          style={{
-            width: this.props.width,
-          }}
-          options={this.state.options}
+  return (
+    <div
+      className={[
+        classes.AutoCompleteSearch,
+        onMobile ? 'onMobile' : 'onDesktop',
+      ].join(' ')}
+    >
+      <AutoComplete
+        dropdownMatchSelectWidth={252}
+        className={classes.AutoCompleteSearch}
+        style={{
+          width,
+        }}
+        options={options}
+        onSearch={(value) => {
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+          timeoutId = setTimeout(() => {
+            onFetch(value).then((options) => {
+              console.log('fetched data');
+              setOptions(
+                options.map((value) => ({
+                  label: <span key={value}>{value}</span>,
+                  value,
+                })),
+              );
+            });
+          }, 300);
+        }}
+        open={dropDownOpen}
+        onChange={handleOpenDropdown}
+        onSelect={handleCloseDropdown}
+        onBlur={handleCloseDropdown}
+      >
+        <Input.Search
+          size="large"
+          placeholder="Search for categories, courses..."
+          enterButton
           onSearch={(value) => {
-            if (this.timeoutId) {
-              clearTimeout(this.timeoutId);
-            }
-            this.timeoutId = setTimeout(() => {
-              this.props.onFetch(value).then((options) => {
-                console.log('fetched data');
-                this.setState({
-                  options: options.map((value) => ({
-                    label: <span key={value}>{value}</span>,
-                    value,
-                  })),
-                });
-              });
-            }, 300);
+            onSearch && onSearch(value);
+            handleCloseDropdown();
           }}
-          open={this.state.dropDownOpen}
-          onChange={this.handleOpenDropdown}
-          onSelect={this.handleCloseDropdown}
-          onBlur={this.handleCloseDropdown}
-        >
-          <Input.Search
-            size="large"
-            placeholder="Search for categories, courses..."
-            enterButton
-            onSearch={(value) => {
-              this.props.onSearch && this.props.onSearch(value);
-              this.handleCloseDropdown();
-            }}
-          />
-        </AutoComplete>
-      </div>
-    );
-  }
-}
+        />
+      </AutoComplete>
+    </div>
+  );
+};
+
+export default AutoCompleteSearch;

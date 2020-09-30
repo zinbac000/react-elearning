@@ -1,52 +1,41 @@
+@import 'src/scss/main';
+
 .UserWrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  background-color: #424c6e;
+  @include flexbox(null, null, column);
+
+  padding: 1.6rem;
+  background-color: $bg-primaryHarmonies;
 }
 
 .UserLink {
-  margin: 8px 0;
+  margin: 0.8rem 0;
 
-  color: white;
-  font-size: 16px;
+  color: $txt-white;
+  font-size: $fs-headerDrawerHeader;
   font-weight: 600;
 }
 
 .ButtonWrapper {
-  margin-left: 10px;
-}
+  @include flexbox(center);
 
-.Button {
-  min-width: 100px;
-  height: 38px;
-  border-radius: 4px;
-  padding: 0 16px;
-  margin: 0 5px;
+  & > :global(.ant-btn) {
+    border: none;
+    height: 3rem;
+    border-radius: 0.4rem;
+    padding: 0 2.4rem;
 
-  font-size: 16px;
-  font-weight: 600;
+    @include headerLink-hover();
+    letter-spacing: calc(1.2rem * 0.09);
 
-  &.LoginBtn {
-    background-color: transparent;
+    &.SigninBtn {
+      background-color: transparent;
+      padding-left: 1.2rem;
+      padding-right: 2.4rem;
+    }
 
-    color: #c1c4cd;
-  }
-
-  &.SignupBtn {
-    background-color: white;
-
-    color: #424c6e;
-  }
-
-  &:hover {
-    background-color: white;
-    border-color: #424c6e;
-
-    color: #424c6e;
-  }
-
-  &:focus {
-    border-color: white;
+    &.SignupBtn {
+      @include button-hover($bg-primaryBtn, $bg-primaryBtn-hover);
+      color: $txt-headerBtn;
+    }
   }
 }

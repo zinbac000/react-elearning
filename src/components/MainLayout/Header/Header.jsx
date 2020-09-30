@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Component } from 'react';
+import React from 'react';
 import { Drawer, Button, Modal, Dropdown, Menu } from 'antd';
 import { SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
@@ -10,23 +10,15 @@ import DrawerToggler from './DrawerToggler/DrawerToggler';
 import Logo from '../../UI/Logo/Logo';
 import logo from '../../../assets/img/logo.svg';
 import AutoCompleteSearch from '../../UI/AutoCompleteSearch/AutoCompleteSearch';
-import UserAuth from '../../Auth/UserAuth/UserAuth';
+import UserAuth from 'components/Auth/UserAuth/UserAuth';
+import useToggle from 'Hook/useToggle';
 
-export default class Header extends Component {
-  state = {
-    drawerOpen: false,
-    searchModalOpen: false,
-  };
+const Header = () => {
+  const [drawer, setDrawerOn, setDrawerOff] = useToggle(false);
+  const [search, setSearchOn, setSearchOff] = useToggle(false);
 
-  handleShowDrawer = () => this.setState({ drawerOpen: true });
-
-  handleCloseDrawer = () => this.setState({ drawerOpen: false });
-
-  handleShowSearchModal = () => this.setState({ searchModalOpen: true });
-
-  handleCloseSearchModal = () => this.setState({ searchModalOpen: false });
-
-  menu = (
+  const dropDownOffset = [0, 12];
+  const menu = (
     <Menu>
       {[
         'Thiết kế giao diện',
@@ -40,102 +32,109 @@ export default class Header extends Component {
       ))}
     </Menu>
   );
+  return (
+    <header className={classes.Header}>
+      <DrawerToggler clicked={setDrawerOn} />
+      <Drawer
+        closable={false}
+        onClose={setDrawerOff}
+        visible={drawer}
+        placement="left"
+        key="left"
+        push={0}
+        className="sideMenu"
+      >
+        <UserAuth onDesktop={false} />
+      </Drawer>
 
-  render() {
-    return (
-      <header className={classes.Header}>
-        <DrawerToggler clicked={this.handleShowDrawer} />
-        <Drawer
-          closable={false}
-          onClose={this.handleCloseDrawer}
-          visible={this.state.drawerOpen}
-          placement="left"
-          key="left"
-          push={0}
-        >
-          <div className="sideMenu">
-            <UserAuth />
-          </div>
-        </Drawer>
-        <div className={classes.Logo}>
-          <Logo logo={logo} />
-        </div>
+      <div className={classes.Header__Logo}>
+        <Logo logo={logo} />
+      </div>
+
+      <Dropdown
+        overlayClassName={classes.Header__OverlayDropdown}
+        align={{
+          offset: dropDownOffset,
+        }}
+        placement="bottomCenter"
+        overlay={menu}
+      >
+        <Button type="link" className={[classes.Header__Link, 'onDesktop']}>
+          Categories
+        </Button>
+      </Dropdown>
+
+      <AutoCompleteSearch
+        onMobile={false}
+        onFetch={async (value) => ['test', 'test1', 'test2']}
+        onSearch={(value) => {
+          console.log(value);
+        }}
+      />
+
+      <div className={classes.Header__Right}>
         <Dropdown
           overlayClassName={classes.Header__OverlayDropdown}
           align={{
-            offset: [0, 16],
+            offset: dropDownOffset,
           }}
           placement="bottomCenter"
-          overlay={this.menu}
+          overlay={menu}
         >
-          <Button type="link" className={[classes.Link, 'onDesktop']}>
-            Categories
+          <Button type="link" className={[classes.Header__Link, 'onDesktop']}>
+            My Courses
           </Button>
         </Dropdown>
 
-        <div className={'onDesktop'}>
+        <Button
+          className={'onMobile'}
+          onClick={setSearchOn}
+          type="link"
+          icon={<SearchOutlined className={classes.Header__IconLink} />}
+        />
+        <Button
+          className={'onMobile'}
+          type="link"
+          icon={<ShoppingCartOutlined className={classes.Header__IconLink} />}
+        />
+
+        <Modal
+          closable={false}
+          className={classes.Header__SearchModal}
+          visible={search}
+          onCancel={setSearchOff}
+          footer={null}
+        >
           <AutoCompleteSearch
-            width={300}
-            onFetch={async (value) => ['test', 'test1', 'test2']}
+            onMobile={true}
+            width="100%"
             onSearch={(value) => {
-              console.log(value);
+              setSearchOff();
             }}
+            onFetch={async (value) => ['test', 'test1', 'test2']}
           />
-        </div>
+        </Modal>
 
-        <div className={classes.Right}>
-          <Dropdown
-            overlayClassName={classes.Header__OverlayDropdown}
-            align={{
-              offset: [0, 16],
-            }}
-            placement="bottomCenter"
-            overlay={this.menu}
-          >
-            <Button type="link" className={[classes.Link, 'onDesktop']}>
-              My Courses
-            </Button>
-          </Dropdown>
-
+        <Dropdown
+          overlayClassName={classes.Header__OverlayDropdown}
+          align={{
+            offset: dropDownOffset,
+          }}
+          placement="bottomCenter"
+          overlay={menu}
+        >
           <Button
-            className={'onMobile'}
-            onClick={this.handleShowSearchModal}
             type="link"
-            icon={<SearchOutlined className={classes.IconLink} />}
+            className={[classes.Header__IconLink, 'onDesktop']}
+            icon={<ShoppingCartOutlined />}
           />
-          <Modal
-            closable={false}
-            className={classes.Header__SearchModal}
-            visible={this.state.searchModalOpen}
-            onCancel={this.handleCloseSearchModal}
-            footer={null}
-          >
-            <AutoCompleteSearch
-              width="100%"
-              onSearch={(value) => {
-                this.handleCloseSearchModal();
-              }}
-              onFetch={async (value) => ['test', 'test1', 'test2']}
-            />
-          </Modal>
-          <Dropdown
-            overlayClassName={classes.Header__OverlayDropdown}
-            align={{
-              offset: [0, 16],
-            }}
-            placement="bottomCenter"
-            overlay={this.menu}
-          >
-            <Button
-              type="link"
-              icon={<ShoppingCartOutlined className={classes.IconLink} />}
-            />
-          </Dropdown>
-          <div className={'onDesktop'}>
-            <UserAuth />
-          </div>
+        </Dropdown>
+        <div className="onDesktop">
+          <UserAuth onDesktop={true} />
         </div>
-      </header>
-    );
-  }
-}
+      </div>
+    </header>
+  );
+};
+
+export default Header;

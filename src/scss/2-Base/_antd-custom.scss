@@ -2,3 +2,7 @@
   background-color: #303956;
   padding: 0;
 }
+
+[ant-click-animating-without-extra-node]:after {
+  animation: 0s !important;
+}

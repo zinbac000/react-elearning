@@ -1,44 +1,47 @@
+@import 'src/scss/main';
+
 .UserHeader {
-  display: flex;
-  align-items: center;
-  padding: 16px;
-  background-color: #424c6e;
+  @include flexbox(center);
+  height: 5.6rem;
+  padding: 0 1.6rem;
+  background-color: $bg-primaryHarmonies;
 
   p {
     margin-left: 16px;
     margin-bottom: 0;
 
-    color: antiquewhite;
-    font-size: 16px;
+    color: $txt-headerDrawer;
+    font-size: $fs-headerDrawerHeader;
+    font-weight: 600;
   }
 }
 
 .UserSection {
   &__Wrapper {
-    padding: 0 16px;
+    padding: 0 1.6rem;
 
     :global(.ant-divider) {
-      margin: 8px 0;
-      border-top-color: grey;
+      margin: 0.8rem 0;
+      border-top-color: $bg-divider;
     }
   }
 
   &__Heading {
-    color: antiquewhite;
-    font-size: 14px;
-    font-weight: bold;
+    color: $txt-headerDrawer;
+    font-size: $fs-headerDrawerHeading;
+    font-weight: 600;
   }
 
   &__Navlink {
     display: block;
-    padding: 8px 0;
+    padding: 0.8rem 0;
 
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 16px;
+    color: $txt-headerLink;
+    font-size: $fs-headerDrawerLink;
     font-weight: 600;
 
     &:hover {
-      color: white;
+      color: $txt-headerLink;
     }
   }
 }

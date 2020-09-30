@@ -1,19 +1,138 @@
 //--------- BACKGROUND COLORS ---------
 $bgColors: (
-  "primary": #fff,
-  "secondary": #000,
-  "navbar": #f8f8ff,
+  'primary': #303956,
+  'secondary': #f5f7fa,
+  'primaryHarmonies': #4a5781,
+  'white': #ffffff,
+  'black': #000000,
+  'primaryBtn': #ffbf00,
+  'primaryBtn-hover': #ffce3d,
+  'secondaryBtn': #5290de,
+  'secondaryBtn-hover': #307ad8,
+  'validBtn': #48a868,
+  'validBtn-hover': #66b27f,
+  'progress': #dadbde,
+  'fill-progress': #757c84,
+  'navLink': #d0d3d9,
+  'heroOverlay': rgba(#303956, 80%),
+  'accountOverlay': rgba(#252841, 50%),
+  'dropdownBorder': rgba(#d3d3d3, 50%),
+  'divider': #808080,
 );
 
-//--------- BOX SHADOW ---------
-$bShadows: (
-  "navbar": 0 2px 2px 0 rgba(0, 0, 0, 0.4),
+$bg-primary: bc('primary');
+$bg-primaryHarmonies: bc('primaryHarmonies');
+$bg-secondary: bc('secondary');
+$bg-white: bc('white');
+$bg-black: bc('black');
+$bg-primaryBtn: bc('primaryBtn');
+$bg-primaryBtn-hover: bc('primaryBtn-hover');
+$bg-secondaryBtn: bc('secondaryBtn');
+$bg-secondaryBtn-hover: bc('secondaryBtn-hover');
+$bg-validBtn: bc('validBtn');
+$bg-validBtn-hover: bc('validBtn-hover');
+$bg-intro: bc('white');
+$bg-progress: bc('progress');
+$bg-fill-progress: bc('fill-progress');
+$bg-navLink: bc('navLink');
+$bg-heroOverlay: bc('heroOverlay');
+$bg-accountOverlay: bc('accountOverlay');
+$bg-divider: bc('divider');
+$bg-dropdownBorder: bc('dropdownBorder');
+
+//--------- TEXT COLORS ---------
+$txtColors: (
+  'primary': #ffbf00,
+  'secondary': #303956,
+  'small': #6f6f6f,
+  'placeholder': #9b9b9b,
+  'white': #fff,
+  'black': #000,
+  'link': #d0d3d9,
+  'link-hover': #ffffff,
+  'button': #4a4a4a,
+  'drawer': #faebd7,
 );
+
+$txt-white: tc('white');
+$txt-placeholder: tc('placeholder');
+$txt-headerMenuLink: tc('small');
+$txt-headerMenuLink-hover: tc('secondary');
+$txt-headerLink: tc('link');
+$txt-headerLink-hover: tc('link-hover');
+$txt-headerBtn: tc('button');
+$txt-headerDrawer: tc('drawer');
+$txt-heroTitle-primary: tc('primary');
+$txt-heroTitle-secondary: tc('white');
+$txt-heroPretitle-primary: tc('primary');
+$txt-heroPretitle-secondary: tc('white');
+$txt-heroBtn: tc('button');
+$txt-introTitle: tc('black');
+$txt-introPretitle: tc('button');
+$txt-courseTitle: tc('button');
+$txt-courseInfo: tc('placeholder');
+$txt-courseTooltip: tc('button');
+$txt-footerTitle: tc('white');
+$txt-footerLink: tc('link');
+$txt-footerLink-hover: tc('link-hover');
+$txt-footerForm: tc('white');
+
+//--------- FONT SIZE ---------
+$fnSizes: (
+  'h1': 6rem,
+  'h2': 2.8rem,
+  'h3': 2.4rem,
+  'h4': 2rem,
+  'h5': 1.6rem,
+  'h6': 1.5rem,
+  'subtitle1': 1.4rem,
+  'subtitle2': 1.3rem,
+  'body1': 1.6rem,
+  'body2': 1.2rem,
+  'button': 1.3rem,
+  'button-large': 2rem,
+  'link': 1.3rem,
+  'small': 1rem,
+  'icon': 1.7rem,
+);
+
+$fs-headerIcon: fs('icon');
+$fs-headerLink: fs('link');
+$fs-headerMenuUser: fs('subtitle1');
+$fs-headerMenuEmail: fs('body2');
+$fs-headerDrawerHeader: fs('h5');
+$fs-headerDrawerHeading: fs('subtitle1');
+$fs-headerDrawerLink: fs('body1');
+$fs-heroTitle: fs('h1');
+$fs-heroPretitle: fs('h2');
+$fs-heroButton: fs('button-large');
+$fs-introTitle: fs('h5');
+$fs-introPretitle: fs('subtitle2');
+$fs-courseTitle: fs('h5');
+$fs-courseInfo: fs('subtitle2');
+$fs-courseTooltip: fs('h6');
+$fs-footerTitle: fs('h3');
+$fs-footerLink: fs('link');
+$fs-footerFormField: fs('h5');
+$fs-footerFormControl: fs('small');
 
 //---------BREAKPOINT---------
 $breakpoints: (
-  "x-lg": 1200px,
-  "lg": 992px,
-  "md": 768px,
-  "sm": 576px,
+  'x-lg': 1200px,
+  'lg': 992px,
+  'md': 768px,
+  'sm': 576px,
+);
+
+//---------Z-Indexes---------
+
+$z-indexes: (
+  'example',
+  'example',
+  'example',
+  'example',
+  'example',
+  'example',
+  'example',
+  'example'
 );

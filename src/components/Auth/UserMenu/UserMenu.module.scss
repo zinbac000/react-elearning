@@ -1,9 +1,9 @@
+@import 'src/scss/main';
+
 .UserWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px;
-  background-color: #424c6e;
+  @include flexbox(center, space-between);
+  padding: 1.6rem;
+  background-color: $bg-primaryHarmonies;
 }
 
 .UserMenuDrawer {
@@ -11,31 +11,30 @@
 }
 
 .UserBtn {
-  margin: 8px 0;
+  margin: 0.8rem 0;
 
-  color: white;
-  font-size: 16px;
+  color: $txt-white;
+  font-size: $fs-headerDrawerHeader;
   font-weight: 600;
 }
 
 .UserAvatar {
-  width: 52px;
-  height: 52px;
+  @include size(5rem);
   border-radius: 50%;
 }
 
 .UserWelcome {
-  width: calc(100% - 64px - 20px);
-  margin: 0 8px 0 16px;
+  width: calc(100% - 8.6rem);
+  margin: 0 0.8rem 0 1.6rem;
 
-  color: white;
-  font-size: 14px;
+  color: $txt-white;
+  font-size: $fs-headerDrawerHeading;
 
   h4 {
     margin-bottom: 0;
 
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+    color: $txt-white;
+    font-size: $fs-headerDrawerHeader;
+    font-weight: 600;
   }
 }

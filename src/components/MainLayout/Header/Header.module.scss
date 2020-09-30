@@ -1,14 +1,16 @@
-.Header {
-  display: flex;
-  align-items: center;
-  height: 65px;
-  padding: 0 15px;
+@import 'src/scss/main';
 
-  background-color: #303956;
-  color: #c1c4cd;
+.Header {
+  @include flexbox(center, space-between);
+  position: relative;
+  height: 5.6rem;
+  padding: 1rem 2rem;
+
+  background-color: $bg-primary;
+  color: $txt-headerLink-hover;
 
   &__OverlayDropdown {
-    border: 1px solid rgba($color: lightgrey, $alpha: 0.5);
+    border: 0.1rem solid $bg-dropdownBorder;
 
     :global(.ant-dropdown-menu-item) {
       white-space: normal;
@@ -20,20 +22,18 @@
 
       a {
         white-space: nowrap;
-        padding: 8px 16px;
-        color: gray;
+        padding: 0.8rem 1.6rem;
+        color: $txt-headerMenuLink;
 
         &:hover {
-          color: #303956;
+          color: $txt-headerMenuLink-hover;
         }
       }
     }
   }
 
-  &__SearchModal {
-    top: 0;
-    left: 0;
-    right: 0;
+  &__SearchModal:global(.ant-modal) {
+    @include relative(top 0 left 0 right 0);
 
     min-width: 100%;
     margin: 0;
@@ -46,42 +46,52 @@
       display: flex;
       align-items: center;
 
-      height: 65px;
+      height: 5.6rem;
       padding: 0;
     }
   }
-}
 
-.Right {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.Logo {
-  height: 70%;
-  margin-left: 20px;
-
-  @media screen and (min-width: 768px) {
-    height: 80%;
-    margin-left: 0;
+  &__IconLink svg,
+  &__Link span {
+    @include headerLink-hover();
+    letter-spacing: calc(1.2rem * 0.06);
+    transition: color 0.2s ease-in;
   }
-}
 
-.IconLink {
-  width: 33px;
-  height: 33px;
-  transition: all 0.3s !important;
-}
+  &__Logo {
+    @include absolute(left 50%, $transX: -50%);
 
-.IconLink svg,
-.Link span {
-  font-weight: bold;
-  color: #c1c4cd;
+    @include screen(lg) {
+      all: initial;
+    }
+  }
 
-  &:hover,
-  &:active,
-  &:visited {
-    color: #ffffff;
+  @include screen(lg) {
+    justify-content: initial;
+    height: 6.4rem;
+
+    > :global(.ant-btn) {
+      border: none;
+      padding: 0 2.4rem;
+      height: 4rem;
+    }
+
+    &__Right {
+      @include flexCenter();
+      margin-left: auto;
+
+      > :global(.ant-btn) {
+        @include size(fit-content, 4rem);
+        width: -moz-fit-content;
+        width: -webkit-fit-content;
+
+        border: none;
+        padding: 0 1.2rem;
+      }
+
+      svg {
+        font-size: $fs-headerIcon;
+      }
+    }
   }
 }
