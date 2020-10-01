@@ -55,7 +55,7 @@ const UserNav = () => {
       overlay={menu}
       overlayClassName={classes.UserNav}
       align={{
-        offset: [20, 15],
+        offset: [20, 13],
       }}
       placement="bottomRight"
     >

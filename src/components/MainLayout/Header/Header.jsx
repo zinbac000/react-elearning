@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Drawer, Button, Modal, Dropdown, Menu } from 'antd';
 import { SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
@@ -6,10 +5,9 @@ import { SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import classes from './Header.module.scss';
 
 import DrawerToggler from './DrawerToggler/DrawerToggler';
-
-import Logo from '../../UI/Logo/Logo';
-import logo from '../../../assets/img/logo.svg';
-import AutoCompleteSearch from '../../UI/AutoCompleteSearch/AutoCompleteSearch';
+import Logo from 'components/UI/Logo/Logo';
+import logo from 'assets/img/logo.svg';
+import AutoCompleteSearch from 'components/UI/AutoCompleteSearch/AutoCompleteSearch';
 import UserAuth from 'components/Auth/UserAuth/UserAuth';
 import useToggle from 'Hook/useToggle';
 
