@@ -137,3 +137,15 @@
     }
   }
 }
+
+@mixin background-color($bg-map) {
+  @each $bg-breakpoint, $bg-background-color in $bg-map {
+    @if $bg-breakpoint == null {
+      background-color: $bg-background-color;
+    } @else {
+      @include screen($bg-breakpoint) {
+        background-color: $bg-background-color;
+      }
+    }
+  }
+}

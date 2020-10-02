@@ -34,7 +34,10 @@ $bg-secondaryBtn: bc('secondaryBtn');
 $bg-secondaryBtn-hover: bc('secondaryBtn-hover');
 $bg-validBtn: bc('validBtn');
 $bg-validBtn-hover: bc('validBtn-hover');
-$bg-intro: bc('white');
+$bg-intro: (
+  null: bc('secondary'),
+  lg: bc('white'),
+);
 $bg-progress: bc('progress');
 $bg-fill-progress: bc('fill-progress');
 $bg-navLink: bc('navLink');
@@ -87,8 +90,8 @@ $txt-footerLanguageDropdown-selected: tc('button');
 
 //--------- FONT SIZE ---------
 $fnSizes: (
-  'h1': 6rem,
-  'h2': 2.8rem,
+  'h1': 5.6rem,
+  'h2': 2.7rem,
   'h3': 2.4rem,
   'h4': 2rem,
   'h5': 1.6rem,
