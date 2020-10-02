@@ -3,6 +3,7 @@ $bgColors: (
   'primary': #303956,
   'secondary': #f5f7fa,
   'primaryHarmonies': #4a5781,
+  'primaryLighter': #464c62,
   'white': #ffffff,
   'black': #000000,
   'primaryBtn': #ffbf00,
@@ -23,6 +24,7 @@ $bgColors: (
 
 $bg-primary: bc('primary');
 $bg-primaryHarmonies: bc('primaryHarmonies');
+$bg-primaryHero: bc('primaryLighter');
 $bg-secondary: bc('secondary');
 $bg-white: bc('white');
 $bg-black: bc('black');
@@ -114,9 +116,18 @@ $fs-headerMenuEmail: fs('body2');
 $fs-headerDrawerHeader: fs('h5');
 $fs-headerDrawerHeading: fs('subtitle1');
 $fs-headerDrawerLink: fs('body1');
-$fs-heroTitle: fs('h1');
-$fs-heroPretitle: fs('h2');
-$fs-heroButton: fs('button-large');
+$fs-heroTitle: (
+  null: fs('h3'),
+  lg: fs('h1'),
+);
+$fs-heroSubtitle: (
+  null: fs('h5'),
+  lg: fs('h2'),
+);
+$fs-heroButton: (
+  null: fs('small'),
+  lg: fs('button-large'),
+);
 $fs-introTitle: fs('h5');
 $fs-introPretitle: fs('subtitle2');
 $fs-courseTitle: fs('h5');

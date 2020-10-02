@@ -1,0 +1,75 @@
+@import 'src/scss/main';
+.Hero {
+  img {
+    width: 100%;
+  }
+
+  &__SloganWrapper {
+    padding: 2rem;
+    background-color: $bg-primaryHero;
+
+    @include screen(lg) {
+      padding: 8rem 5%;
+      background: url('../../../assets/img/hero-desktop.png') no-repeat top
+        center;
+      background-size: cover;
+    }
+
+    @include screen(xl) {
+      padding: 8rem 10% 10rem;
+    }
+  }
+
+  &__SloganMain,
+  &__SloganSub {
+    font-weight: 600;
+    line-height: 1.4;
+    p {
+      color: $txt-heroTitle-secondary;
+      margin-bottom: 0;
+    }
+    span {
+      color: $txt-heroTitle-primary;
+    }
+  }
+
+  &__SloganMain {
+    @include font-size($fs-heroTitle);
+
+    margin-bottom: 0.5rem;
+  }
+
+  &__SloganSub {
+    @include font-size($fs-heroSubtitle);
+
+    margin-bottom: 1rem;
+
+    @include screen(lg) {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &__SloganButton:global(.ant-btn) {
+    background-color: $bg-primaryBtn;
+    height: auto;
+    padding: 0.7rem 1.6rem;
+    border-radius: 0.4rem;
+
+    @include font-size($fs-heroButton, 9);
+    line-height: 1.2;
+    color: $txt-heroBtn;
+    font-weight: 600;
+
+    @include screen(lg) {
+      padding: 1.8rem 3rem;
+      border-radius: 0.6rem;
+    }
+
+    &:hover,
+    &:focus,
+    &:visited {
+      background-color: $bg-primaryBtn-hover;
+      color: inherit;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import Content from 'components/Content/Content';
+import Home from 'pages/Home/Home';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { MainLayout } from 'templates/MainLayout/MainLayout';
@@ -7,7 +7,7 @@ import { MainLayout } from 'templates/MainLayout/MainLayout';
 function App() {
   return (
     <BrowserRouter>
-      <MainLayout exact path="/" Component={Content} />
+      <MainLayout exact path="/" Component={Home} />
     </BrowserRouter>
   );
 }
