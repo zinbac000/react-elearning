@@ -3,13 +3,29 @@
 .IntroItem {
   @include flexbox(center);
   align-self: flex-start;
-
   padding: 1.2rem 0;
+
+  @include screen(sm) {
+    padding: 1.2rem 24%;
+  }
+
+  @include screen(md) {
+    flex-basis: 50%;
+    align-self: initial;
+    padding: 0;
+  }
+
+  @include screen(lg) {
+    flex-basis: (100% / 3);
+  }
+
+  @include screen(xl) {
+    flex-basis: initial;
+  }
 
   &__Icon {
     @include flexCenter();
-    @include size(4rem);
-    min-width: 4rem;
+    @include size(4rem, 4rem, min);
 
     margin-right: 1.2rem;
     border-radius: 50%;
@@ -19,6 +35,16 @@
 
     & > span {
       @include font-size($fs-introIcon);
+    }
+
+    @include screen(lg) {
+      @include size(5.2rem, 5.2rem, min);
+      margin-right: 1.4rem;
+    }
+
+    @include screen(xl) {
+      @include size(6.4rem, 6.4rem, min);
+      margin-right: 1.6rem;
     }
   }
 

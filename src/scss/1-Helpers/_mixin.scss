@@ -1,6 +1,9 @@
-@mixin size($width, $height: $width) {
+@mixin size($width, $height: $width, $min: null) {
   width: $width;
   height: $height;
+  @if $min == 'min' {
+    min-width: $width;
+  }
 }
 
 @mixin flexbox(

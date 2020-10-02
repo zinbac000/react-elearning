@@ -23,6 +23,9 @@
 }
 
 @include screen(md) {
+  .onMobile-md {
+    display: none;
+  }
   .onDesktop-md {
     display: initial;
   }

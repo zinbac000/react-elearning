@@ -1,13 +1,12 @@
 import React from 'react';
 import { Button } from 'antd';
 
-import bgHero from 'assets/img/hero.png';
 import classes from './Hero.module.scss';
 
 const Hero = () => {
   return (
     <div className={classes.Hero}>
-      <img className={['onMobile']} src={bgHero} alt="hero" />
+      <div className={[classes.Hero__BgImage, 'onMobile'].join(' ')}></div>
       <div className={classes.Hero__SloganWrapper}>
         <div className={classes.Hero__SloganMain}>
           <p>Developing & Growing</p>

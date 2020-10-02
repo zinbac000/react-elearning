@@ -12,4 +12,20 @@
     font-weight: 600;
     font-size: $fs-introTitle;
   }
+
+  @include screen(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+  }
+
+  @include screen(lg) {
+    padding: 1.6rem 5%;
+
+    border-bottom: 0.2rem solid $bg-introBorder;
+  }
+
+  @include screen(xl) {
+    padding: 1.6 10%;
+  }
 }

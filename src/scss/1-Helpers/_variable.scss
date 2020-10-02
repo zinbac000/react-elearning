@@ -38,6 +38,7 @@ $bg-intro: (
   null: bc('secondary'),
   lg: bc('white'),
 );
+$bg-introBorder: bc('navLink');
 $bg-progress: bc('progress');
 $bg-fill-progress: bc('fill-progress');
 $bg-navLink: bc('navLink');
@@ -146,6 +147,7 @@ $fs-introItemPretitle: (
 );
 $fs-introIcon: (
   null: fs('body1'),
+  lg: fs('h3'),
 );
 $fs-courseTitle: fs('h5');
 $fs-courseInfo: fs('subtitle2');

@@ -35,7 +35,7 @@ const Intro = () => {
     ));
   return (
     <div className={classes.Intro}>
-      <p className={[classes.Intro__Title, 'onMobile'].join(' ')}>
+      <p className={[classes.Intro__Title, 'onMobile-md'].join(' ')}>
         Why learn on Knowcode?
       </p>
       {renderIntroItem()}
