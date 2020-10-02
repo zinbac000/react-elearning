@@ -2,7 +2,7 @@
 .Hero {
   &__BgImage {
     height: 18rem;
-    background: url('../../../assets/img/hero.png') no-repeat;
+    background: url('../../../assets/img/hero.webp') no-repeat;
     background-size: cover;
 
     @include screen(sm) {
@@ -17,7 +17,7 @@
 
     @include screen(lg) {
       padding: 8rem 5%;
-      background: url('../../../assets/img/hero-desktop.png') no-repeat top
+      background: url('../../../assets/img/hero-overlay.webp') no-repeat top
         center;
       background-size: cover;
     }
