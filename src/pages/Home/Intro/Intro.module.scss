@@ -1,0 +1,15 @@
+@import 'src/scss/main';
+
+.Intro {
+  @include flexbox(center, null, column);
+  @include background-color($bg-intro);
+  padding: 2rem 2rem 1rem;
+
+  &__Title {
+    margin-bottom: 0.8rem;
+
+    color: $txt-introTitle;
+    font-weight: 600;
+    font-size: $fs-introTitle;
+  }
+}

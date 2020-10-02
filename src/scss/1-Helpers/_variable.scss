@@ -63,19 +63,24 @@ $txtColors: (
 
 $txt-white: tc('white');
 $txt-placeholder: tc('placeholder');
+//Header
 $txt-headerMenuLink: tc('small');
 $txt-headerMenuLink-hover: tc('secondary');
 $txt-headerLink: tc('link');
 $txt-headerLink-hover: tc('link-hover');
 $txt-headerBtn: tc('button');
 $txt-headerDrawer: tc('drawer');
+//Hero
 $txt-heroTitle-primary: tc('primary');
 $txt-heroTitle-secondary: tc('white');
 $txt-heroPretitle-primary: tc('primary');
 $txt-heroPretitle-secondary: tc('white');
 $txt-heroBtn: tc('button');
-$txt-introTitle: tc('black');
-$txt-introPretitle: tc('button');
+//Intro
+$txt-introTitle: tc('secondary');
+$txt-introItemTitle: tc('button');
+$txt-introItemPretitle: tc('small');
+//Course
 $txt-courseTitle: tc('button');
 $txt-courseInfo: tc('placeholder');
 $txt-courseTooltip: tc('button');
@@ -131,8 +136,17 @@ $fs-heroButton: (
   null: fs('small'),
   lg: fs('button-large'),
 );
-$fs-introTitle: fs('h5');
-$fs-introPretitle: fs('subtitle2');
+$fs-introTitle: fs('h4');
+$fs-introItemTitle: (
+  null: fs('subtitle2'),
+  lg: fs('h5'),
+);
+$fs-introItemPretitle: (
+  null: fs('subtitle2'),
+);
+$fs-introIcon: (
+  null: fs('body1'),
+);
 $fs-courseTitle: fs('h5');
 $fs-courseInfo: fs('subtitle2');
 $fs-courseTooltip: fs('h6');

@@ -1,0 +1,42 @@
+@import 'src/scss/main';
+
+.IntroItem {
+  @include flexbox(center);
+  align-self: flex-start;
+
+  padding: 1.2rem 0;
+
+  &__Icon {
+    @include flexCenter();
+    @include size(4rem);
+    min-width: 4rem;
+
+    margin-right: 1.2rem;
+    border-radius: 50%;
+    background-color: $bg-primaryBtn;
+
+    color: $txt-white;
+
+    & > span {
+      @include font-size($fs-introIcon);
+    }
+  }
+
+  &__Content {
+    @include flexbox(null, center, column);
+    p {
+      margin-bottom: 0.5rem;
+
+      @include font-size($fs-introItemTitle);
+      color: $txt-introItemTitle;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    span {
+      @include font-size($fs-introItemPretitle);
+      color: $txt-introItemPretitle;
+      line-height: 1.2;
+    }
+  }
+}

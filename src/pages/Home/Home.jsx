@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import Hero from './Hero/Hero';
-import Info from './Info/Info';
+import Intro from './Intro/Intro';
 
 const Home = () => {
   return (
     <Fragment>
       <Hero />
-      <Info />
+      <Intro />
     </Fragment>
   );
 };
