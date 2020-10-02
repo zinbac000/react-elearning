@@ -104,7 +104,11 @@ $fnSizes: (
 );
 
 $fs-headerIcon: fs('icon');
-$fs-headerLink: fs('link');
+$fs-headerLink: (
+  null: fs('body1'),
+  lg: fs('link-sm'),
+);
+
 $fs-headerMenuUser: fs('subtitle1');
 $fs-headerMenuEmail: fs('body2');
 $fs-headerDrawerHeader: fs('h5');
@@ -131,7 +135,10 @@ $fs-footerFormControl: (
   null: fs('body2'),
   lg: fs('subtitle1'),
 );
-$fs-footerLanguage-m: fs('link');
+$fs-footerLanguage: (
+  null: fs('link'),
+  lg: fs('h6'),
+);
 
 $fs-footerFormBtn: (
   null: fs('body2'),
@@ -148,10 +155,18 @@ $fs-footerTitle: (
 
 //---------BREAKPOINT---------
 $breakpoints: (
-  'x-lg': 1200px,
-  'lg': 992px,
-  'md': 768px,
-  'sm': 576px,
+  'xl': (
+    min-width: 1200px,
+  ),
+  'lg': (
+    min-width: 992px,
+  ),
+  'md': (
+    min-width: 768px,
+  ),
+  'sm': (
+    min-width: 576px,
+  ),
 );
 
 //---------Z-Indexes---------

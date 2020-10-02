@@ -13,15 +13,11 @@
     border: 0.1rem solid $bg-dropdownBorder;
 
     :global(.ant-dropdown-menu-item) {
-      white-space: normal;
-      cursor: unset;
-
       &:hover {
         background-color: transparent;
       }
 
       a {
-        white-space: nowrap;
         padding: 0.8rem 1.6rem;
         color: $txt-headerMenuLink;
 
@@ -43,8 +39,7 @@
     }
 
     :global(.ant-modal-body) {
-      display: flex;
-      align-items: center;
+      @include flexbox(center);
 
       height: 5.6rem;
       padding: 0;
@@ -53,8 +48,7 @@
 
   &__IconLink svg,
   &__Link span {
-    @include headerLink-hover();
-    letter-spacing: calc(1.2rem * 0.06);
+    @include headerLink-hover(6);
     transition: color 0.2s ease-in;
   }
 

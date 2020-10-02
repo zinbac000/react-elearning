@@ -11,40 +11,34 @@
     @include relative();
     @include flexbox(center);
     @include size(17rem, 3rem);
-    border-radius: 0.4rem;
+    @include font-size($fs-footerLanguage);
+    @include screen(lg) {
+      @include size(20rem, 3.2rem);
+    }
+
     background-color: $bg-white;
+    border-radius: 0.4rem;
     padding: 0 0.8rem;
 
-    font-size: $fs-footerLanguage-m;
     color: $txt-placeholder;
-
-    @include screen(lg) {
-      @include size(20rem, 3rem);
-    }
 
     &Select:global(.ant-select) {
       @include absolute(left 0);
+      @include font-size($fs-footerLanguage);
 
-      font-size: $fs-footerLanguage-m;
       color: $txt-placeholder;
 
       &:global(.ant-select-single:not(.ant-select-customize-input))
         :global(.ant-select-selector) {
         @include flexbox(center);
-        border: none;
         @include size(17rem, 3rem);
+        @include screen(lg) {
+          @include size(20rem, 3.2rem);
+        }
 
+        border: none;
         padding: 0;
         padding-left: 3rem;
-
-        @include screen(lg) {
-          @include size(20rem, 3rem);
-        }
-        & :global(.ant-select-selection-item) {
-          @include absolute(top 50%, $transY: -50%);
-          line-height: 0.9;
-          transition: 0;
-        }
       }
     }
 
@@ -63,19 +57,19 @@
     }
 
     &Dropdown :global(.ant-select-item-option-content) {
-      font-size: $fs-footerLanguage-m;
+      @include font-size($fs-footerLanguage);
       color: $txt-footerLanguageDropdown;
     }
   }
 
   &__Middle {
-    margin-top: 2rem;
-    margin-bottom: 1.7rem;
-    @include screen(md) {
+    @include screen(sm) {
       order: 1;
-
       margin-top: 0;
     }
+
+    margin-top: 2rem;
+    margin-bottom: 1.7rem;
   }
 
   &__Title {
@@ -90,61 +84,19 @@
   &__List {
     @include flexbox(null, null, column);
     @include font-size($fs-footerLink, 9);
+
     a {
       margin-bottom: 0.8rem;
-    }
-    a:hover {
-      color: $txt-white;
+
+      &:hover {
+        color: $txt-white;
+      }
     }
   }
 
   &__Form {
-    display: flex;
-    order: 2;
-
-    transition: 0;
-    :global(.ant-form-item) {
-      margin-bottom: 1rem;
-
-      :global(.ant-input) {
-        border-radius: 0.4rem;
-      }
-    }
-
-    :global(.ant-form-item-required) {
-      @include font-size($fs-footerFormField);
-      font-weight: 600;
-      color: $txt-footerForm;
-    }
-
-    :global(.ant-checkbox-wrapper) {
-      @include font-size($fs-footerFormControl);
-      font-weight: 600;
-      color: $txt-footerForm;
-    }
-
-    :global(.ant-btn-primary) {
-      @include absolute(top 0 right 0);
-      @include button-hover($bg-primaryBtn, $bg-primaryBtn-hover);
-      @include font-size($fs-footerFormBtn, 9);
-
-      border-radius: 3rem;
-      border: none;
-      width: 12rem;
-
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.1rem;
-      color: $txt-footerBtn;
-
-      &:hover,
-      &:focus {
-        color: $txt-footerBtn;
-      }
-
-      @include screen(lg) {
-        width: 13.3rem;
-      }
+    @include screen(md) {
+      @include flexbox(null, null, null, null, 2);
     }
   }
 
@@ -157,7 +109,7 @@
       color: $txt-footerForm;
     }
 
-    @include screen(md) {
+    @include screen(sm) {
       @include flexbox(center, space-between, null, null, 3);
       flex-basis: 100%;
 
@@ -167,7 +119,7 @@
     }
   }
 
-  @include screen(md) {
+  @include screen(sm) {
     @include flexbox(flex-start, space-between, row, wrap);
   }
 
@@ -175,7 +127,7 @@
     padding: 3rem 5% 2rem;
   }
 
-  @include screen(x-lg) {
-    padding: 4rem 10% 3rem;
+  @include screen(xl) {
+    padding: 6rem 10% 3rem;
   }
 }

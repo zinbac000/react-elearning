@@ -1,0 +1,47 @@
+@import 'src/scss/main';
+
+.SubcribeForm {
+  :global(.ant-form-item) {
+    margin-bottom: 1rem;
+
+    :global(.ant-input) {
+      border-radius: 0.4rem;
+    }
+  }
+
+  :global(.ant-form-item-required) {
+    @include font-size($fs-footerFormField);
+    font-weight: 600;
+    color: $txt-footerForm;
+  }
+
+  :global(.ant-checkbox-wrapper) {
+    @include font-size($fs-footerFormControl);
+    font-weight: 600;
+    color: $txt-footerForm;
+  }
+
+  :global(.ant-btn-primary) {
+    @include absolute(top 0 right 0);
+    @include button-hover($bg-primaryBtn, $bg-primaryBtn-hover);
+    @include font-size($fs-footerFormBtn, 9);
+
+    border-radius: 3rem;
+    border: none;
+    width: 12rem;
+
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: $txt-footerBtn;
+
+    &:hover,
+    &:focus {
+      color: $txt-footerBtn;
+    }
+
+    @include screen(lg) {
+      width: 13.3rem;
+    }
+  }
+}
