@@ -1,0 +1,100 @@
+/* -------------------- VARIABLE -------------------- */
+/*________ Hero ________*/
+/*Background*/
+$bg-hero: bc('primary-dark');
+$bg-heroButton: bc('button-primary');
+$bg-heroButton-hover: bc('button-primary--hover');
+/*Text colors*/
+$txt-heroTitle-primary: tc('primary');
+$txt-heroTitle-secondary: tc('white');
+$txt-heroPretitle-primary: tc('primary');
+$txt-heroPretitle-secondary: tc('white');
+$txt-heroBtn: tc('button');
+/*Font size*/
+$fs-heroTitle: (
+  base: fs('h3'),
+  lg: fs('h1'),
+);
+$fs-heroSubtitle: (
+  base: fs('h5'),
+  lg: fs('h2'),
+);
+$fs-heroButton: (
+  base: fs('body2'),
+  lg: fs('button-lg'),
+);
+
+/*________ Intro ________*/
+/*Background*/
+$bg-intro: (
+  base: bc('secondary'),
+  lg: bc('white'),
+);
+$bg-introIcon: bc('button-primary');
+$bg-introBorder: bc('secondary-lighter');
+/*Text colors*/
+$txt-introTitle: tc('secondary');
+$txt-introItemTitle: tc('button');
+$txt-introItemPretitle: tc('secondary-dark');
+/*Font size*/
+$fs-introTitle: (
+  base: fs('h4'),
+);
+$fs-introItemTitle: (
+  base: fs('subtitle2'),
+  lg: fs('h5'),
+);
+$fs-introItemPretitle: (
+  base: fs('subtitle2'),
+);
+$fs-introIcon: (
+  base: fs('h5'),
+  lg: fs('h3'),
+);
+
+/*________ Courses ________*/
+/*Base*/
+$width-course-base: 18rem;
+$border-width-course-base: 0.1rem;
+$border-radius-course-base: 0.8rem;
+$border-radius-course-img-base: 0.7rem;
+$spacing-course-base: 0.8rem;
+
+/*Background*/
+$bg-courses: bc('secondary');
+$bg-coursesStrike: bc('secondary-lighter');
+$bg-courseBorder: bc('secondary-lighter');
+$bg-courseRate: bc('button-primary');
+$bg-courseFavoriteStroke: bc('secondary-darker');
+$bg-courseShadow: bc('primary-darker');
+/*Text colors*/
+$txt-coursesTitle: tc('secondary');
+$txt-courseTitle: tc('button');
+$txt-courseAuthor: tc('placeholder');
+$txt-courseTooltip: tc('button');
+$txt-courseFooter: tc('placeholder');
+/*Font size*/
+$fs-coursesTitle: (
+  base: fs('h6'),
+);
+$fs-courseTitle: (
+  base: fs('subtitle1'),
+);
+$fs-courseAuthor: (
+  base: fs('body'),
+);
+$fs-courseRateIcon: (
+  base: fs('body'),
+);
+$fs-courseFavoriteIcon: (
+  base: fs('h5'),
+);
+$fs-courseTooltip: fs('h6');
+$fs-courseFooter: (
+  base: fs('body2'),
+);
+$fs-courseFooterIcon: (
+  base: fs('subtitle2'),
+);
+
+/* -------------------- END VARIABLE -------------------- */

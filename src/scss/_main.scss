@@ -1,6 +1,7 @@
-// 1-Helper
 @import './1-Helpers/function';
 @import './1-Helpers/mixin';
 @import './1-Helpers/variable';
 
-@import './3-Layout/header';
+@import './3-Layout/mainLayout';
+
+@import './4-Pages/home';

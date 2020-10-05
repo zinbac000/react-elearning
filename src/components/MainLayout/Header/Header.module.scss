@@ -6,11 +6,12 @@
   height: 5.6rem;
   padding: 1rem 2rem;
 
-  background-color: $bg-primary;
+  background-color: $bg-header;
   color: $txt-headerLink-hover;
 
   &__OverlayDropdown {
-    border: 0.1rem solid $bg-dropdownBorder;
+    border-radius: 0.4rem;
+    border: 0.1rem solid $bg-headerDropdownBorder;
 
     :global(.ant-dropdown-menu-item) {
       &:hover {
@@ -84,7 +85,7 @@
       }
 
       svg {
-        font-size: $fs-headerIcon;
+        @include font-size($fs-headerIcon);
       }
     }
   }

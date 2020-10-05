@@ -11,26 +11,26 @@ const UserMenu = ({ handleLogout }) => {
   const [drawer, setDrawerOn, setDrawerOff] = useToggle(false);
 
   return (
-    <div className={classes.UserWrapper}>
+    <div className={classes.UserMenu}>
       <img
-        className={classes.UserAvatar}
+        className={classes.UserMenu__Avatar}
         src="https://picsum.photos/64/64"
         alt="avatar"
       />
-      <div className={classes.UserWelcome}>
-        <h4>Hi, Man</h4>
+      <div className={classes.UserMenu__Welcome}>
+        <p>Hi, Man</p>
         <span>Welcome back</span>
       </div>
-      <RightOutlined className={'userDrawerIcon'} onClick={setDrawerOn} />
+      <RightOutlined className={classes.UserMenu__Icon} onClick={setDrawerOn} />
 
       <Drawer
         placement="left"
-        onClose={setDrawerOff}
         key="left"
+        getContainer={`.sideMenu`}
         closable={false}
         visible={drawer}
-        getContainer={`.sideMenu`}
-        className={classes.UserMenuDrawer}
+        onClose={setDrawerOff}
+        className={classes.UserMenu__Drawer}
       >
         <UserMenuBody handleLogout={handleLogout} onClose={setDrawerOff} />
       </Drawer>

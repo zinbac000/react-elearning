@@ -2,7 +2,7 @@
 .Hero {
   &__BgImage {
     height: 18rem;
-    background: url('../../../assets/img/hero.webp') no-repeat;
+    background: url('../../../assets/img/hero.jpg') no-repeat;
     background-size: cover;
 
     @include screen(sm) {
@@ -13,11 +13,11 @@
 
   &__SloganWrapper {
     padding: 2rem;
-    background-color: $bg-primaryHero;
+    background-color: $bg-hero;
 
     @include screen(lg) {
       padding: 8rem 5%;
-      background: url('../../../assets/img/hero-overlay.webp') no-repeat top
+      background: url('../../../assets/img/hero-overlay.jpg') no-repeat top
         center;
       background-size: cover;
     }
@@ -29,8 +29,6 @@
 
   &__SloganMain,
   &__SloganSub {
-    font-weight: 600;
-    line-height: 1.4;
     p {
       color: $txt-heroTitle-secondary;
       margin-bottom: 0;
@@ -42,12 +40,14 @@
 
   &__SloganMain {
     @include font-size($fs-heroTitle);
+    font-weight: 700;
 
     margin-bottom: 0.5rem;
   }
 
   &__SloganSub {
     @include font-size($fs-heroSubtitle);
+    font-weight: 500;
 
     margin-bottom: 1rem;
 
@@ -57,15 +57,15 @@
   }
 
   &__SloganButton:global(.ant-btn) {
-    background-color: $bg-primaryBtn;
+    @include button-hover($bg-heroButton, $bg-headerButton-hover);
     height: auto;
-    padding: 0.7rem 1.6rem;
+    padding: 0.9rem 1.8rem;
     border-radius: 0.4rem;
 
     @include font-size($fs-heroButton, 9);
     line-height: 1.2;
     color: $txt-heroBtn;
-    font-weight: 600;
+    font-weight: 700;
 
     @include screen(lg) {
       padding: 1.6rem 3.2rem;
@@ -75,7 +75,6 @@
     &:hover,
     &:focus,
     &:visited {
-      background-color: $bg-primaryBtn-hover;
       color: inherit;
     }
   }

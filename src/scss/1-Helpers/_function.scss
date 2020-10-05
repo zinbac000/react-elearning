@@ -1,3 +1,11 @@
+@function c($color) {
+  @if map-has-key($map: $Colors, $key: $color) {
+    @return map-get($map: $Colors, $key: $color);
+  }
+  @warn ("{$color} color doesn't exist");
+  @return '';
+}
+
 @function bc($color) {
   @if map-has-key($map: $bgColors, $key: $color) {
     @return map-get($map: $bgColors, $key: $color);

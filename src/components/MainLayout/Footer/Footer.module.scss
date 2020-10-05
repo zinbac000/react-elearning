@@ -1,6 +1,6 @@
 @import 'src/scss/main';
 .Footer {
-  background-color: $bg-primary;
+  background-color: $bg-footer;
   padding: 2rem;
 
   &__Top {
@@ -16,7 +16,7 @@
       @include size(20rem, 3.2rem);
     }
 
-    background-color: $bg-white;
+    background-color: $bg-footerLanguage;
     border-radius: 0.4rem;
     padding: 0 0.8rem;
 
@@ -45,10 +45,10 @@
     &Dropdown:global(.ant-select-dropdown) {
       padding: 0;
       border-radius: 0.4rem;
-      border: 0.1rem solid $bg-dropdownSelected;
+      border: 0.1rem solid $bg-footerDropdownSelected;
 
       :global(.ant-select-item-option-selected:not(.ant-select-item-option-disabled)) {
-        background-color: $bg-dropdownSelected;
+        background-color: $bg-footerDropdownSelected;
 
         :global(.ant-select-item-option-content) {
           color: $txt-footerLanguageDropdown-selected;
@@ -76,8 +76,7 @@
     margin-bottom: 1rem;
 
     @include font-size($fs-footerTitle, 3);
-    font-weight: 600;
-    line-height: 1.4;
+    font-weight: 700;
     color: $txt-footerTitle;
   }
 

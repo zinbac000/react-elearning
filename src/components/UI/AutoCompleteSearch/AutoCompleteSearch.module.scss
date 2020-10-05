@@ -3,12 +3,22 @@
   width: 100%;
 
   @include screen(lg) {
-    width: 80%;
+    width: 60%;
+
+    input {
+      padding-left: 2rem;
+    }
+
+    input,
+    span:global(.ant-input-group-addon),
+    :global(.ant-btn-primary) {
+      border-radius: 2rem;
+    }
   }
 
   :global(.ant-btn-primary) {
     @include size(5.6rem);
-    background-color: $bg-white;
+    background-color: $bg-headerSearchButton;
     padding: 0;
     border: none;
 
@@ -22,7 +32,7 @@
       @include size(4rem);
 
       &:hover {
-        background-color: $bg-primaryBtn-hover;
+        background-color: $bg-headerDrawerButton;
         color: $txt-headerBtn;
       }
     }

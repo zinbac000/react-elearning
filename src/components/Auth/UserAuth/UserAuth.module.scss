@@ -4,15 +4,15 @@
   @include flexbox(null, null, column);
 
   padding: 1.6rem;
-  background-color: $bg-primaryHarmonies;
+  background-color: $bg-headerUserMenu;
 }
 
 .UserLink {
-  margin: 0.8rem 0;
+  margin: 0.7rem 0;
 
   color: $txt-white;
-  font-size: $fs-headerDrawerHeader;
-  font-weight: 600;
+  @include font-size($fs-headerUserMenuTitle, 7);
+  font-weight: 700;
 }
 
 .ButtonWrapper {
@@ -21,7 +21,7 @@
   & > :global(.ant-btn) {
     border: none;
     height: 3rem;
-    border-radius: 0.4rem;
+    border-radius: 1.5rem;
     padding: 0 2.4rem;
 
     @include headerLink-hover(9);
@@ -33,7 +33,7 @@
     }
 
     &.SignupBtn {
-      @include button-hover($bg-primaryBtn, $bg-primaryBtn-hover);
+      @include button-hover($bg-headerButton, $bg-headerButton-hover);
       color: $txt-headerBtn;
     }
   }

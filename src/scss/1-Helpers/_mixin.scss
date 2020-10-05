@@ -120,7 +120,8 @@
   background-color: $defaultColor;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:visited {
     background-color: $hoverColor;
   }
 }
@@ -129,7 +130,7 @@
   @each $fs-breakpoint, $fs-font-size in $fs-map {
     $letter-spacing: $fs-font-size * ($letter-spacing-percent / 100);
 
-    @if $fs-breakpoint == null {
+    @if $fs-breakpoint == base {
       font-size: $fs-font-size;
       letter-spacing: $letter-spacing;
     } @else {
@@ -143,7 +144,7 @@
 
 @mixin background-color($bg-map) {
   @each $bg-breakpoint, $bg-background-color in $bg-map {
-    @if $bg-breakpoint == null {
+    @if $bg-breakpoint == base {
       background-color: $bg-background-color;
     } @else {
       @include screen($bg-breakpoint) {

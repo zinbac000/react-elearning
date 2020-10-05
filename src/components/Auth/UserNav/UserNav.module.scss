@@ -8,7 +8,8 @@
 
 .UserNav {
   width: 28rem;
-  border: 0.1rem solid $bg-dropdownBorder;
+  border-radius: 0.4rem;
+  border: 0.1rem solid $bg-headerDropdownBorder;
 
   &__Wrapper {
     @include flexbox(center);
@@ -27,13 +28,12 @@
     cursor: pointer;
     margin-bottom: 0;
 
-    font-size: $fs-headerMenuUser;
-    font-weight: 600;
-    line-height: 1.4;
+    @include font-size($fs-headerMenuUser);
+    font-weight: 700;
   }
 
   span {
-    font-size: $fs-headerMenuEmail;
+    @include font-size($fs-headerMenuEmail);
   }
 
   :global(.ant-dropdown-menu-item) {
@@ -46,7 +46,7 @@
   }
 
   :global(.ant-dropdown-menu-item-group-title) {
-    border-top: 0.1rem solid $bg-dropdownBorder;
+    border-top: 0.1rem solid $bg-headerDropdownBorder;
     padding: 0;
   }
 

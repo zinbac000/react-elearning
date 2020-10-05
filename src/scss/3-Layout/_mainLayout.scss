@@ -1,0 +1,112 @@
+/* ---------------- VARIABLE ---------------- */
+/*________BACKGROUND________*/
+/* Header */
+$bg-header: bc('primary');
+$bg-headerDrawerButton: bc('white');
+$bg-headerUserMenu: bc('primary-light');
+$bg-headerUserMenuDivider: bc('secondary-dark');
+$bg-headerDropdownBorder: bc('secondary-light');
+$bg-headerSearchButton: bc('white');
+$bg-headerButton: bc('button-primary');
+$bg-headerButton-hover: bc('button-primary--hover');
+
+/* Footer */
+$bg-footer: bc('primary');
+$bg-footerLanguage: bc('white');
+$bg-footerDropdownSelected: bc('secondary-light');
+$bg-footerFormButton: bc('button-primary');
+$bg-footerFormButton-hover: bc('button-primary--hover');
+
+/*________TEXT-COLORS________*/
+/* Header */
+$txt-headerMenuLink: tc('secondary-dark');
+$txt-headerMenuLink-hover: tc('secondary');
+$txt-headerLink: tc('link');
+$txt-headerLink-hover: tc('white');
+$txt-headerBtn: tc('button');
+$txt-headerDrawer: tc('primary-light');
+
+/* Footer */
+$txt-footerTitle: tc('white');
+$txt-footerLink: tc('link');
+$txt-footerLink-hover: tc('white');
+$txt-footerForm: tc('white');
+$txt-footerBtn: tc('button');
+$txt-footerLanguageDropdown: tc('secondary-dark');
+$txt-footerLanguageDropdown-selected: tc('button');
+
+/*________FONT-SIZES________*/
+/* Header */
+$fs-headerIcon: (
+  base: fs('icon'),
+);
+$fs-headerLink: (
+  base: fs('h5'),
+  lg: fs('link-sm'),
+);
+$fs-headerMenuUser: (
+  base: fs('subtitle1'),
+);
+$fs-headerMenuEmail: (
+  base: fs('body'),
+);
+$fs-headerUserMenuTitle: (
+  base: fs('h5'),
+);
+$fs-headerUserMenuSubtitle: (
+  base: fs('subtitle1'),
+);
+$fs-headerDrawerLink: (
+  base: fs('h5'),
+);
+
+/* Footer */
+$fs-footerLink: (
+  base: fs('link-sm'),
+  md: fs('link'),
+  lg: fs('h5'),
+);
+$fs-footerFormField: (
+  base: fs('subtitle1'),
+  lg: fs('h5'),
+);
+$fs-footerFormControl: (
+  base: fs('body'),
+  lg: fs('subtitle1'),
+);
+$fs-footerLanguage: (
+  base: fs('link'),
+  lg: fs('h6'),
+);
+$fs-footerFormBtn: (
+  base: fs('body'),
+  lg: fs('subtitle1'),
+);
+$fs-footerCopyright: (
+  base: fs('body'),
+  lg: fs('subtitle2'),
+);
+$fs-footerTitle: (
+  base: fs('h4'),
+  lg: fs('h3'),
+);
+/* ---------------- END VARIABLE ---------------- */
+
+/* ---------------- MIXIN ---------------- */
+@mixin headerLink-hover($letter-spacing: 0) {
+  @include font-size($fs-headerLink, $letter-spacing);
+  color: $txt-white;
+
+  &:hover,
+  &:active,
+  &:visited {
+    color: $txt-headerLink-hover;
+  }
+
+  @include screen(lg) {
+    color: $txt-headerLink;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+/* ---------------- END MIXIN ---------------- */

@@ -11,19 +11,19 @@
 
   :global(.ant-form-item-required) {
     @include font-size($fs-footerFormField);
-    font-weight: 600;
+    font-weight: 700;
     color: $txt-footerForm;
   }
 
   :global(.ant-checkbox-wrapper) {
     @include font-size($fs-footerFormControl);
-    font-weight: 600;
+    font-weight: 700;
     color: $txt-footerForm;
   }
 
   :global(.ant-btn-primary) {
     @include absolute(top 0 right 0);
-    @include button-hover($bg-primaryBtn, $bg-primaryBtn-hover);
+    @include button-hover($bg-footerFormButton, $bg-footerFormButton-hover);
     @include font-size($fs-footerFormBtn, 9);
 
     border-radius: 3rem;
@@ -31,7 +31,7 @@
     width: 12rem;
 
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.1rem;
     color: $txt-footerBtn;
 

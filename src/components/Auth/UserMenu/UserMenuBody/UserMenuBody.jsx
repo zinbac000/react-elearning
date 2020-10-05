@@ -15,7 +15,7 @@ const UserMenuBody = ({ handleLogout, onClose }) => {
       link: [
         'Account settings',
         'Payment methods',
-        'Knowland credits',
+        'Knowcode credits',
         'Purchase history',
       ],
     },
@@ -30,14 +30,16 @@ const UserMenuBody = ({ handleLogout, onClose }) => {
       <Fragment key={index}>
         <List
           header={
-            <div className={classes.UserSection__Heading}>{section.header}</div>
+            <div className={classes.UserMenuBody__Heading}>
+              {section.header}
+            </div>
           }
           split={false}
           dataSource={section.link}
           renderItem={(item) => (
             <a
               onClick={handleLogout}
-              className={classes.UserSection__Navlink}
+              className={classes.UserMenuBody__Link}
               href="#"
             >
               {item}
@@ -50,11 +52,14 @@ const UserMenuBody = ({ handleLogout, onClose }) => {
 
   return (
     <Fragment>
-      <div className={classes.UserHeader}>
-        <LeftOutlined className={'userDrawerIcon'} onClick={onClose} />
+      <div className={classes.UserMenuBody}>
+        <LeftOutlined
+          className={classes.UserMenuBody__Icon}
+          onClick={onClose}
+        />
         <p>Menu</p>
       </div>
-      <div className={classes.UserSection__Wrapper}>{renderNavLink()}</div>
+      <div className={classes.UserMenuBody__Wrapper}>{renderNavLink()}</div>
     </Fragment>
   );
 };

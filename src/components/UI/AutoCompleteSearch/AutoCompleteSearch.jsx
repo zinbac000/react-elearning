@@ -3,20 +3,31 @@ import { AutoComplete, Input } from 'antd';
 
 import classes from './AutoCompleteSearch.module.scss';
 import { useState } from 'react';
+import useToggle from 'Hook/useToggle';
 
 const AutoCompleteSearch = ({ width, onMobile, onSearch, onFetch }) => {
   const [options, setOptions] = useState([]);
-  const [dropDownOpen, setDropDownOpen] = useState(false);
+  const [dropdown, setDropdownOn, setDropdownOff] = useToggle(false);
 
   let timeoutId = null;
 
-  const handleCloseDropdown = () => {
-    setDropDownOpen(false);
+  const searchHandler = (value) => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      onFetch(value).then((options) => {
+        console.log('fetched data');
+        setOptions(
+          options.map((value) => ({
+            label: <span key={value}>{value}</span>,
+            value,
+          })),
+        );
+      });
+    }, 300);
   };
 
-  const handleOpenDropdown = () => {
-    setDropDownOpen(true);
-  };
   return (
     <div
       className={[
@@ -25,32 +36,17 @@ const AutoCompleteSearch = ({ width, onMobile, onSearch, onFetch }) => {
       ].join(' ')}
     >
       <AutoComplete
-        dropdownMatchSelectWidth={252}
         className={classes.AutoCompleteSearch}
         style={{
           width,
         }}
+        dropdownAlign={{ offset: [0, 12] }}
         options={options}
-        onSearch={(value) => {
-          if (timeoutId) {
-            clearTimeout(timeoutId);
-          }
-          timeoutId = setTimeout(() => {
-            onFetch(value).then((options) => {
-              console.log('fetched data');
-              setOptions(
-                options.map((value) => ({
-                  label: <span key={value}>{value}</span>,
-                  value,
-                })),
-              );
-            });
-          }, 300);
-        }}
-        open={dropDownOpen}
-        onChange={handleOpenDropdown}
-        onSelect={handleCloseDropdown}
-        onBlur={handleCloseDropdown}
+        onSearch={(value) => searchHandler(value)}
+        open={dropdown}
+        onChange={setDropdownOn}
+        onSelect={setDropdownOff}
+        onBlur={setDropdownOff}
       >
         <Input.Search
           size="large"
@@ -58,7 +54,7 @@ const AutoCompleteSearch = ({ width, onMobile, onSearch, onFetch }) => {
           enterButton
           onSearch={(value) => {
             onSearch && onSearch(value);
-            handleCloseDropdown();
+            setDropdownOff();
           }}
         />
       </AutoComplete>

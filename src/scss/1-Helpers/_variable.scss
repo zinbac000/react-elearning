@@ -1,98 +1,73 @@
-//--------- BACKGROUND COLORS ---------
-$bgColors: (
-  'primary': #303956,
-  'secondary': #f5f7fa,
-  'primaryHarmonies': #4a5781,
-  'primaryLighter': #464c62,
-  'white': #ffffff,
+$Colors: (
   'black': #000000,
-  'primaryBtn': #ffbf00,
-  'primaryBtn-hover': #ffce3d,
-  'secondaryBtn': #5290de,
-  'secondaryBtn-hover': #307ad8,
-  'validBtn': #48a868,
-  'validBtn-hover': #66b27f,
-  'progress': #dadbde,
-  'fill-progress': #757c84,
-  'navLink': #d0d3d9,
-  'heroOverlay': rgba(#303956, 80%),
-  'accountOverlay': rgba(#252841, 50%),
-  'dropdownBorder': rgba(#d3d3d3, 50%),
-  'divider': #808080,
-  'dropdownSelected': #e9e9e9,
+  'tundora': #4a4a4a,
+  'havelock-blue': #5290de,
+  'mariner': #307ad8,
+  'pickled-bluewood': #303956,
+  'east-bay': #4a5781,
+  'river-bed': #464c62,
+  'blue-charcoal': #272c33,
+  'white': #ffffff,
+  'catskill-white': #f5f7fa,
+  'mercury': #e9e9e9,
+  'iron': #d0d3d9,
+  'dusty-gray': #9b9b9b,
+  'rolling-stone': #757c84,
+  'dove-gray': #6f6f6f,
+  'amber': #ffbf00,
+  'bright-sun': #ffce3d,
+  'champagne': #faebd7,
+  'chateau-green': #48a868,
+  'silver-tree': #66b27f,
 );
 
-$bg-primary: bc('primary');
-$bg-primaryHarmonies: bc('primaryHarmonies');
-$bg-primaryHero: bc('primaryLighter');
-$bg-secondary: bc('secondary');
-$bg-white: bc('white');
-$bg-black: bc('black');
-$bg-primaryBtn: bc('primaryBtn');
-$bg-primaryBtn-hover: bc('primaryBtn-hover');
-$bg-secondaryBtn: bc('secondaryBtn');
-$bg-secondaryBtn-hover: bc('secondaryBtn-hover');
-$bg-validBtn: bc('validBtn');
-$bg-validBtn-hover: bc('validBtn-hover');
-$bg-intro: (
-  null: bc('secondary'),
-  lg: bc('white'),
+//--------- BACKGROUND COLORS ---------
+$bgColors: (
+  // --------------------------------------
+  'primary': c('pickled-bluewood'),
+  'primary-light': c('east-bay'),
+  'primary-dark': c('river-bed'),
+  'primary-darker': c('blue-charcoal'),
+  // --------------------------------------
+  'secondary': c('catskill-white'),
+  'secondary-light': c('mercury'),
+  'secondary-lighter': c('iron'),
+  'secondary-dark': c('dusty-gray'),
+  'secondary-darker': c('rolling-stone'),
+  // --------------------------------------
+  'white': c('white'),
+  'black': c('black'),
+  // --------------------------------------
+  'button-primary': c('amber'),
+  'button-primary--hover': c('bright-sun'),
+  // --------------------------------------
+  'button-secondary': c('havelock-blue'),
+  'button-secondary--hover': c('mariner'),
+  // --------------------------------------
+  'button-valid': c('chareau-green'),
+  'button-valid--hover': c('silver-tree'),
+  // --------------------------------------
 );
-$bg-introBorder: bc('navLink');
-$bg-progress: bc('progress');
-$bg-fill-progress: bc('fill-progress');
-$bg-navLink: bc('navLink');
-$bg-heroOverlay: bc('heroOverlay');
-$bg-accountOverlay: bc('accountOverlay');
-$bg-divider: bc('divider');
-$bg-dropdownBorder: bc('dropdownBorder');
-$bg-dropdownSelected: bc('dropdownSelected');
 
 //--------- TEXT COLORS ---------
 $txtColors: (
-  'primary': #ffbf00,
-  'secondary': #303956,
-  'small': #6f6f6f,
-  'placeholder': #9b9b9b,
-  'white': #fff,
-  'black': #000,
-  'link': #d0d3d9,
-  'link-hover': #ffffff,
-  'button': #4a4a4a,
-  'drawer': #faebd7,
+  // --------------------------------------
+  'primary': c('amber'),
+  'primary-light': c('champagne'),
+  // --------------------------------------
+  'secondary': c('pickled-bluewood'),
+  'secondary-dark': c('dove-gray'),
+  // --------------------------------------
+  'button': c('tundora'),
+  'link': c('iron'),
+  'placeholder': c('dusty-gray'),
+  // --------------------------------------
+  'white': c('white'),
+  'black': c('black')
 );
 
 $txt-white: tc('white');
 $txt-placeholder: tc('placeholder');
-//Header
-$txt-headerMenuLink: tc('small');
-$txt-headerMenuLink-hover: tc('secondary');
-$txt-headerLink: tc('link');
-$txt-headerLink-hover: tc('link-hover');
-$txt-headerBtn: tc('button');
-$txt-headerDrawer: tc('drawer');
-//Hero
-$txt-heroTitle-primary: tc('primary');
-$txt-heroTitle-secondary: tc('white');
-$txt-heroPretitle-primary: tc('primary');
-$txt-heroPretitle-secondary: tc('white');
-$txt-heroBtn: tc('button');
-//Intro
-$txt-introTitle: tc('secondary');
-$txt-introItemTitle: tc('button');
-$txt-introItemPretitle: tc('small');
-//Course
-$txt-courseTitle: tc('button');
-$txt-courseInfo: tc('placeholder');
-$txt-courseTooltip: tc('button');
-//Footer
-$txt-footerTitle: tc('white');
-$txt-footerLink: tc('link');
-$txt-footerLink-hover: tc('link-hover');
-$txt-footerForm: tc('white');
-$txt-footerBtn: tc('button');
-$txt-footerLanguageDropdown: tc('small');
-$txt-footerLanguageDropdown-selected: tc('button');
 
 //--------- FONT SIZE ---------
 $fnSizes: (
@@ -104,83 +79,14 @@ $fnSizes: (
   'h6': 1.5rem,
   'subtitle1': 1.4rem,
   'subtitle2': 1.3rem,
-  'body1': 1.6rem,
-  'body2': 1.2rem,
-  'button': 1.3rem,
-  'button-large': 2rem,
-  'link-sm': 1.2rem,
-  'link': 1.3rem,
+  'body': 1.2rem,
+  'body2': 1.1rem,
   'small': 1rem,
+  'button': 1.3rem,
+  'button-lg': 2rem,
+  'link': 1.3rem,
+  'link-sm': 1.2rem,
   'icon': 1.7rem,
-);
-
-$fs-headerIcon: fs('icon');
-$fs-headerLink: (
-  null: fs('body1'),
-  lg: fs('link-sm'),
-);
-
-$fs-headerMenuUser: fs('subtitle1');
-$fs-headerMenuEmail: fs('body2');
-$fs-headerDrawerHeader: fs('h5');
-$fs-headerDrawerHeading: fs('subtitle1');
-$fs-headerDrawerLink: fs('body1');
-$fs-heroTitle: (
-  null: fs('h3'),
-  lg: fs('h1'),
-);
-$fs-heroSubtitle: (
-  null: fs('h5'),
-  lg: fs('h2'),
-);
-$fs-heroButton: (
-  null: fs('small'),
-  lg: fs('button-large'),
-);
-$fs-introTitle: fs('h4');
-$fs-introItemTitle: (
-  null: fs('subtitle2'),
-  lg: fs('h5'),
-);
-$fs-introItemPretitle: (
-  null: fs('subtitle2'),
-);
-$fs-introIcon: (
-  null: fs('body1'),
-  lg: fs('h3'),
-);
-$fs-courseTitle: fs('h5');
-$fs-courseInfo: fs('subtitle2');
-$fs-courseTooltip: fs('h6');
-$fs-footerLink: (
-  null: fs('link-sm'),
-  md: fs('link'),
-  lg: fs('body1'),
-);
-$fs-footerFormField: (
-  null: fs('subtitle1'),
-  lg: fs('h5'),
-);
-$fs-footerFormControl: (
-  null: fs('body2'),
-  lg: fs('subtitle1'),
-);
-$fs-footerLanguage: (
-  null: fs('link'),
-  lg: fs('h6'),
-);
-
-$fs-footerFormBtn: (
-  null: fs('body2'),
-  lg: fs('subtitle1'),
-);
-$fs-footerCopyright: (
-  null: fs('body2'),
-  lg: fs('subtitle2'),
-);
-$fs-footerTitle: (
-  null: fs('h4'),
-  lg: fs('h3'),
 );
 
 //---------BREAKPOINT---------
@@ -211,3 +117,6 @@ $z-indexes: (
   'example',
   'example'
 );
+
+//---------------------------
+$line-height-base: 1.4;
