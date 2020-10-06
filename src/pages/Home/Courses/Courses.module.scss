@@ -4,6 +4,10 @@
   background-color: $bg-courses;
   padding: 1rem 2rem 4rem;
 
+  @include screen(lg) {
+    padding: 3rem 5% 4rem;
+  }
+
   &__Title {
     @include flexCenter();
     @include font-size($fs-coursesTitle, 12);
@@ -24,12 +28,23 @@
   &__Content {
     display: grid;
     overflow-x: scroll;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: 20rem;
+    grid-template-columns: repeat(999, 1fr);
+    grid-template-rows: 22rem;
     gap: 2rem;
 
     &::-webkit-scrollbar {
       display: none;
     }
+
+    @include screen(lg) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 21.1rem;
+      gap: 2.5rem;
+      justify-items: center;
+    }
+  }
+
+  &__Loading {
+    @include flexCenter();
   }
 }

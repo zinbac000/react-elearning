@@ -6,20 +6,20 @@ import {
   PlayCircleOutlined,
 } from '@ant-design/icons';
 
-import reactimg from '../../../../assets/img/react-logo.jpg';
 import classes from './Course.module.scss';
 
-const Course = ({ imgUrl }) => {
+const Course = ({ course }) => {
+  const { tenKhoaHoc, hinhAnh } = course;
   const ratingTooltips = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
   const favoriteTooltips = ['Add Favorite'];
   return (
     <div className={classes.Course}>
       <div className={classes.Course__Image}>
-        <img src={reactimg} alt="course" />
+        <img src={hinhAnh} alt="course" />
       </div>
       <div className={classes.Course__Info}>
         <div className={classes.Course__Left}>
-          <p className={classes.Course__Title}>Learn React</p>
+          <p className={classes.Course__Title}>{tenKhoaHoc}</p>
           <p className={classes.Course__Author}>Someone</p>
           <div className={classes.Course__Rating}>
             <Rate

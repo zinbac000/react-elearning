@@ -53,13 +53,6 @@ $fs-introIcon: (
 );
 
 /*________ Courses ________*/
-/*Base*/
-$width-course-base: 18rem;
-$border-width-course-base: 0.1rem;
-$border-radius-course-base: 0.8rem;
-$border-radius-course-img-base: 0.7rem;
-$spacing-course-base: 0.8rem;
-
 /*Background*/
 $bg-courses: bc('secondary');
 $bg-coursesStrike: bc('secondary-lighter');
@@ -76,6 +69,7 @@ $txt-courseFooter: tc('placeholder');
 /*Font size*/
 $fs-coursesTitle: (
   base: fs('h6'),
+  lg: fs('h5'),
 );
 $fs-courseTitle: (
   base: fs('subtitle1'),
