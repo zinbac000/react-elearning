@@ -13,6 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   line-height: $line-height-base;
+  scroll-behavior: smooth;
 }
 
 a {

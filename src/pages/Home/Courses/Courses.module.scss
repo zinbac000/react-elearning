@@ -2,7 +2,7 @@
 
 .Courses {
   background-color: $bg-courses;
-  padding: 1rem 2rem 4rem;
+  padding: 1rem 2rem 2rem;
 
   @include screen(lg) {
     padding: 3rem 5% 4rem;
@@ -29,8 +29,10 @@
     display: grid;
     overflow-x: scroll;
     grid-template-columns: repeat(999, 1fr);
-    grid-template-rows: 22rem;
+    grid-template-rows: 24rem;
     gap: 2rem;
+
+    scrollbar-width: none;
 
     &::-webkit-scrollbar {
       display: none;

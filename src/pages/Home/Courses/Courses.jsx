@@ -36,6 +36,8 @@ const Courses = () => {
     if (loading && spinnerRef.current) {
       spinnerRef.current.scrollIntoView({
         behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
       });
     }
   }, [loading]);
@@ -55,17 +57,20 @@ const Courses = () => {
       clearTimeout(timeoutId);
     }
 
-    if (count >= totalCount) {
+    if (courseList.length >= totalCount) {
       setHasMore(false);
       setLoading(false);
       return;
     }
 
     if (e.target.scrollLeft === endOfScroll) {
+      setLoading(true);
+    }
+    console.log(hasMore);
+    if (e.target.scrollLeft > endOfScroll && hasMore) {
       timeoutId = setTimeout(() => {
-        setLoading(true);
         dispatch(fetchCoursePagination(currentPage + 1));
-      }, 300);
+      }, 200);
     }
   };
 
