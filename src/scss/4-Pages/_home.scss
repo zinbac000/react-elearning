@@ -13,14 +13,17 @@ $txt-heroBtn: tc('button');
 /*Font size*/
 $fs-heroTitle: (
   base: fs('h3'),
+  md: fs('h2'),
   lg: fs('h1'),
 );
 $fs-heroSubtitle: (
-  base: fs('h5'),
+  base: fs('h6'),
+  md: fs('h4'),
   lg: fs('h2'),
 );
 $fs-heroButton: (
   base: fs('body2'),
+  md: fs('button'),
   lg: fs('button-lg'),
 );
 
@@ -42,53 +45,78 @@ $fs-introTitle: (
 );
 $fs-introItemTitle: (
   base: fs('subtitle2'),
-  lg: fs('h5'),
+  lg: fs('h6'),
 );
 $fs-introItemPretitle: (
   base: fs('subtitle2'),
 );
 $fs-introIcon: (
-  base: fs('h5'),
+  base: fs('h6'),
   lg: fs('h3'),
 );
 
 /*________ Courses ________*/
 /*Background*/
 $bg-courses: bc('secondary');
+$bg-coursesCarouselBtn: bc('secondary');
+$bg-coursesCarouselBtn-hover: bc('secondary-light');
 $bg-coursesStrike: bc('secondary-lighter');
 $bg-courseBorder: bc('secondary-lighter');
 $bg-courseRate: bc('button-primary');
 $bg-courseFavoriteStroke: bc('secondary-darker');
 $bg-courseShadow: bc('primary-darker');
+$bg-coursePopoverBtn: bc('button-primary');
+$bg-coursePopoverBtn-hover: bc('button-primary--hover');
 /*Text colors*/
 $txt-coursesTitle: tc('secondary');
 $txt-courseTitle: tc('button');
 $txt-courseAuthor: tc('placeholder');
-$txt-courseTooltip: tc('button');
+$txt-courseCarouselBtn: tc('placeholder');
+$txt-courseCarouselBtn-hover: tc('button');
+$txt-coursePopoverBtn: tc('button');
 $txt-courseFooter: tc('placeholder');
 /*Font size*/
 $fs-coursesTitle: (
-  base: fs('h6'),
-  lg: fs('h5'),
+  base: fs('title'),
+  lg: fs('h4'),
+  xl: fs('h3'),
+);
+$fs-coursesCarouselBtn: (
+  base: fs('h3'),
 );
 $fs-courseTitle: (
   base: fs('subtitle1'),
+  lg: fs('h6'),
+  xl: fs('h5'),
 );
 $fs-courseAuthor: (
   base: fs('body'),
+  lg: fs('title'),
+  xl: fs('h6'),
 );
 $fs-courseRateIcon: (
   base: fs('body'),
+  lg: fs('h6'),
+  xl: fs('h5'),
 );
 $fs-courseFavoriteIcon: (
+  base: fs('h6'),
+  lg: fs('h4'),
+  xl: fs('h3'),
+);
+$fs-coursePopoverTitle: (
   base: fs('h5'),
 );
-$fs-courseTooltip: fs('h6');
+$fs-coursePopoverAuhtor: (
+  base: fs('h6'),
+);
 $fs-courseFooter: (
   base: fs('body2'),
+  lg: fs('title'),
 );
 $fs-courseFooterIcon: (
   base: fs('subtitle2'),
+  lg: fs('h4'),
 );
 
 /* -------------------- END VARIABLE -------------------- */

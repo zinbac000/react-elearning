@@ -4,7 +4,7 @@ import { courseService } from 'services/CourseService';
 export const fetchCoursePagination = (currentPage, pageSize) => {
   return (dispatch) => {
     courseService
-      .fetchCourse(currentPage, pageSize)
+      .fetchAllCourse(currentPage, pageSize)
       .then((res) => {
         dispatch({
           type: FETCH_COURSE,

@@ -9,11 +9,19 @@
       height: 20rem;
       background-position-y: -8rem;
     }
+
+    @include screen(md) {
+      height: 24rem;
+    }
   }
 
   &__SloganWrapper {
     padding: 2rem;
     background-color: $bg-hero;
+
+    @include screen(md) {
+      padding: 2.4rem 2rem;
+    }
 
     @include screen(lg) {
       padding: 8rem 5%;

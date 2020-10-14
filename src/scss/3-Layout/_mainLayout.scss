@@ -41,7 +41,7 @@ $fs-headerIcon: (
   base: fs('icon'),
 );
 $fs-headerLink: (
-  base: fs('h5'),
+  base: fs('h6'),
   lg: fs('link-sm'),
 );
 $fs-headerMenuUser: (
@@ -51,24 +51,24 @@ $fs-headerMenuEmail: (
   base: fs('body'),
 );
 $fs-headerUserMenuTitle: (
-  base: fs('h5'),
+  base: fs('h6'),
 );
 $fs-headerUserMenuSubtitle: (
   base: fs('subtitle1'),
 );
 $fs-headerDrawerLink: (
-  base: fs('h5'),
+  base: fs('h6'),
 );
 
 /* Footer */
 $fs-footerLink: (
   base: fs('link-sm'),
   md: fs('link'),
-  lg: fs('h5'),
+  lg: fs('h6'),
 );
 $fs-footerFormField: (
   base: fs('subtitle1'),
-  lg: fs('h5'),
+  lg: fs('h6'),
 );
 $fs-footerFormControl: (
   base: fs('body'),
@@ -76,7 +76,7 @@ $fs-footerFormControl: (
 );
 $fs-footerLanguage: (
   base: fs('link'),
-  lg: fs('h6'),
+  lg: fs('title'),
 );
 $fs-footerFormBtn: (
   base: fs('body'),

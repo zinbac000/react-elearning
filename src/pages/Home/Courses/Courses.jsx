@@ -1,92 +1,76 @@
-import { Spin } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCoursePagination } from 'redux/actions/CourseAction';
+import React, { useRef } from 'react';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { Carousel } from 'antd';
 
 import Course from './Course/Course';
 import classes from './Courses.module.scss';
 
-const Courses = () => {
-  const [courseList, setCourseList] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-  const spinnerRef = useRef(null);
+const Courses = ({ title, courseList }) => {
+  const carouselRef = useRef(null);
 
-  const dispatch = useDispatch();
+  const handleNext = () => (carouselRef ? carouselRef.current.next() : false);
+  const handlePrev = () => (carouselRef ? carouselRef.current.prev() : false);
+  const settings = {
+    lazyLoad: 'progressive',
+    adaptiveHeight: true,
+    rows: 2,
+    dots: false,
+    speed: 555,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1232,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
 
-  let timeoutId = null;
+      {
+        breakpoint: 991,
+        settings: {
+          rows: 1,
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 672,
+        settings: {
+          rows: 1,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
 
-  let { count, currentPage, items, totalCount } = useSelector(
-    (state) => state.CourseReducer.courseList,
-  );
-
-  useEffect(() => {
-    dispatch(fetchCoursePagination());
-  }, []);
-
-  useEffect(() => {
-    if (items) {
-      setCourseList((courseList) => [...courseList, ...items]);
-      setLoading(false);
-    }
-  }, [items]);
-
-  useEffect(() => {
-    if (loading && spinnerRef.current) {
-      spinnerRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
-    }
-  }, [loading]);
-
-  const handleInfiniteOnLoad = (e) => {
-    e.persist();
-
-    const courseWidth = e.target.firstChild.offsetWidth;
-    const viewWidth = e.target.clientWidth;
-    const elementAmount = count * currentPage;
-    const GAP = 20;
-
-    const endOfScroll =
-      courseWidth * elementAmount + GAP * (elementAmount - 1) - viewWidth;
-
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
-
-    if (courseList.length >= totalCount) {
-      setHasMore(false);
-      setLoading(false);
-      return;
-    }
-
-    if (e.target.scrollLeft === endOfScroll) {
-      setLoading(true);
-    }
-    console.log(hasMore);
-    if (e.target.scrollLeft > endOfScroll && hasMore) {
-      timeoutId = setTimeout(() => {
-        dispatch(fetchCoursePagination(currentPage + 1));
-      }, 200);
-    }
+      {
+        breakpoint: 400,
+        settings: {
+          rows: 1,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <div className={classes.Courses}>
-      <div className={classes.Courses__Title}>Frontend Course</div>
-
-      <div className={classes.Courses__Content} onScroll={handleInfiniteOnLoad}>
-        {courseList?.map((course) => (
-          <Course key={course.maKhoaHoc} course={course} />
-        ))}
-        {loading && hasMore && (
-          <div className={classes.Courses__Loading} ref={spinnerRef}>
-            <Spin />
-          </div>
-        )}
+      <div className={classes.Courses__Title}>{title}</div>
+      <div className={classes.Courses__Wrapper}>
+        <Carousel {...settings} ref={carouselRef}>
+          {courseList.map((course) => (
+            <Course key={course.maKhoaHoc} course={course} />
+          ))}
+        </Carousel>
+        <div className={classes.Courses__PrevBtn} onClick={handlePrev}>
+          <LeftOutlined />
+        </div>
+        <div className={classes.Courses__NextBtn} onClick={handleNext}>
+          <RightOutlined />
+        </div>
       </div>
     </div>
   );

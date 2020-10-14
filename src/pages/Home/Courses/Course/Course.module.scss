@@ -1,32 +1,65 @@
 @import 'src/scss/main';
 
 .Course {
-  @include size(18rem, fit-content);
-  border: 0.1rem solid $bg-courseBorder;
-  border-radius: 0.8rem;
+  &:global(.ant-card) {
+    @include size(85%, 100%, min);
+    margin: 0 auto;
 
-  box-shadow: 0 0.225rem 0.225rem -0.15rem rgba($bg-courseShadow, $alpha: 0.09),
-    0 0.225rem 0.3rem 0 rgba($bg-courseShadow, $alpha: 0.04),
-    0 0.075rem 0.6rem 0 rgba($bg-courseShadow, $alpha: 0.02);
+    border: 0.1rem solid $bg-courseBorder;
+    border-radius: 0.8rem;
 
-  @include screen(lg) {
-    width: 21rem;
+    @include screen(lg) {
+      @include size(90%, 100%, min);
+      margin-bottom: 3rem;
+    }
+
+    @include screen(xl) {
+      @include size(88%, 100%, min);
+    }
   }
 
-  &__Image {
+  :global(.ant-card-cover) {
+    margin: 0;
+
+    &:hover {
+      margin: 0;
+    }
     img {
-      @include size(100%, 10rem);
+      @include size(100%, 16rem, min);
+      object-fit: cover;
+
       border-top-left-radius: 0.7rem;
       border-top-right-radius: 0.7rem;
+
+      @include screen(lg) {
+        transition: all 0.2s ease-in;
+        &.overlayOn {
+          opacity: 0.8;
+          filter: brightness(0.5);
+        }
+        height: 20rem;
+      }
+
+      @include screen(xl) {
+        height: 18rem;
+      }
     }
+  }
+
+  :global(.ant-card-body) {
+    padding: 0;
   }
 
   &__Info {
     @include flexbox(flex-start, space-between);
     padding: 0 0.8rem 0.8rem;
+
+    @include screen(lg) {
+      padding: 0.4rem 1.2rem 1.6rem;
+    }
   }
 
-  &__Left {
+  &__Wrapper {
     padding-top: 0.4rem;
     p {
       margin-bottom: 0;
@@ -39,7 +72,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 
-    max-width: 13.5rem;
+    max-width: 90%;
     min-height: 4rem;
 
     @include font-size($fs-courseTitle);
@@ -53,44 +86,43 @@
     font-weight: 500;
   }
 
-  &__Rating {
+  &__Rating:global(.ant-rate) {
     @include flexbox(center);
     height: 1.5rem;
+    color: $bg-courseRate;
 
-    & > :global(.ant-rate) {
-      color: $bg-courseRate;
+    @include screen(xl) {
+      height: 3rem;
+    }
 
-      span {
-        @include font-size($fs-courseRateIcon);
-      }
+    span {
+      @include font-size($fs-courseRateIcon);
+    }
 
-      path {
-        stroke: $bg-courseRate;
-        stroke-width: 5rem;
-      }
+    path {
+      stroke: $bg-courseRate;
+      stroke-width: 5rem;
+    }
 
-      :global(.ant-rate-star) {
-        margin-right: 0.4rem;
-      }
+    :global(.ant-rate-star) {
+      margin-right: 0.4rem;
     }
   }
 
-  &__Favorite {
-    & > :global(.ant-rate) {
-      color: $bg-courseRate;
+  &__Favorite:global(.ant-rate) {
+    color: $bg-courseRate;
 
-      span {
-        @include font-size($fs-courseFavoriteIcon);
-      }
+    span {
+      @include font-size($fs-courseFavoriteIcon);
+    }
 
-      path {
-        stroke: $bg-courseFavoriteStroke;
-        stroke-width: 5rem;
-      }
+    path {
+      stroke: $bg-courseFavoriteStroke;
+      stroke-width: 5rem;
+    }
 
-      :global(.ant-rate-star-full) path {
-        stroke: $bg-courseRate;
-      }
+    :global(.ant-rate-star-full) path {
+      stroke: $bg-courseRate;
     }
   }
 
@@ -98,6 +130,10 @@
     @include flexbox(center, space-between);
     border-top: 0.1rem solid $bg-courseBorder;
     padding: 0.8rem;
+
+    @include screen(lg) {
+      padding: 0.8rem 1.2rem;
+    }
 
     & > p {
       @include flexbox(flex-start);
@@ -108,6 +144,93 @@
       & > span {
         @include font-size($fs-courseFooterIcon);
         margin-right: 0.4rem;
+
+        @include screen(lg) {
+          margin-right: 0.6rem;
+        }
+      }
+    }
+  }
+
+  &__Popover {
+    max-width: 35rem;
+
+    @include screen(xl) {
+      max-width: 40rem;
+    }
+
+    :global(.ant-popover-inner) {
+      border-radius: 0.8rem;
+    }
+
+    :global(.ant-popover-title) {
+      @include screen(lg) {
+        display: flex;
+        padding: 2.4rem 2.4rem 1rem;
+        img {
+          @include size(7rem);
+          border-radius: 1rem;
+          margin-right: 2rem;
+
+          object-fit: cover;
+        }
+      }
+    }
+
+    :global(.ant-popover-inner-content) {
+      @include screen(lg) {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 2.4rem 2.4rem;
+      }
+    }
+
+    &__Title {
+      margin: 0;
+
+      @include font-size($fs-coursePopoverTitle);
+      color: $txt-courseTitle;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    &__Author {
+      margin: 0;
+
+      @include font-size($fs-courseAuthor);
+      color: $txt-courseAuthor;
+      font-weight: 400;
+    }
+
+    &__Checklist {
+      margin: 0.8rem 0;
+      span:first-child {
+        margin-right: 0.8rem;
+      }
+    }
+
+    &__Footer {
+      @include flexbox(center, space-between);
+      width: 100%;
+
+      &__Left {
+        div {
+          margin: 0.8rem 0;
+        }
+      }
+      &__Button:global(.ant-btn) {
+        @include size(13.6rem, 4rem);
+        @include button-hover($bg-coursePopoverBtn, $bg-coursePopoverBtn-hover);
+
+        border: none;
+        border-radius: 0.4rem;
+
+        font-weight: 500;
+
+        &:hover,
+        &:focus {
+          color: $txt-coursePopoverBtn;
+        }
       }
     }
   }

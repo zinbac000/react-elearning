@@ -1,0 +1,19 @@
+@import 'src/scss/main';
+
+.IconWithText {
+  user-select: none;
+
+  @include flexbox(flex-start);
+  @include font-size($fs-courseFooter);
+  color: $txt-courseFooter;
+  margin-bottom: 0;
+
+  & > span {
+    @include font-size($fs-courseFooterIcon);
+    margin-right: 0.4rem;
+
+    @include screen(lg) {
+      margin-right: 0.6rem;
+    }
+  }
+}

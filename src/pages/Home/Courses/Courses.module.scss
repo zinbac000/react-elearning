@@ -8,6 +8,10 @@
     padding: 3rem 5% 4rem;
   }
 
+  @include screen(xl) {
+    padding: 5rem 10% 2rem;
+  }
+
   &__Title {
     @include flexCenter();
     @include font-size($fs-coursesTitle, 12);
@@ -23,30 +27,59 @@
       margin-left: 0.6rem;
       flex: 1 0;
     }
-  }
-
-  &__Content {
-    display: grid;
-    overflow-x: scroll;
-    grid-template-columns: repeat(999, 1fr);
-    grid-template-rows: 24rem;
-    gap: 2rem;
-
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
 
     @include screen(lg) {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 21.1rem;
-      gap: 2.5rem;
-      justify-items: center;
+      margin-bottom: 2.4rem;
+    }
+    @include screen(xl) {
+      margin-bottom: 3rem;
     }
   }
 
-  &__Loading {
-    @include flexCenter();
+  &__Wrapper {
+    @include screen(lg) {
+      position: relative;
+
+      :global(.slick-slide) > div {
+        @include flexCenter();
+      }
+    }
+  }
+
+  &__PrevBtn,
+  &__NextBtn {
+    display: none;
+
+    @include screen(lg) {
+      @include flexCenter();
+      @include size(5.5rem);
+      @include font-size($fs-coursesCarouselBtn);
+
+      border-radius: 50%;
+      background-color: $bg-coursesCarouselBtn;
+      color: $txt-courseCarouselBtn;
+
+      cursor: pointer;
+
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 0 0.8rem -0.4rem $bg-courseShadow;
+        background-color: $bg-coursesCarouselBtn-hover;
+        color: $txt-courseCarouselBtn-hover;
+      }
+    }
+  }
+
+  &__PrevBtn {
+    @include screen(lg) {
+      @include absolute(left 0 top 48%, $transY: -50%, $transX: -55%);
+    }
+  }
+
+  &__NextBtn {
+    @include screen(lg) {
+      @include absolute(right 0 top 48%, $transY: -50%, $transX: 55%);
+    }
   }
 }

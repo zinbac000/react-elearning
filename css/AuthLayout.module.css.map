@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../src/templates/AuthLayout/AuthLayout.module.scss"
+    ],
+    "names": [],
+    "file": "AuthLayout.module.css"
+}
