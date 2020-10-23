@@ -6,9 +6,18 @@
   padding: 0 1.6rem;
   background-color: $bg-headerUserMenu;
 
-  &__Icon:global(.anticon) {
-    color: $txt-white;
-    font-size: 12px;
+  & > :global(.anticon) {
+    color: $txt-headerMenuIcon;
+    @include font-size($fs-headerIcon);
+  }
+
+  p {
+    margin-left: 1.6rem;
+    margin-bottom: 0;
+
+    @include font-size($fs-headerUserMenuTitle, 6);
+    color: $txt-headerDrawer;
+    font-weight: 700;
   }
 
   &__Wrapper {
@@ -22,7 +31,7 @@
 
   &__Heading {
     color: $txt-headerDrawer;
-    @include font-size($fs-headerUserMenuSubtitle, 3);
+    @include font-size($fs-headerUserMenuHeading, 3);
     font-weight: 700;
   }
 
@@ -31,20 +40,11 @@
     padding: 0.8rem 0;
 
     color: $txt-headerLink;
-    @include font-size($fs-headerDrawerLink);
+    @include font-size($fs-headerLink);
     font-weight: 500;
 
     &:hover {
       color: $txt-headerLink;
     }
-  }
-
-  p {
-    margin-left: 1.6rem;
-    margin-bottom: 0;
-
-    @include font-size($fs-headerUserMenuTitle, 6);
-    color: $txt-headerDrawer;
-    font-weight: 700;
   }
 }

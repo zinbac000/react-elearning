@@ -1,0 +1,11 @@
+@import 'src/scss/main';
+
+.Courses__Wrapper {
+  @include screen(lg) {
+    position: relative;
+
+    :global(.slick-slide) > div {
+      @include flexCenter();
+    }
+  }
+}

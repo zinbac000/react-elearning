@@ -4,13 +4,13 @@ import classes from './UserNav.module.scss';
 
 import { Menu, Dropdown } from 'antd';
 
-const UserNav = () => {
+const UserNav = ({ handleLogout }) => {
   const userNavLink = [
     ['My course', 'My cart', 'Wishlist', 'Teach on Knowland'],
     [
       'Account settings',
       'Payment methods',
-      'Knowland credits',
+      'Knowcode credits',
       'Purchase history',
     ],
     ['Notifications', 'Messages'],
@@ -23,7 +23,9 @@ const UserNav = () => {
       <Menu.ItemGroup key={`gr-${index}`}>
         {section.map((item, index) => (
           <Menu.Item key={index}>
-            <a href="#">{item}</a>
+            <a href="#" onClick={handleLogout}>
+              {item}
+            </a>
           </Menu.Item>
         ))}
       </Menu.ItemGroup>

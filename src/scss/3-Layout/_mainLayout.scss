@@ -21,6 +21,8 @@ $bg-footerFormButton-hover: bc('button-primary--hover');
 /* Header */
 $txt-headerMenuLink: tc('secondary-dark');
 $txt-headerMenuLink-hover: tc('secondary');
+$txt-headerMenuIcon: tc('white');
+$txt-headerMenuWelcome: tc('white');
 $txt-headerLink: tc('link');
 $txt-headerLink-hover: tc('white');
 $txt-headerBtn: tc('button');
@@ -38,7 +40,8 @@ $txt-footerLanguageDropdown-selected: tc('button');
 /*________FONT-SIZES________*/
 /* Header */
 $fs-headerIcon: (
-  base: fs('icon'),
+  base: fs('link-sm'),
+  lg: fs('icon'),
 );
 $fs-headerLink: (
   base: fs('h6'),
@@ -53,11 +56,8 @@ $fs-headerMenuEmail: (
 $fs-headerUserMenuTitle: (
   base: fs('h6'),
 );
-$fs-headerUserMenuSubtitle: (
+$fs-headerUserMenuHeading: (
   base: fs('subtitle1'),
-);
-$fs-headerDrawerLink: (
-  base: fs('h6'),
 );
 
 /* Footer */
@@ -95,11 +95,10 @@ $fs-footerTitle: (
 /* ---------------- MIXIN ---------------- */
 @mixin headerLink-hover($letter-spacing: 0) {
   @include font-size($fs-headerLink, $letter-spacing);
-  color: $txt-white;
+  color: $txt-headerLink-hover;
 
   &:hover,
-  &:active,
-  &:visited {
+  &:active {
     color: $txt-headerLink-hover;
   }
 

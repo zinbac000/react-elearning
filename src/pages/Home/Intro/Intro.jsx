@@ -7,6 +7,7 @@ import {
 
 import classes from './Intro.module.scss';
 import IntroItem from './IntroItem/IntroItem';
+import { ON_MOBILE_MD } from 'config/setting';
 
 const Intro = () => {
   const itemContentList = [
@@ -33,13 +34,14 @@ const Intro = () => {
     itemContentList.map(({ icon, title, pretitle }, index) => (
       <IntroItem key={index} icon={icon} title={title} pretitle={pretitle} />
     ));
+
   return (
-    <div className={classes.Intro}>
-      <p className={[classes.Intro__Title, 'onMobile-md'].join(' ')}>
+    <section className={classes.Intro}>
+      <p className={[classes.Intro__Title, ON_MOBILE_MD].join(' ')}>
         Why learn on Knowcode?
       </p>
       {renderIntroItem()}
-    </div>
+    </section>
   );
 };
 

@@ -2,11 +2,12 @@
 
 .Header {
   @include flexbox(center, space-between);
-  position: relative;
-  height: 5.6rem;
-  padding: 1rem 2rem;
+  @include relative();
 
+  height: 5.6rem;
+  padding: 0 2rem;
   background-color: $bg-header;
+
   color: $txt-headerLink-hover;
 
   &__OverlayDropdown {
@@ -47,12 +48,6 @@
     }
   }
 
-  &__IconLink svg,
-  &__Link span {
-    @include headerLink-hover(6);
-    transition: color 0.2s ease-in;
-  }
-
   &__Logo {
     @include absolute(left 50%, $transX: -50%);
 
@@ -66,6 +61,8 @@
     height: 6.4rem;
 
     > :global(.ant-btn) {
+      @include headerLink-hover(6);
+
       border: none;
       padding: 0 2.4rem;
       height: 4rem;
@@ -74,8 +71,11 @@
     &__Right {
       @include flexCenter();
       margin-left: auto;
+      min-width: fit-content;
 
       > :global(.ant-btn) {
+        @include headerLink-hover(6);
+
         @include size(fit-content, 4rem);
         width: -moz-fit-content;
         width: -webkit-fit-content;

@@ -53,10 +53,7 @@ const UserMenuBody = ({ handleLogout, onClose }) => {
   return (
     <Fragment>
       <div className={classes.UserMenuBody}>
-        <LeftOutlined
-          className={classes.UserMenuBody__Icon}
-          onClick={onClose}
-        />
+        <LeftOutlined onClick={onClose} />
         <p>Menu</p>
       </div>
       <div className={classes.UserMenuBody__Wrapper}>{renderNavLink()}</div>

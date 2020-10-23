@@ -3,17 +3,24 @@
   width: 100%;
 
   @include screen(lg) {
-    width: 60%;
-
     input {
       padding-left: 2rem;
-    }
-
-    input,
-    span:global(.ant-input-group-addon),
-    :global(.ant-btn-primary) {
       border-radius: 2rem;
     }
+
+    :global(.ant-input-search)
+      > :global(.ant-input-group)
+      > :global(.ant-input-group-addon) {
+      border-radius: 0 2rem 2rem 0;
+
+      :global(.ant-input-search-button) {
+        border-radius: 0 2rem 2rem 0;
+      }
+    }
+  }
+
+  @include screen(xl) {
+    width: 60%;
   }
 
   :global(.ant-btn-primary) {

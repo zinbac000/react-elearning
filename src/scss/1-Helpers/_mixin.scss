@@ -118,10 +118,10 @@
 
 @mixin button-hover($defaultColor, $hoverColor: $defaultColor) {
   background-color: $defaultColor;
+  transition: background-color 0.2s linear;
 
   &:hover,
-  &:focus,
-  &:visited {
+  &:focus {
     background-color: $hoverColor;
   }
 }

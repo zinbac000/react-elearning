@@ -31,7 +31,7 @@
     border-radius: 50%;
     background-color: $bg-introIcon;
 
-    color: $txt-white;
+    color: $txt-introItemIcon;
 
     & > span {
       @include font-size($fs-introIcon);

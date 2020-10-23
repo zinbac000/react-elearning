@@ -1,16 +1,19 @@
-import useFullCourse from 'Hook/useFullCourse';
 import React, { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 import Courses from './Courses/Courses';
 import Hero from './Hero/Hero';
 import Intro from './Intro/Intro';
 
 const Home = () => {
-  const courseList = useFullCourse();
+  const allCourseList = useSelector(
+    (state) => state.CourseReducer.courseList.all,
+  );
+
   return (
     <Fragment>
       <Hero />
       <Intro />
-      <Courses title="All Course" courseList={courseList} />
+      <Courses title="Popular Course" courseList={allCourseList} />
     </Fragment>
   );
 };

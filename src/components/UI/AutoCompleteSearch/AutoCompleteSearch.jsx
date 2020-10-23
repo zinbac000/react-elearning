@@ -5,7 +5,7 @@ import classes from './AutoCompleteSearch.module.scss';
 import { useState } from 'react';
 import useToggle from 'Hook/useToggle';
 
-const AutoCompleteSearch = ({ width, onMobile, onSearch, onFetch }) => {
+const AutoCompleteSearch = ({ width, screenCls, onSearch, onFetch }) => {
   const [options, setOptions] = useState([]);
   const [dropdown, setDropdownOn, setDropdownOff] = useToggle(false);
 
@@ -29,12 +29,7 @@ const AutoCompleteSearch = ({ width, onMobile, onSearch, onFetch }) => {
   };
 
   return (
-    <div
-      className={[
-        classes.AutoCompleteSearch,
-        onMobile ? 'onMobile' : 'onDesktop',
-      ].join(' ')}
-    >
+    <div className={[classes.AutoCompleteSearch, screenCls].join(' ')}>
       <AutoComplete
         className={classes.AutoCompleteSearch}
         style={{

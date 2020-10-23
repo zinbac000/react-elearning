@@ -2,11 +2,12 @@ import React from 'react';
 import { Button } from 'antd';
 
 import classes from './Hero.module.scss';
+import { ON_MOBILE } from 'config/setting';
 
 const Hero = () => {
   return (
-    <div className={classes.Hero}>
-      <div className={[classes.Hero__BgImage, 'onMobile'].join(' ')}></div>
+    <section className={classes.Hero}>
+      <div className={[classes.Hero__BgImage, ON_MOBILE].join(' ')}></div>
       <div className={classes.Hero__SloganWrapper}>
         <div className={classes.Hero__SloganMain}>
           <p>Developing & Growing</p>
@@ -23,7 +24,7 @@ const Hero = () => {
           What Do You Want To Master?
         </Button>
       </div>
-    </div>
+    </section>
   );
 };
 

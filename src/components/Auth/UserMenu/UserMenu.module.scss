@@ -1,10 +1,6 @@
 @import 'src/scss/main';
 
 .UserMenu {
-  @include flexbox(center);
-  padding: 1.6rem;
-  background-color: $bg-headerUserMenu;
-
   &__Avatar {
     @include size(4.8rem);
     border-radius: 50%;
@@ -12,8 +8,8 @@
   }
 
   &__Welcome {
-    color: $txt-white;
-    @include font-size($fs-headerUserMenuSubtitle, 6);
+    color: $txt-headerMenuWelcome;
+    @include font-size($fs-headerUserMenuHeading, 6);
     p {
       margin-bottom: 0;
 
@@ -24,8 +20,8 @@
 
   &__Icon:global(.anticon) {
     margin-left: auto;
-    color: $txt-white;
-    font-size: 12px;
+    color: $txt-headerMenuIcon;
+    @include font-size($fs-headerIcon);
   }
 
   &__Drawer {

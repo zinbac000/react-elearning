@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import classes from './Logo.module.scss';
 
-export default class Logo extends Component {
-  render() {
-    return (
-      <div className={classes.Logo}>
-        <img src={this.props.logo} alt="logo" />
-      </div>
-    );
-  }
-}
+const Logo = ({ logo }) => {
+  return (
+    <div className={classes.Logo}>
+      <Link to="/">
+        <img src={logo} alt="logo" />
+      </Link>
+    </div>
+  );
+};
+
+export default Logo;

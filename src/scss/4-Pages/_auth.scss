@@ -1,0 +1,66 @@
+/* -------------------- VARIABLE -------------------- */
+/*________ Auth ________*/
+/*Background*/
+$bg-authContainer: bc('white');
+$bg-authContainer-shadow: bc('black');
+$bg-authField-valid: bc('valid');
+$bg-authField-active: bc('button-secondary');
+$bg-authField-active--hover: bc('button-secondary--hover');
+
+/*Text colors*/
+$txt-authTitle: tc('secondary-darker');
+$txt-authField-placeholder: tc('placeholder');
+$txt-authField-valid: tc('valid');
+$txt-authSubmitBtn: tc('white');
+$txt-authToSignup: tc('button');
+$txt-authToSignup-link: tc('secondary-light');
+
+/*Font size*/
+$fs-authTitle: (
+  base: fs('h4'),
+  lg: fs('h1'),
+);
+
+$fs-authControl: (
+  base: fs('body'),
+  lg: fs('h6'),
+);
+
+$fs-authPrefixIcon: (
+  lg: fs('h5'),
+);
+
+$fs-authInputField: (
+  lg: fs('h5'),
+);
+
+/*Keyframes*/
+@keyframes fade-ttb {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-ltr {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* -------------------- END VARIABLE -------------------- */

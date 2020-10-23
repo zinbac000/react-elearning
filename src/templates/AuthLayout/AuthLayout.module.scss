@@ -1,0 +1,36 @@
+@import 'src/scss/main';
+
+.AuthLayout {
+  @include flexCenter();
+  @include size(100vw, 100vh);
+
+  overflow: hidden;
+  background: url(../../assets/img/auth-m.jpg) no-repeat;
+  background-size: cover;
+
+  &__Content {
+    width: 100%;
+
+    @include screen(md) {
+      width: 65%;
+    }
+
+    @include screen(lg) {
+      @include flexCenter();
+      @include size(45%, 100%);
+    }
+  }
+
+  @include screen(lg) {
+    background: none;
+    background-color: rgba($color: $bg-authContainer, $alpha: 0.8);
+
+    &__LeftCover {
+      @include size(55%, 100%);
+      background: url(../../assets/img/auth-left-cover.jpg) no-repeat;
+      background-size: cover;
+
+      z-index: z('AuthLeftCover');
+    }
+  }
+}

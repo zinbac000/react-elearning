@@ -11,10 +11,10 @@
   border-radius: 0.4rem;
   border: 0.1rem solid $bg-headerDropdownBorder;
 
-  &__Wrapper {
+  &__Wrapper:global(.ant-dropdown-menu-item) {
     @include flexbox(center);
 
-    padding: 1.2rem 1.6rem 1.6rem !important;
+    padding: 1.2rem 1.6rem 1.6rem;
   }
 
   &__Avatar {
@@ -36,15 +36,6 @@
     @include font-size($fs-headerMenuEmail);
   }
 
-  :global(.ant-dropdown-menu-item) {
-    white-space: normal;
-    cursor: unset;
-
-    &:hover {
-      background-color: transparent;
-    }
-  }
-
   :global(.ant-dropdown-menu-item-group-title) {
     border-top: 0.1rem solid $bg-headerDropdownBorder;
     padding: 0;
@@ -55,6 +46,13 @@
     margin: 0;
 
     :global(.ant-dropdown-menu-item) {
+      white-space: normal;
+      cursor: unset;
+
+      &:hover {
+        background-color: transparent;
+      }
+
       a {
         padding: 0.8rem 0;
         color: $txt-headerMenuLink;

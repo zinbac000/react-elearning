@@ -10,13 +10,22 @@ import {
 
 import useToggle from 'Hook/useToggle';
 import IconWithText from './IconWithText/IconWithText';
-import classes from './Course.module.scss';
+import classes from './CourseItem.module.scss';
+import { ON_DESKTOP, ON_MOBILE } from 'config/setting';
 
-const Course = ({ course }) => {
+const ratingTooltips = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
+
+const popoverChecklist = [
+  'Fundamentals of working with Angular',
+  'Create complete Angular applications',
+  'Working with the Angular CLI',
+  'Understanding Dependency Injection',
+  'Testing with Angular',
+];
+
+const CourseItem = ({ course }) => {
   const { tenKhoaHoc, hinhAnh, nguoiTao, moTa } = course;
   const [imgOverlay, setImgOverlayOn, setImgOverlayOff] = useToggle(false);
-
-  const ratingTooltips = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
   const popoverTitle = () => (
     <Fragment>
@@ -62,16 +71,8 @@ const Course = ({ course }) => {
     onVisibleChange: (e) => (!e ? setImgOverlayOff() : null),
   };
 
-  const popoverChecklist = [
-    'Fundamentals of working with Angular',
-    'Create complete Angular applications',
-    'Working with the Angular CLI',
-    'Understanding Dependency Injection',
-    'Testing with Angular',
-  ];
-
   const courseContent = (onScreen) => {
-    const onDesktop = onScreen === 'onDesktop';
+    const onDesktop = onScreen === ON_DESKTOP;
     return (
       <Card
         className={[classes.Course, onScreen].join(' ')}
@@ -113,14 +114,15 @@ const Course = ({ course }) => {
       </Card>
     );
   };
+
   return (
     <Fragment>
       <Popover {...popoverSetting} overlayClassName={classes.Course__Popover}>
-        {courseContent('onDesktop')}
+        {courseContent(ON_DESKTOP)}
       </Popover>
-      {courseContent('onMobile')}
+      {courseContent(ON_MOBILE)}
     </Fragment>
   );
 };
 
-export default Course;
+export default CourseItem;

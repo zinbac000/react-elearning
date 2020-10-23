@@ -1,0 +1,109 @@
+@import 'src/scss/main';
+
+.Signup {
+  padding: 5rem 10% 3rem;
+  background-color: rgba($color: $bg-authContainer, $alpha: 0.8);
+  box-shadow: 0 0 12rem -1rem rgba($color: $bg-authContainer-shadow, $alpha:
+        0.25);
+  animation: fade-ttb 1s cubic-bezier(0.28, 0.84, 0.42, 1);
+
+  @include screen(md) {
+    padding: 5rem 24% 3rem;
+  }
+
+  @include screen(lg) {
+    width: 100%;
+    padding: 0 10%;
+
+    box-shadow: none;
+    z-index: z('AuthSignin');
+  }
+
+  @include screen(xl) {
+    width: 80%;
+  }
+  &__Title {
+    text-align: center;
+
+    h1 {
+      @include font-size($fs-authTitle);
+      color: $txt-authTitle;
+      font-weight: 700;
+
+      margin-bottom: 2rem;
+    }
+  }
+
+  :global(.ant-input-prefix) {
+    @include font-size($fs-authPrefixIcon);
+    margin-right: 0.8rem;
+  }
+
+  :global(.ant-form-item-control-input) :global(.ant-input-affix-wrapper) {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+
+    color: $txt-authField-placeholder;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    input {
+      @include font-size($fs-authInputField);
+      color: $txt-authField-placeholder;
+
+      background-color: transparent;
+    }
+  }
+
+  &__SubmitBtn:global(.ant-btn) {
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: $bg-authField-active;
+    height: auto;
+    border: none;
+    border-radius: 0.4rem;
+    padding: 1rem 2rem;
+
+    @include font-size($fs-authControl, 9);
+    font-weight: 500;
+    color: $txt-authSubmitBtn;
+
+    @include screen(lg) {
+      width: 100%;
+    }
+
+    @include screen(xl) {
+      margin-top: 2rem;
+    }
+
+    &:hover,
+    &:focus {
+      color: $txt-authSubmitBtn;
+      background-color: $bg-authField-active;
+
+      @include screen(lg) {
+        background-color: $bg-authField-active--hover;
+      }
+    }
+  }
+
+  &__ToSignin {
+    margin-top: clamp(3.2rem, 12%, 32%);
+
+    @include font-size($fs-authControl, 9);
+    text-align: center;
+    color: $txt-authToSignup;
+
+    a {
+      color: $txt-authToSignup-link;
+      font-weight: 700;
+    }
+  }
+}

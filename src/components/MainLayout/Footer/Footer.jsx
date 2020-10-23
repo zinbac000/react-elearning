@@ -6,13 +6,14 @@ import { GlobalOutlined } from '@ant-design/icons';
 import Logo from 'components/UI/Logo/Logo';
 import logo from 'assets/img/logo.svg';
 import SubcribeForm from './SubcribeForm/SubcribeForm';
+import { ON_DESKTOP_MD } from 'config/setting';
 
 const Footer = () => {
   const { Option } = Select;
   const handleChange = (value) => console.log(`selected ${value}`);
 
   return (
-    <div className={classes.Footer}>
+    <footer className={classes.Footer}>
       <div className={classes.Footer__Top}>
         <div className={classes.Footer__Language}>
           <GlobalOutlined />
@@ -43,7 +44,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className={[classes.Footer__Form, 'onDesktop-md'].join(' ')}>
+      <div className={[classes.Footer__Form, ON_DESKTOP_MD].join(' ')}>
         <p className={classes.Footer__Title}>Subscribe to our newsletter</p>
         <SubcribeForm />
       </div>
@@ -52,7 +53,7 @@ const Footer = () => {
         <Logo logo={logo} />
         <span>© 2020 Knowcode, Inc.</span>
       </div>
-    </div>
+    </footer>
   );
 };
 

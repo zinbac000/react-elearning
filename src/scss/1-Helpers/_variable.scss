@@ -44,8 +44,8 @@ $bgColors: (
   'button-secondary': c('havelock-blue'),
   'button-secondary--hover': c('mariner'),
   // --------------------------------------
-  'button-valid': c('chareau-green'),
-  'button-valid--hover': c('silver-tree'),
+  'valid': c('chateau-green'),
+  'valid-hover': c('silver-tree'),
   // --------------------------------------
 );
 
@@ -55,12 +55,15 @@ $txtColors: (
   'primary': c('amber'),
   'primary-light': c('champagne'),
   // --------------------------------------
+  'secondary-light': c('havelock-blue'),
   'secondary': c('pickled-bluewood'),
   'secondary-dark': c('dove-gray'),
+  'secondary-darker': c('rolling-stone'),
   // --------------------------------------
   'button': c('tundora'),
   'link': c('iron'),
   'placeholder': c('dusty-gray'),
+  'valid': c('chateau-green'),
   // --------------------------------------
   'white': c('white'),
   'black': c('black')
@@ -108,16 +111,7 @@ $breakpoints: (
 
 //---------Z-Indexes---------
 
-$z-indexes: (
-  'example',
-  'example',
-  'example',
-  'example',
-  'example',
-  'example',
-  'example',
-  'example'
-);
+$z-indexes: ('AuthLeftCover', 'AuthSignup', 'AuthSignin');
 
 //---------------------------
 $line-height-base: 1.4;

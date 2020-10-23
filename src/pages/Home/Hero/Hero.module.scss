@@ -71,8 +71,8 @@
     border-radius: 0.4rem;
 
     @include font-size($fs-heroButton, 9);
-    line-height: 1.2;
     color: $txt-heroBtn;
+    line-height: 1.2;
     font-weight: 700;
 
     @include screen(lg) {
@@ -83,7 +83,7 @@
     &:hover,
     &:focus,
     &:visited {
-      color: inherit;
+      color: $txt-heroBtn;
     }
   }
 }

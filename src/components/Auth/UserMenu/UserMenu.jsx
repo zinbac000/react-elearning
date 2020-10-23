@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { Drawer } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
@@ -11,7 +11,7 @@ const UserMenu = ({ handleLogout }) => {
   const [drawer, setDrawerOn, setDrawerOff] = useToggle(false);
 
   return (
-    <div className={classes.UserMenu}>
+    <Fragment>
       <img
         className={classes.UserMenu__Avatar}
         src="https://picsum.photos/64/64"
@@ -34,7 +34,7 @@ const UserMenu = ({ handleLogout }) => {
       >
         <UserMenuBody handleLogout={handleLogout} onClose={setDrawerOff} />
       </Drawer>
-    </div>
+    </Fragment>
   );
 };
 export default UserMenu;
