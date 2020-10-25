@@ -56,6 +56,10 @@
     }
   }
 
+  :global(.ant-btn) {
+    @include headerLink-hover(6);
+  }
+
   @include screen(lg) {
     justify-content: initial;
     height: 6.4rem;

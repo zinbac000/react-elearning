@@ -8,7 +8,7 @@ import {
   ProfileOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import classes from './Signup.module.scss';
+import classes from './auth.module.scss';
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
@@ -19,13 +19,12 @@ const Signup = () => {
   };
 
   return (
-    <div className={classes.Signup}>
-      <div className={classes.Signup__Title}>
+    <div className={[classes.Auth, classes.Auth__Signup].join(' ')}>
+      <div className={classes.Auth__Title}>
         <h1>Sign up</h1>
       </div>
       <Form form={form} name="signup" onFinish={onFinish} scrollToFirstError>
         <Form.Item
-          className={classes.Signin__Username}
           name="username"
           rules={[
             {
@@ -141,12 +140,12 @@ const Signup = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button htmlType="submit" className={classes.Signup__SubmitBtn}>
+          <Button htmlType="submit" className={classes.Auth__SubmitBtn}>
             SUBMIT
           </Button>
         </Form.Item>
       </Form>
-      <div className={classes.Signup__ToSignin}>
+      <div className={classes.Auth__Signup__ToSignin}>
         I already have an account. <Link to="/signin">SIGN IN</Link>
       </div>
     </div>

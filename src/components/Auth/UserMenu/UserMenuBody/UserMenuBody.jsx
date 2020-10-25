@@ -2,9 +2,10 @@
 import React, { Fragment } from 'react';
 import { List, Divider } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
+
 import classes from './UserMenuBody.module.scss';
 
-const UserMenuBody = ({ handleLogout, onClose }) => {
+const UserMenuBody = ({ handleSignout, onClose }) => {
   const userNavLink = [
     {
       header: 'Alert',
@@ -38,7 +39,7 @@ const UserMenuBody = ({ handleLogout, onClose }) => {
           dataSource={section.link}
           renderItem={(item) => (
             <a
-              onClick={handleLogout}
+              onClick={handleSignout}
               className={classes.UserMenuBody__Link}
               href="#"
             >

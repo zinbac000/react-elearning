@@ -2,12 +2,12 @@ import {
   FETCH_POPULAR_COURSE,
   FETCH_COURSE_BY_CATEGORIES,
 } from 'redux/types/CourseType';
-import { courseService } from 'services/CourseService';
+import { courseService } from 'services/course.service';
 
 export const fetchAllCourse = (currentPage, pageSize) => {
   return (dispatch) => {
     courseService
-      .fetchAllCourse(currentPage, pageSize)
+      .getAll(currentPage, pageSize)
       .then((res) => {
         dispatch({
           type: FETCH_POPULAR_COURSE,
@@ -21,7 +21,7 @@ export const fetchAllCourse = (currentPage, pageSize) => {
 export const fetchCourseByCategories = (courseType) => {
   return (dispatch) => {
     courseService
-      .fetchCourseByCategories(courseType)
+      .getCourseByCategories(courseType)
       .then((res) => {
         dispatch({
           type: FETCH_COURSE_BY_CATEGORIES,

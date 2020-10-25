@@ -7,7 +7,7 @@ import UserMenuBody from './UserMenuBody/UserMenuBody';
 import classes from './UserMenu.module.scss';
 import useToggle from 'Hook/useToggle';
 
-const UserMenu = ({ handleLogout }) => {
+const UserMenu = ({ handleSignout }) => {
   const [drawer, setDrawerOn, setDrawerOff] = useToggle(false);
 
   return (
@@ -32,7 +32,7 @@ const UserMenu = ({ handleLogout }) => {
         onClose={setDrawerOff}
         className={classes.UserMenu__Drawer}
       >
-        <UserMenuBody handleLogout={handleLogout} onClose={setDrawerOff} />
+        <UserMenuBody handleSignout={handleSignout} onClose={setDrawerOff} />
       </Drawer>
     </Fragment>
   );

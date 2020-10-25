@@ -2,7 +2,7 @@
 
 .AuthLayout {
   @include flexCenter();
-  @include size(100vw, 100vh);
+  @include size(100vw, calc(100vh - 5.6rem));
 
   overflow: hidden;
   background: url(../../assets/img/auth-m.jpg) no-repeat;
@@ -22,8 +22,9 @@
   }
 
   @include screen(lg) {
+    @include size(100vw, calc(100vh - 6.4rem));
     background: none;
-    background-color: rgba($color: $bg-authContainer, $alpha: 0.8);
+    background-color: $bg-authContainer;
 
     &__LeftCover {
       @include size(55%, 100%);

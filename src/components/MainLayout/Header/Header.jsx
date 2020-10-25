@@ -12,7 +12,7 @@ import AutoCompleteSearch from 'components/UI/AutoCompleteSearch/AutoCompleteSea
 import UserAuth from 'components/Auth/UserAuth/UserAuth';
 import useToggle from 'Hook/useToggle';
 import { ON_DESKTOP, ON_MOBILE } from 'config/setting';
-import { courseService } from 'services/CourseService';
+import { courseService } from 'services/course.service';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
@@ -26,7 +26,7 @@ const Header = () => {
   useEffect(() => {
     const categoriesMenu = () => {
       courseService
-        .fetchCategoriesList()
+        .getCategoriesList()
         .then((res) => {
           setCategories(res.data);
         })

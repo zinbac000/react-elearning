@@ -5,15 +5,13 @@ import Hero from './Hero/Hero';
 import Intro from './Intro/Intro';
 
 const Home = () => {
-  const allCourseList = useSelector(
-    (state) => state.CourseReducer.courseList.all,
-  );
-
+  const { popular } = useSelector((state) => state.course);
+  console.log(popular);
   return (
     <Fragment>
       <Hero />
       <Intro />
-      <Courses title="Popular Course" courseList={allCourseList} />
+      <Courses title="Popular Course" courseList={popular} />
     </Fragment>
   );
 };

@@ -1,0 +1,18 @@
+/* -------------------- VARIABLE -------------------- */
+/*________ Auth ________*/
+/*Background*/
+$bg-account: bc('white');
+
+/*Text colors*/
+$txt-accountUserAvatar: tc('white');
+
+/*Font size*/
+$fs-accountUserAvatar: (
+  base: fs('h2'),
+);
+
+$fs-accountUsername: (
+  base: fs('subtitle1'),
+);
+
+/* -------------------- END VARIABLE -------------------- */

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import classes from './Categories.module.scss';
 
 const Categories = () => {
-  const courseList = useSelector((state) => state.CourseReducer.courseList.all);
+  const { popular } = useSelector((state) => state.course);
   const carouselRef = useRef(null);
 
   const handleNext = () => (carouselRef ? carouselRef.current.next() : false);
@@ -61,7 +61,7 @@ const Categories = () => {
     <section>
       <div className={classes.Courses__Wrapper}>
         <Carousel {...settings} ref={carouselRef}>
-          {courseList?.map((course) => (
+          {popular?.map((course) => (
             <CourseItem key={course.maKhoaHoc} course={course} />
           ))}
         </Carousel>

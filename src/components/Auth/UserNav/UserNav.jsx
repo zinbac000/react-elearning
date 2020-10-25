@@ -4,7 +4,7 @@ import classes from './UserNav.module.scss';
 
 import { Menu, Dropdown } from 'antd';
 
-const UserNav = ({ handleLogout }) => {
+const UserNav = ({ handleSignout }) => {
   const userNavLink = [
     ['My course', 'My cart', 'Wishlist', 'Teach on Knowland'],
     [
@@ -23,7 +23,7 @@ const UserNav = ({ handleLogout }) => {
       <Menu.ItemGroup key={`gr-${index}`}>
         {section.map((item, index) => (
           <Menu.Item key={index}>
-            <a href="#" onClick={handleLogout}>
+            <a href="#" onClick={handleSignout}>
               {item}
             </a>
           </Menu.Item>

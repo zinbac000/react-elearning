@@ -1,9 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  fetchAllCourse,
-  fetchCourseByCategories,
-} from 'redux/actions/CourseAction';
+import { fetchAllCourse } from 'redux/actions/course.actions';
 
 import { Route } from 'react-router-dom';
 
@@ -16,6 +13,10 @@ export const MainLayout = ({ Component, ...rest }) => {
 
   useEffect(() => {
     dispatch(fetchAllCourse());
+  }, [dispatch]);
+
+  useEffect(() => {
+    document.body.removeAttribute('style'); //fix antd overflow hidden bug
   }, []);
 
   return (

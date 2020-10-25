@@ -98,7 +98,8 @@ $fs-footerTitle: (
   color: $txt-headerLink-hover;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     color: $txt-headerLink-hover;
   }
 

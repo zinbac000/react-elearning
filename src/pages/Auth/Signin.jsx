@@ -1,29 +1,37 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input } from 'antd';
 import React from 'react';
+import { Button, Checkbox, Form, Input } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+
 import { Link } from 'react-router-dom';
-import classes from './Signin.module.scss';
+
+import classes from './auth.module.scss';
+import { userActions } from 'redux/actions/user.actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Signin = () => {
+  const { loggingIn } = useSelector((state) => state.authentication);
+
+  const dispatch = useDispatch();
+
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    const { username, password, remember } = values;
+
+    dispatch(userActions.signin(username, password, remember));
   };
 
   return (
-    <section className={classes.Signin}>
-      <div className={classes.Signin__Title}>
+    <section className={[classes.Auth, classes.Auth__Signin].join(' ')}>
+      <div className={classes.Auth__Title}>
         <h1>Welcome</h1>
       </div>
       <Form
         name="sigin"
-        className={classes.Signin__Form}
         initialValues={{
           remember: true,
         }}
         onFinish={onFinish}
       >
         <Form.Item
-          className={classes.Signin__Username}
           name="username"
           rules={[
             {
@@ -36,7 +44,7 @@ const Signin = () => {
           <Input prefix={<UserOutlined />} placeholder="Username" />
         </Form.Item>
         <Form.Item
-          className={classes.Signin__Password}
+          className={classes.Auth__Password}
           name="password"
           rules={[
             {
@@ -53,7 +61,7 @@ const Signin = () => {
           />
         </Form.Item>
 
-        <Form.Item className={classes.Signin__FormControl}>
+        <Form.Item className={classes.Auth__Signin__FormControl}>
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
@@ -62,12 +70,16 @@ const Signin = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button htmlType="submit" className={classes.Signin__SubmitBtn}>
+          <Button
+            htmlType="submit"
+            className={classes.Auth__SubmitBtn}
+            loading={loggingIn}
+          >
             SIGN IN
           </Button>
         </Form.Item>
       </Form>
-      <div className={classes.Signin__ToSignup}>
+      <div className={classes.Auth__Signin__ToSignup}>
         Don't have an account? <Link to="/signup">SIGN UP</Link>
       </div>
     </section>

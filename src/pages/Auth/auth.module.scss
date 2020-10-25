@@ -1,11 +1,10 @@
 @import 'src/scss/main';
 
-.Signin {
+.Auth {
   padding: 5rem 10% 3rem;
   background-color: rgba($color: $bg-authContainer, $alpha: 0.8);
   box-shadow: 0 0 12rem -1rem rgba($color: $bg-authContainer-shadow, $alpha:
         0.25);
-  animation: fade-ltr 0.8s cubic-bezier(0.28, 0.84, 0.42, 1);
 
   @include screen(md) {
     padding: 5rem 24% 3rem;
@@ -16,7 +15,7 @@
     padding: 0 10%;
 
     box-shadow: none;
-    z-index: z('AuthSignin');
+    z-index: z('AuthForm');
   }
 
   @include screen(xl) {
@@ -70,39 +69,6 @@
     }
   }
 
-  &__Password:global(.ant-form-item) {
-    margin: 0;
-
-    @include screen(lg) {
-      margin-bottom: 1rem;
-    }
-  }
-
-  &__FormControl {
-    :global(.ant-form-item-control-input-content) {
-      @include flexbox(center, space-between);
-      span,
-      a {
-        color: $txt-authField-placeholder;
-        @include font-size($fs-authControl);
-      }
-
-      :global(.ant-checkbox-input) {
-        @include size(0.8rem);
-      }
-      :global(.ant-checkbox-checked) :global(.ant-checkbox-inner) {
-        border-color: $bg-authField-active;
-        background-color: $bg-authField-active;
-
-        @include screen(lg) {
-          &::after {
-            left: 20%;
-          }
-        }
-      }
-    }
-  }
-
   &__SubmitBtn:global(.ant-btn) {
     left: 50%;
     transform: translateX(-50%);
@@ -136,24 +102,78 @@
     }
   }
 
-  &__ToSignup {
-    margin-top: 3.2rem;
+  &__Signin {
+    animation: fade-ltr 0.8s cubic-bezier(0.28, 0.84, 0.42, 1);
 
-    @include font-size($fs-authControl, 9);
-    text-align: center;
-    color: $txt-authToSignup;
+    &__Password:global(.ant-form-item) {
+      margin: 0;
 
-    @include screen(lg) {
-      margin-top: 60%;
+      @include screen(lg) {
+        margin-bottom: 1rem;
+      }
     }
 
-    @include screen(xl) {
-      margin-top: 50%;
+    &__FormControl {
+      :global(.ant-form-item-control-input-content) {
+        @include flexbox(center, space-between);
+        span,
+        a {
+          color: $txt-authField-placeholder;
+          @include font-size($fs-authControl);
+        }
+
+        :global(.ant-checkbox-input) {
+          @include size(0.8rem);
+        }
+        :global(.ant-checkbox-checked) :global(.ant-checkbox-inner) {
+          border-color: $bg-authField-active;
+          background-color: $bg-authField-active;
+
+          @include screen(lg) {
+            &::after {
+              left: 20%;
+            }
+          }
+        }
+      }
     }
 
-    a {
-      color: $txt-authToSignup-link;
-      font-weight: 700;
+    &__ToSignup {
+      margin-top: 3.2rem;
+
+      @include font-size($fs-authControl, 9);
+      text-align: center;
+      color: $txt-authToSignup;
+
+      @include screen(lg) {
+        margin-top: 60%;
+      }
+
+      @include screen(xl) {
+        margin-top: 50%;
+      }
+
+      a {
+        color: $txt-authToSignup-link;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__Signup {
+    animation: fade-ttb 1s cubic-bezier(0.28, 0.84, 0.42, 1);
+
+    &__ToSignin {
+      margin-top: clamp(3.2rem, 12%, 32%);
+
+      @include font-size($fs-authControl, 9);
+      text-align: center;
+      color: $txt-authToSignup;
+
+      a {
+        color: $txt-authToSignup-link;
+        font-weight: 700;
+      }
     }
   }
 }
