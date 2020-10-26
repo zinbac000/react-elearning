@@ -9,13 +9,16 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import classes from './auth.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'redux/actions/user.actions';
 
 const Signup = () => {
-  const [form] = Form.useForm();
+  let history = useHistory();
+  const dispatch = useDispatch();
 
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    dispatch(userActions.signup(values, history));
   };
 
   return (
@@ -23,7 +26,7 @@ const Signup = () => {
       <div className={classes.Auth__Title}>
         <h1>Sign up</h1>
       </div>
-      <Form form={form} name="signup" onFinish={onFinish} scrollToFirstError>
+      <Form name="signup" onFinish={onFinish} scrollToFirstError>
         <Form.Item
           name="username"
           rules={[
@@ -128,6 +131,7 @@ const Signup = () => {
 
         <Form.Item
           name="groupid"
+          initialValue="GP08"
           rules={[
             {
               required: true,
@@ -136,7 +140,7 @@ const Signup = () => {
           ]}
           hasFeedback
         >
-          <Input prefix={<IdcardOutlined />} placeholder="Group ID" />
+          <Input disabled prefix={<IdcardOutlined />} placeholder="Group ID" />
         </Form.Item>
 
         <Form.Item>

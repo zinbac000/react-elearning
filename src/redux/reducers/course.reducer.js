@@ -3,7 +3,7 @@ import {
   FETCH_COURSE_BY_CATEGORIES,
 } from 'redux/types/CourseType';
 
-export const course = (state = {}, { type, payload }) => {
+export const courseReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case FETCH_POPULAR_COURSE: {
       return {

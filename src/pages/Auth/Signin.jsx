@@ -9,14 +9,12 @@ import { userActions } from 'redux/actions/user.actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Signin = () => {
-  const { loggingIn } = useSelector((state) => state.authentication);
+  const { loggingIn } = useSelector((state) => state.authenticationReducer);
 
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
-    const { username, password, remember } = values;
-
-    dispatch(userActions.signin(username, password, remember));
+    dispatch(userActions.signin(values));
   };
 
   return (

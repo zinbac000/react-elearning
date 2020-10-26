@@ -1,11 +1,9 @@
 import { alertConstants } from 'config/constants/alert.constants';
 
-const success = (message) => ({ type: alertConstants.SUCCESS, message });
-const error = (message) => ({ type: alertConstants.ERROR, message });
-const clear = () => ({ type: alertConstants.CLEAR });
+class AlertActions {
+  success = (message) => ({ type: alertConstants.SUCCESS, message });
+  error = (message) => ({ type: alertConstants.ERROR, message });
+  clear = () => ({ type: alertConstants.CLEAR });
+}
 
-export const alertActions = {
-  success,
-  error,
-  clear,
-};
+export const alertActions = new AlertActions();

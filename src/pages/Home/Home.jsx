@@ -5,8 +5,8 @@ import Hero from './Hero/Hero';
 import Intro from './Intro/Intro';
 
 const Home = () => {
-  const { popular } = useSelector((state) => state.course);
-  console.log(popular);
+  const { popular } = useSelector((state) => state.courseReducer);
+
   return (
     <Fragment>
       <Hero />

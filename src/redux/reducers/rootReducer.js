@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
-import { course } from './course.reducer';
-import { alert } from './alert.reducer';
-import { authentication } from './authentication.reducer';
-import { registration } from './registration.reducer';
-import { users } from './users.reducer';
+import { courseReducer } from './course.reducer';
+import { alertReducer } from './alert.reducer';
+import { authenticationReducer } from './authentication.reducer';
+import { registrationReducer } from './registration.reducer';
+import { usersReducer } from './users.reducer';
 
 export const rootReducer = combineReducers({
-  course,
-  alert,
-  authentication,
-  registration,
-  users,
+  courseReducer,
+  alertReducer,
+  authenticationReducer,
+  registrationReducer,
+  usersReducer,
 });

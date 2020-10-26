@@ -1,6 +1,6 @@
 import { userConstants } from 'config/constants/user.constants';
 
-export const registration = (state = {}, action) => {
+export const registrationReducer = (state = {}, action) => {
   switch (action.type) {
     case userConstants.REGISTER_REQUEST:
       return { registering: true };

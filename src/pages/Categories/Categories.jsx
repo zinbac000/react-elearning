@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import classes from './Categories.module.scss';
 
 const Categories = () => {
-  const { popular } = useSelector((state) => state.course);
+  const { popular } = useSelector((state) => state.courseReducer);
   const carouselRef = useRef(null);
 
   const handleNext = () => (carouselRef ? carouselRef.current.next() : false);

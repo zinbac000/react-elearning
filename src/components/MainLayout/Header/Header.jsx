@@ -58,7 +58,7 @@ const Header = () => {
         push={0}
         className="sideMenu"
       >
-        <UserAuth screenCls={ON_MOBILE} />
+        <UserAuth setDrawerOff={setDrawerOff} screenCls={ON_MOBILE} />
       </Drawer>
 
       <div className={classes.Header__Logo}>

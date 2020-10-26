@@ -8,8 +8,8 @@ import { ON_DESKTOP } from 'config/setting';
 import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from 'redux/actions/user.actions';
 
-const UserAuth = ({ screenCls }) => {
-  const { loggedIn } = useSelector((state) => state.authentication);
+const UserAuth = ({ setDrawerOff, screenCls }) => {
+  const { loggedIn } = useSelector((state) => state.authenticationReducer);
   const dispatch = useDispatch();
 
   const handleSignout = (e) => {
@@ -26,10 +26,18 @@ const UserAuth = ({ screenCls }) => {
       )
     ) : (
       <Fragment>
-        <Link to="/signin" className={classes.UserAuth__Signin}>
+        <Link
+          to="/signin"
+          className={classes.UserAuth__Signin}
+          onClick={setDrawerOff}
+        >
           Signin
         </Link>
-        <Link to="/signup" className={classes.UserAuth__Signup}>
+        <Link
+          to="/signup"
+          className={classes.UserAuth__Signup}
+          onClick={setDrawerOff}
+        >
           Signup
         </Link>
       </Fragment>
