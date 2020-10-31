@@ -2,10 +2,6 @@
 @import './scss/2-Base/reset';
 @import './scss/2-Base/antd-custom';
 
-h1 {
-  color: get('light');
-}
-
 .onDesktop,
 .onDesktop-md {
   display: none;

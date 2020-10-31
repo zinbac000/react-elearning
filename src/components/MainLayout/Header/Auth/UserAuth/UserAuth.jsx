@@ -27,14 +27,14 @@ const UserAuth = ({ setDrawerOff, screenCls }) => {
     ) : (
       <Fragment>
         <Link
-          to="/signin"
+          to="/auth/signin"
           className={classes.UserAuth__Signin}
           onClick={setDrawerOff}
         >
           Signin
         </Link>
         <Link
-          to="/signup"
+          to="/auth/signup"
           className={classes.UserAuth__Signup}
           onClick={setDrawerOff}
         >

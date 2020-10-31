@@ -37,6 +37,7 @@ $bgColors: (
   // --------------------------------------
   'white': c('white'),
   'black': c('black'),
+  'champagne': c('champagne'),
   // --------------------------------------
   'button-primary': c('amber'),
   'button-primary--hover': c('bright-sun'),
@@ -75,6 +76,7 @@ $txt-placeholder: tc('placeholder');
 //--------- FONT SIZE ---------
 $fnSizes: (
   'h1': 5.6rem,
+  'form-title': 3.6rem,
   'h2': 2.7rem,
   'h3': 2.4rem,
   'h4': 2rem,
@@ -111,7 +113,14 @@ $breakpoints: (
 
 //---------Z-Indexes---------
 
-$z-indexes: ('AuthLeftCover', 'AuthForm');
+$z-indexes: (
+  'AuthLogo',
+  'AuthPanel',
+  'AuthBall',
+  'AuthForm',
+  'AuthSignin',
+  'AuthLeftCover',
+  'AuthForm'
+);
 
 //---------------------------
-$line-height-base: 1.4;

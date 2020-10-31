@@ -1,0 +1,268 @@
+@import 'src/scss/main';
+
+.Anim-appear {
+  opacity: 0.01;
+}
+
+.Anim-appear.Anim-appear-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.Auth {
+  @include relative();
+
+  @include size(100%, 100vh);
+  min-height: 80rem;
+  padding: 1.5rem;
+
+  transition: min-height 0.8s ease-in-out;
+  background-color: $bg-authContainer;
+  overflow: hidden;
+
+  @include screen(lg) {
+    min-height: initial;
+  }
+
+  &::before {
+    content: '';
+    @include absolute(bottom 75% left 50%, $transX: -50%);
+    @include size(150rem);
+
+    background-image: linear-gradient(
+      -45deg,
+      $bg-authBall-l 0%,
+      $bg-authBall-r 100%
+    );
+    border-radius: 50%;
+
+    z-index: z('AuthBall');
+    transition: 1.2s ease-in-out;
+
+    @include screen(md) {
+      bottom: 70%;
+      left: 32%;
+    }
+
+    @include screen(lg) {
+      @include size(200rem);
+
+      top: -10%;
+      right: 48%;
+      bottom: initial;
+      left: initial;
+      transform: translate(0%, -50%);
+    }
+  }
+
+  &__Logo {
+    position: absolute;
+    z-index: z('AuthLogo');
+
+    filter: drop-shadow(0.2rem 0.4rem 0.6rem rgba(#303956, 1));
+  }
+
+  &__Wrapper {
+    @include absolute(top 0 left 0);
+    @include size(100%);
+  }
+
+  &__Form {
+    @include absolute(top 105% left 50%, $transX: -50%, $transY: -100%);
+    width: 100%;
+    transition: 1s 0.7s ease-in-out;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    z-index: z('AuthForm');
+
+    @include screen(lg) {
+      @include absolute(top 50% left 75%, $transX: -50%, $transY: -50%);
+    }
+  }
+
+  &__PanelsContainer {
+    @include absolute(top 0 left 0);
+    @include size(100%);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+
+    @include screen(lg) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: initial;
+    }
+  }
+
+  &__Panel {
+    @include flexbox(center, space-around);
+    padding: 4rem 8%;
+
+    grid-column: 1 / 2;
+
+    text-align: center;
+    z-index: z('AuthPanel');
+
+    @include screen(lg) {
+      flex-direction: column;
+      grid-column: initial;
+    }
+
+    h3 {
+      @include font-size($fs-authPanelTitle);
+      line-height: 1;
+      font-weight: 700;
+      color: inherit;
+
+      margin: 0;
+    }
+
+    p {
+      @include font-size($fs-authPanelQuote);
+
+      margin: 0.8rem 0;
+    }
+
+    &Btn {
+      @include size(11rem, 3.5rem);
+      border-radius: 3.5rem;
+
+      border: 0.2rem solid $bg-authPanelBtn;
+      outline: none;
+      background: none;
+
+      @include font-size($fs-authPanelBtn);
+      font-weight: 700;
+      text-transform: uppercase;
+
+      cursor: pointer;
+      transition: 0.5s;
+
+      @include screen(lg) {
+        @include size(13rem, 4.1rem);
+      }
+    }
+
+    &Left {
+      grid-row: 1 / 2;
+      pointer-events: all;
+
+      @include screen(lg) {
+        padding: 4.8rem 17% 3.2rem 12%;
+        grid-row: initial;
+      }
+    }
+
+    &Right {
+      grid-row: 3 / 4;
+      pointer-events: none;
+
+      .Auth__PanelContent,
+      img {
+        transform: translateY(30rem);
+
+        @include screen(lg) {
+          transform: translateX(100rem);
+        }
+      }
+
+      @include screen(lg) {
+        grid-row: initial;
+      }
+    }
+
+    img {
+      display: none;
+
+      @include screen(md) {
+        display: initial;
+        width: 20rem;
+        transition: transform 0.9s ease-in-out;
+        transition-delay: 0.6s;
+      }
+
+      @include screen(lg) {
+        width: 100%;
+      }
+    }
+
+    &Content {
+      padding: 0.8rem 1.6rem;
+      color: tc('secondary');
+      transition: transform 0.9s ease-in-out;
+      transition-delay: 0.8s;
+
+      @include screen(md) {
+        padding: 0;
+        padding-right: 15%;
+      }
+
+      @include screen(lg) {
+        padding: 0;
+      }
+    }
+  }
+
+  &__SignupMode {
+    min-height: 95rem;
+
+    @include screen(lg) {
+      min-height: initial;
+    }
+
+    &::before {
+      transform: translate(-50%, 100%);
+      bottom: 22%;
+      left: 50%;
+
+      @include screen(md) {
+        left: 32%;
+        bottom: 24%;
+      }
+
+      @include screen(lg) {
+        transform: translate(100%, -50%);
+        right: 52%;
+
+        left: initial;
+        bottom: initial;
+      }
+    }
+
+    .Auth__Form {
+      top: 6%;
+      transform: translate(-50%, 0);
+
+      @include screen(lg) {
+        top: 10%;
+        left: 25%;
+      }
+    }
+
+    .Auth__PanelRight {
+      pointer-events: all;
+
+      .Auth__PanelContent,
+      img {
+        transform: translateY(0);
+
+        @include screen(lg) {
+          transform: translateX(0);
+        }
+      }
+    }
+
+    .Auth__PanelLeft {
+      pointer-events: none;
+
+      .Auth__PanelContent,
+      img {
+        transform: translateY(-30rem);
+        @include screen(lg) {
+          transform: translateX(-100rem);
+        }
+      }
+    }
+  }
+}

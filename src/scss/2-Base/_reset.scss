@@ -12,7 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  line-height: $line-height-base;
+  line-height: 1.4;
   scroll-behavior: smooth;
 }
 
@@ -21,14 +21,12 @@ a {
   color: $txt-headerLink;
 }
 
-@include screen(lg) {
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
-  select:-webkit-autofill,
-  select:-webkit-autofill:hover,
-  select:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px #f5f7fa inset !important;
-  }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px $bg-authInputField inset !important;
 }

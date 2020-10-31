@@ -36,13 +36,13 @@ class UserService {
     );
   };
 
-  signup = (username, password, fullname, phone, groupid, email) => {
+  signup = (username, password, fullname, phone, email) => {
     const requestData = {
       taiKhoan: username,
       matKhau: password,
       hoTen: fullname,
       soDT: phone,
-      maNhom: groupid,
+      maNhom: courseConstants.GROUP_ID,
       email,
     };
 

@@ -1,0 +1,174 @@
+@import 'src/scss/main';
+
+.Form {
+  &:global(.ant-form) {
+    @include flexbox(center, center, column);
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    overflow: hidden;
+
+    padding: 0 2.4rem;
+
+    transition: all 0.2s 0.7s;
+  }
+
+  &__Signin {
+    opacity: 1;
+    z-index: z('AuthSignin');
+
+    &__FormControl:global(.ant-form-item) {
+      max-width: 38rem;
+      width: 100%;
+      margin-bottom: 0;
+
+      :global(.ant-form-item-control-input-content) {
+        @include flexbox(center, space-between);
+      }
+
+      :global(.ant-checkbox-inner) {
+        border-color: $bg-authPanelBtn;
+      }
+
+      :global(.ant-checkbox-wrapper):hover,
+      :global(.ant-checkbox-input):focus {
+        :global(.ant-checkbox-inner) {
+          border-color: $bg-authPanelBtn;
+        }
+      }
+
+      :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-checked):hover,
+      :global(.ant-checkbox-input):focus {
+        :global(.ant-checkbox-inner) {
+          border-color: $bg-authFormControl;
+        }
+      }
+
+      :global(.ant-checkbox-checked) {
+        &:hover,
+        &::after {
+          border-color: $bg-authFormControl;
+        }
+        :global(.ant-checkbox-inner) {
+          border-color: $bg-authFormControl;
+          background-color: $bg-authFormControl;
+        }
+      }
+    }
+  }
+
+  &__Hide {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  &__Show {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  &__Title:global(.ant-form-item) {
+    @include screen(lg) {
+      margin-bottom: 1rem;
+    }
+    h1 {
+      @include font-size($fs-authTitle);
+      color: $txt-authTitle;
+      font-weight: 700;
+
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__InputField {
+    max-width: 38rem;
+    width: 100%;
+
+    :global(.ant-form-item-control-input) {
+      border-radius: 5.5rem;
+      height: 5.5rem;
+      background-color: $bg-authInputField;
+
+      :global(.ant-input-affix-wrapper) {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+
+        padding: 0;
+
+        &:hover,
+        input {
+          background-color: transparent;
+        }
+
+        input {
+          @include font-size($fs-authInputField);
+
+          width: 80%;
+        }
+
+        :global(.ant-input-prefix) {
+          @include font-size($fs-authPrefixIcon);
+          margin: 0 1.6rem;
+        }
+      }
+    }
+
+    :global(.ant-form-item-explain) {
+      padding-left: 2.5rem;
+    }
+  }
+
+  &__SubmitBtn:global(.ant-btn) {
+    @include size(15rem, 4.9rem);
+    border-radius: 4.9rem;
+    margin: 1rem 0;
+
+    border: none;
+    outline: none;
+    background-color: $bg-authSubmitBtn;
+
+    color: $txt-authSubmitBtn;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover,
+    &:focus {
+      color: $txt-authSubmitBtn;
+      background-color: $bg-authSubmitBtn-hover;
+    }
+  }
+
+  &__SocialText {
+    @include font-size($fs-authSocialText, 2);
+    text-align: center;
+    font-weight: 500;
+
+    margin-bottom: 1rem;
+  }
+
+  &__SocialMedia {
+    @include flexCenter();
+  }
+
+  &__SocialIcon {
+    @include size(4.6rem);
+    @include flexCenter();
+    margin: 0 0.8rem;
+    border-radius: 24%;
+    border: 0.1rem solid $bg-authSocialIcon;
+
+    @include font-size($fs-authSocialIcon);
+    color: $txt-authSocialIcon;
+    text-decoration: none;
+
+    transition: 0.3s;
+
+    &:hover {
+      color: $txt-authSocialIcon-hover;
+      border-color: $bg-authSocialIcon-hover;
+    }
+  }
+}

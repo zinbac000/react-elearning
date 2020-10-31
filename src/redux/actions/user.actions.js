@@ -28,10 +28,7 @@ class UserAction {
     return { type: userConstants.SIGNOUT };
   };
 
-  signup = (
-    { username, password, fullname, phone, groupid, email },
-    history,
-  ) => {
+  signup = ({ username, password, fullname, phone, email }, handleToSignin) => {
     const request = (user) => {
       return { type: userConstants.SIGNUP_REQUEST, user };
     };
@@ -41,16 +38,16 @@ class UserAction {
     const failure = (error) => {
       return { type: userConstants.SIGNUP_FAILURE, error };
     };
+
     return (dispatch) => {
       dispatch(request(username));
 
       userService
-        .signup(username, password, fullname, phone, groupid, email)
+        .signup(username, password, fullname, phone, email)
         .then((user) => {
-          console.log('user', user);
           dispatch(success(user));
-          history.push('/signin');
           dispatch(alertActions.success('Registration successful'));
+          handleToSignin();
         })
         .catch((error) => {
           dispatch(failure(error.response.data));

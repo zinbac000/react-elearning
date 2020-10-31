@@ -16,8 +16,9 @@ const UserMenu = ({ handleSignout }) => {
         className={classes.UserMenu__Avatar}
         src="https://picsum.photos/64/64"
         alt="avatar"
+        onClick={setDrawerOn}
       />
-      <div className={classes.UserMenu__Welcome}>
+      <div className={classes.UserMenu__Welcome} onClick={setDrawerOn}>
         <p>Hi, Man</p>
         <span>Welcome back</span>
       </div>

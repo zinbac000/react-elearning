@@ -9,7 +9,7 @@ import DrawerToggler from './DrawerToggler/DrawerToggler';
 import Logo from 'components/UI/Logo/Logo';
 import logo from 'assets/img/logo.svg';
 import AutoCompleteSearch from 'components/UI/AutoCompleteSearch/AutoCompleteSearch';
-import UserAuth from 'components/Auth/UserAuth/UserAuth';
+import UserAuth from 'components/MainLayout/Header/Auth/UserAuth/UserAuth';
 import useToggle from 'Hook/useToggle';
 import { ON_DESKTOP, ON_MOBILE } from 'config/setting';
 import { courseService } from 'services/course.service';

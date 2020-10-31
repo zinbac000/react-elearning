@@ -1,24 +1,42 @@
 /* -------------------- VARIABLE -------------------- */
 /*________ Auth ________*/
 /*Background*/
-$bg-authContainer: bc('secondary');
+$bg-authContainer: bc('white');
 $bg-authContainer-shadow: bc('black');
+
+$bg-authInputField: bc('secondary-light');
 $bg-authField-valid: bc('valid');
 $bg-authField-active: bc('button-secondary');
 $bg-authField-active--hover: bc('button-secondary--hover');
 
+$bg-authFormControl: bc('button-primary');
+
+$bg-authBall-l: bc('button-primary');
+$bg-authBall-r: bc('champagne');
+
+$bg-authSubmitBtn: bc('button-primary');
+$bg-authSubmitBtn-hover: bc('button-primary--hover');
+$bg-authPanelBtn: bc('primary');
+
+$bg-authSocialIcon: bc('secondary-dark');
+$bg-authSocialIcon-hover: bc('button-primary');
+
 /*Text colors*/
-$txt-authTitle: tc('secondary-darker');
+$txt-authTitle: tc('secondary-dark');
+
 $txt-authField-placeholder: tc('placeholder');
 $txt-authField-valid: tc('valid');
+
 $txt-authSubmitBtn: tc('white');
-$txt-authToSignup: tc('button');
+
+$txt-authSocialIcon: tc('button');
+$txt-authSocialIcon-hover: tc('primary');
+
 $txt-authToSignup-link: tc('secondary-light');
 
 /*Font size*/
 $fs-authTitle: (
-  base: fs('h4'),
-  lg: fs('h1'),
+  base: fs('form-title'),
 );
 
 $fs-authControl: (
@@ -27,40 +45,36 @@ $fs-authControl: (
 );
 
 $fs-authPrefixIcon: (
-  lg: fs('h5'),
+  base: fs('h5'),
 );
 
 $fs-authInputField: (
+  base: fs('h6'),
   lg: fs('h5'),
 );
 
-/*Keyframes*/
-@keyframes fade-ttb {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  70% {
-    opacity: 1;
-    transform: translateY(5%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
+$fs-authSocialText: (
+  base: fs('h5'),
+);
 
-@keyframes fade-ltr {
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  70% {
-    opacity: 1;
-    transform: translateX(-5%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
+$fs-authSocialIcon: (
+  base: fs('h4'),
+);
+
+$fs-authPanelTitle: (
+  base: fs('h4'),
+  lg: fs('h3'),
+);
+
+$fs-authPanelQuote: (
+  base: fs('body'),
+  lg: fs('title'),
+);
+
+$fs-authPanelBtn: (
+  base: fs('body2'),
+  lg: fs('subtitle2'),
+);
+/*Keyframes*/
 
 /* -------------------- END VARIABLE -------------------- */

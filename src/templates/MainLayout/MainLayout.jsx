@@ -15,7 +15,7 @@ export const MainLayout = ({ Component, ...rest }) => {
 
   useEffect(() => {
     dispatch(fetchAllCourse());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     document.body.removeAttribute('style'); //fix antd overflow hidden bug

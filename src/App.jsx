@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 
 import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
 
+import ReactCSSTransitionGroup from 'react-transition-group';
+
 import { useSelector } from 'react-redux';
 
 import { MainLayout } from 'templates/MainLayout/MainLayout';
@@ -12,8 +14,9 @@ import { Alert } from 'antd';
 import Home from 'pages/Home/Home';
 import Categories from 'pages/Categories/Categories';
 import Account from 'pages/Account/Account';
-import Signin from 'pages/Auth/Signin';
-import Signup from 'pages/Auth/Signup';
+import Auth from 'pages/Auth/Auth';
+
+import classes from './App.module.scss';
 
 const App = () => {
   const { message, type } = useSelector((state) => state.alertReducer);
@@ -32,10 +35,11 @@ const App = () => {
           {loggedIn ? (
             <Redirect to="/" />
           ) : (
-            <AuthLayout path="/signin" Component={Signin} />
+            <AuthLayout path="/auth/:modeParams" Component={Auth} />
           )}
 
-          <AuthLayout path="/signup" Component={Signup} />
+          <AuthLayout path="/auth/:modeParams" Component={Auth} />
+
           <Redirect from="*" to="/" />
         </Switch>
       </Router>
