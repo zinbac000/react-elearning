@@ -2,8 +2,6 @@ import React, { Fragment } from 'react';
 
 import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
 
-import ReactCSSTransitionGroup from 'react-transition-group';
-
 import { useSelector } from 'react-redux';
 
 import { MainLayout } from 'templates/MainLayout/MainLayout';
@@ -15,8 +13,6 @@ import Home from 'pages/Home/Home';
 import Categories from 'pages/Categories/Categories';
 import Account from 'pages/Account/Account';
 import Auth from 'pages/Auth/Auth';
-
-import classes from './App.module.scss';
 
 const App = () => {
   const { message, type } = useSelector((state) => state.alertReducer);
