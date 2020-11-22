@@ -1,12 +1,15 @@
 import React from 'react';
-import { Select } from 'antd';
 
-import classes from './Footer.module.scss';
-import { GlobalOutlined } from '@ant-design/icons';
-import Logo from 'components/UI/Logo/Logo';
-import logo from 'assets/img/logo.svg';
 import SubcribeForm from './SubcribeForm/SubcribeForm';
-import { ON_DESKTOP_MD } from 'config/setting';
+import Logo from 'components/UI/Logo/Logo';
+
+import logo from 'assets/img/logo.svg';
+
+import { ON_DESKTOP_MD } from 'core/config/setting';
+
+import { Select } from 'antd';
+import { GlobalOutlined } from '@ant-design/icons';
+import classes from './Footer.module.scss';
 
 const Footer = () => {
   const { Option } = Select;

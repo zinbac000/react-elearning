@@ -1,6 +1,6 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Carousel } from 'antd';
-import CourseItem from 'pages/Home/Courses/CourseItem/CourseItem';
+import CourseItem from 'pages/Home/Courses/components/CourseItem/CourseItem';
 import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import classes from './Categories.module.scss';

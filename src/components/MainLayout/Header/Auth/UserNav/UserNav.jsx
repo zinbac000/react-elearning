@@ -2,20 +2,82 @@
 import React from 'react';
 import classes from './UserNav.module.scss';
 
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown, Avatar } from 'antd';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const UserNav = ({ handleSignout }) => {
+  const { hoTen, email } = useSelector(
+    (rootReducer) => rootReducer.authenticationReducer.user,
+  );
   const userNavLink = [
-    ['My course', 'My cart', 'Wishlist', 'Teach on Knowland'],
     [
-      'Account settings',
-      'Payment methods',
-      'Knowcode credits',
-      'Purchase history',
+      {
+        path: '/user/my-courses',
+        label: 'My courses',
+      },
+      {
+        path: '/404',
+        label: 'My cart',
+      },
+      {
+        path: '/404',
+        label: 'Wishlist',
+      },
+      {
+        path: '/404',
+        label: 'Teach on Knowland',
+      },
     ],
-    ['Notifications', 'Messages'],
-    ['Public profile', 'Edit profile'],
-    ['Help', 'Logout'],
+    [
+      {
+        path: '/user/account',
+        label: 'Account settings',
+      },
+      {
+        path: '/404',
+        label: 'Payment methods',
+      },
+      {
+        path: '/404',
+        label: 'Knowcode credits',
+      },
+      {
+        path: '/404',
+        label: 'Purchase history',
+      },
+    ],
+    [
+      {
+        path: '/404',
+        label: 'Notifications',
+      },
+      {
+        path: '/404',
+        label: 'Messages',
+      },
+    ],
+    [
+      {
+        path: '/404',
+        label: 'Public profile',
+      },
+      {
+        path: '/404',
+        label: 'Edit profile',
+      },
+    ],
+    [
+      {
+        path: '/404',
+        label: 'Help',
+      },
+      {
+        path: '/',
+        label: 'Logout',
+        handleSignout,
+      },
+    ],
   ];
 
   const renderMenuItemGroup = userNavLink.map((section, index) => {
@@ -23,9 +85,9 @@ const UserNav = ({ handleSignout }) => {
       <Menu.ItemGroup key={`gr-${index}`}>
         {section.map((item, index) => (
           <Menu.Item key={index}>
-            <a href="#" onClick={handleSignout}>
-              {item}
-            </a>
+            <Link to={item.path} onClick={item.handleSignout}>
+              {item.label}
+            </Link>
           </Menu.Item>
         ))}
       </Menu.ItemGroup>
@@ -38,14 +100,14 @@ const UserNav = ({ handleSignout }) => {
         key={classes.UserNav__Wrapper}
         className={classes.UserNav__Wrapper}
       >
-        <img
-          className={classes.UserNav__Avatar}
-          src="https://picsum.photos/64/64"
-          alt="avatar"
-        />
+        <Avatar className={classes.UserNav__Avatar} size={56}>
+          K
+        </Avatar>
         <div>
-          <h4>Hi, User</h4>
-          <span>user-email@email.com</span>
+          <Link to="/user/account">
+            <h4>Hi, {hoTen}</h4>
+          </Link>
+          <span>{email}</span>
         </div>
       </Menu.Item>
       {renderMenuItemGroup}
@@ -61,11 +123,9 @@ const UserNav = ({ handleSignout }) => {
       }}
       placement="bottomRight"
     >
-      <img
-        className={classes.DropdownAvatar}
-        src="https://picsum.photos/200/200"
-        alt="avatar"
-      />
+      <Avatar className={classes.DropdownAvatar} size={38}>
+        K
+      </Avatar>
     </Dropdown>
   );
 };

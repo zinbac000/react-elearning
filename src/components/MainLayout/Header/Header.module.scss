@@ -56,7 +56,8 @@
     }
   }
 
-  :global(.ant-btn) {
+  & > :global(.ant-btn),
+  :global(.ant-btn-link) {
     @include headerLink-hover(6);
   }
 

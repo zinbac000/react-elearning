@@ -6,3 +6,11 @@
 [ant-click-animating-without-extra-node]:after {
   animation: 0s !important;
 }
+
+.ant-spin-nested-loading > div > .ant-spin {
+  max-height: unset;
+
+  .ant-spin-dot {
+    top: 35%;
+  }
+}

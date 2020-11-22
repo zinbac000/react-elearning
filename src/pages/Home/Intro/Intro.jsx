@@ -6,8 +6,7 @@ import {
 } from '@ant-design/icons';
 
 import classes from './Intro.module.scss';
-import IntroItem from './IntroItem/IntroItem';
-import { ON_MOBILE_MD } from 'config/setting';
+import IntroItem from './components/IntroItem/IntroItem';
 
 const Intro = () => {
   const itemContentList = [
@@ -37,7 +36,7 @@ const Intro = () => {
 
   return (
     <section className={classes.Intro}>
-      <p className={[classes.Intro__Title, ON_MOBILE_MD].join(' ')}>
+      <p className={[classes.Intro__Title, 'onMobile-md'].join(' ')}>
         Why learn on Knowcode?
       </p>
       {renderIntroItem()}

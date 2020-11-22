@@ -11,12 +11,16 @@ import { Alert } from 'antd';
 
 import Home from 'pages/Home/Home';
 import Categories from 'pages/Categories/Categories';
-import Account from 'pages/Account/Account';
+import User from 'pages/User/User';
 import Auth from 'pages/Auth/Auth';
 
 const App = () => {
-  const { message, type } = useSelector((state) => state.alertReducer);
-  const { loggedIn } = useSelector((state) => state.authenticationReducer);
+  const { message, type } = useSelector(
+    (rootReducer) => rootReducer.alertReducer,
+  );
+  const { loggedIn } = useSelector(
+    (rootReducer) => rootReducer.authenticationReducer,
+  );
 
   return (
     <Fragment>
@@ -26,15 +30,13 @@ const App = () => {
         <Switch>
           <MainLayout exact path="/" Component={Home} />
           <MainLayout path="/categories" Component={Categories} />
-          <MainLayout path="/account" Component={Account} />
+          <MainLayout path="/user" Component={User} />
 
           {loggedIn ? (
             <Redirect to="/" />
           ) : (
             <AuthLayout path="/auth/:modeParams" Component={Auth} />
           )}
-
-          <AuthLayout path="/auth/:modeParams" Component={Auth} />
 
           <Redirect from="*" to="/" />
         </Switch>

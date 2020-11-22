@@ -1,6 +1,6 @@
 /* ---------------- VARIABLE ---------------- */
-/*________BACKGROUND________*/
-/* Header */
+/*________ Header ________*/
+/*Background*/
 $bg-header: bc('primary');
 $bg-headerDrawerButton: bc('white');
 $bg-headerUserMenu: bc('primary-light');
@@ -10,15 +10,7 @@ $bg-headerSearchButton: bc('white');
 $bg-headerButton: bc('button-primary');
 $bg-headerButton-hover: bc('button-primary--hover');
 
-/* Footer */
-$bg-footer: bc('primary');
-$bg-footerLanguage: bc('white');
-$bg-footerDropdownSelected: bc('secondary-light');
-$bg-footerFormButton: bc('button-primary');
-$bg-footerFormButton-hover: bc('button-primary--hover');
-
-/*________TEXT-COLORS________*/
-/* Header */
+/*Text colors*/
 $txt-headerMenuLink: tc('secondary-dark');
 $txt-headerMenuLink-hover: tc('secondary');
 $txt-headerMenuIcon: tc('white');
@@ -27,20 +19,11 @@ $txt-headerLink: tc('link');
 $txt-headerLink-hover: tc('white');
 $txt-headerBtn: tc('button');
 $txt-headerDrawer: tc('primary-light');
+$txt-headerSearch: tc('placeholder');
 
-/* Footer */
-$txt-footerTitle: tc('white');
-$txt-footerLink: tc('link');
-$txt-footerLink-hover: tc('white');
-$txt-footerForm: tc('white');
-$txt-footerBtn: tc('button');
-$txt-footerLanguageDropdown: tc('secondary-dark');
-$txt-footerLanguageDropdown-selected: tc('button');
-
-/*________FONT-SIZES________*/
-/* Header */
+/*Font size*/
 $fs-headerIcon: (
-  base: fs('link-sm'),
+  base: fs('link'),
   lg: fs('icon'),
 );
 $fs-headerLink: (
@@ -60,15 +43,31 @@ $fs-headerUserMenuHeading: (
   base: fs('subtitle1'),
 );
 
-/* Footer */
+/*________ Footer ________*/
+/*Background*/
+$bg-footer: bc('primary');
+$bg-footerLanguage: bc('white');
+$bg-footerDropdownSelected: bc('secondary-light');
+$bg-footerFormButton: bc('button-primary');
+$bg-footerFormButton-hover: bc('button-primary--hover');
+
+/*Text colors*/
+$txt-footerTitle: tc('white');
+$txt-footerLink: tc('link');
+$txt-footerLink-hover: tc('white');
+$txt-footerForm: tc('white');
+$txt-footerBtn: tc('button');
+$txt-footerLanguage: tc('placeholder');
+$txt-footerLanguageDropdown: tc('secondary-dark');
+$txt-footerLanguageDropdown-selected: tc('button');
+
+/*Font size*/
 $fs-footerLink: (
-  base: fs('link-sm'),
-  md: fs('link'),
+  base: fs('subtitle1'),
   lg: fs('h6'),
 );
 $fs-footerFormField: (
-  base: fs('subtitle1'),
-  lg: fs('h6'),
+  base: fs('h6'),
 );
 $fs-footerFormControl: (
   base: fs('body'),

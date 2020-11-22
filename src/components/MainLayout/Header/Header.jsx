@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { courseService } from 'core/services/course.service';
+
 import { Link } from 'react-router-dom';
+
 import { Drawer, Button, Modal, Dropdown, Menu } from 'antd';
 import { SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
-import classes from './Header.module.scss';
-
+import UserAuth from 'components/MainLayout/Header/Auth/UserAuth/UserAuth';
+import AutoCompleteSearch from 'components/UI/AutoCompleteSearch/AutoCompleteSearch';
 import DrawerToggler from './DrawerToggler/DrawerToggler';
 import Logo from 'components/UI/Logo/Logo';
 import logo from 'assets/img/logo.svg';
-import AutoCompleteSearch from 'components/UI/AutoCompleteSearch/AutoCompleteSearch';
-import UserAuth from 'components/MainLayout/Header/Auth/UserAuth/UserAuth';
-import useToggle from 'Hook/useToggle';
-import { ON_DESKTOP, ON_MOBILE } from 'config/setting';
-import { courseService } from 'services/course.service';
-import { useState } from 'react';
-import { useEffect } from 'react';
+
+import classes from './Header.module.scss';
+import useToggle from 'CustomHook/useToggle';
 
 const dropDownOffset = [0, 12];
 
@@ -46,9 +46,20 @@ const Header = () => {
     </Menu>
   );
 
+  const categoriesList = (
+    <Menu>
+      {categories.map(({ tenDanhMuc }, index) => (
+        <Menu.Item key={index}>
+          <Link>{tenDanhMuc}</Link>
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
+
   return (
     <header className={classes.Header}>
       <DrawerToggler clicked={setDrawerOn} />
+
       <Drawer
         closable={false}
         onClose={setDrawerOff}
@@ -58,7 +69,7 @@ const Header = () => {
         push={0}
         className="sideMenu"
       >
-        <UserAuth setDrawerOff={setDrawerOff} screenCls={ON_MOBILE} />
+        <UserAuth setDrawerOff={setDrawerOff} screenCls={'onMobile'} />
       </Drawer>
 
       <div className={classes.Header__Logo}>
@@ -71,15 +82,15 @@ const Header = () => {
           offset: dropDownOffset,
         }}
         placement="bottomCenter"
-        overlay={menu}
+        overlay={categoriesList}
       >
-        <Button type="link" className={[classes.Header__Link, ON_DESKTOP]}>
+        <Button type="link" className="onDesktop">
           <Link to="/categories">Categories</Link>
         </Button>
       </Dropdown>
 
       <AutoCompleteSearch
-        screenCls={ON_DESKTOP}
+        screenCls="onDesktop"
         onFetch={async (value) => ['test', 'test1', 'test2']}
       />
 
@@ -92,21 +103,22 @@ const Header = () => {
           placement="bottomCenter"
           overlay={menu}
         >
-          <Button type="link" className={[classes.Header__Link, ON_DESKTOP]}>
+          <Button type="link" className={[classes.Header__Link, 'onDesktop']}>
             <Link to="/">My Course</Link>
           </Button>
         </Dropdown>
 
         <Button
-          className={ON_MOBILE}
+          className={'onMobile'}
           onClick={setSearchOn}
           type="link"
-          icon={<SearchOutlined className={classes.Header__IconLink} />}
+          icon={<SearchOutlined />}
         />
+
         <Button
-          className={ON_MOBILE}
+          className={'onMobile'}
           type="link"
-          icon={<ShoppingCartOutlined className={classes.Header__IconLink} />}
+          icon={<ShoppingCartOutlined />}
         />
 
         <Modal
@@ -117,7 +129,7 @@ const Header = () => {
           footer={null}
         >
           <AutoCompleteSearch
-            screenCls={ON_MOBILE}
+            screenCls={'onMobile'}
             width="100%"
             onSearch={(value) => {
               setSearchOff();
@@ -136,7 +148,7 @@ const Header = () => {
         >
           <Button
             type="link"
-            className={[classes.Header__IconLink, ON_DESKTOP]}
+            className={[classes.Header__IconLink, 'onDesktop']}
             icon={
               <Link to="/">
                 <ShoppingCartOutlined />
@@ -144,8 +156,9 @@ const Header = () => {
             }
           />
         </Dropdown>
-        <div className={ON_DESKTOP}>
-          <UserAuth screenCls={ON_DESKTOP} />
+
+        <div className="onDesktop">
+          <UserAuth screenCls="onDesktop" />
         </div>
       </div>
     </header>

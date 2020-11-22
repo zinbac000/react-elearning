@@ -16,7 +16,7 @@ import classes from './Form.module.scss';
 
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { userActions } from 'redux/actions/user.actions';
+import { userActions } from 'core/redux/actions/user.actions';
 
 const SignupForm = ({ mode, handleToSignin }) => {
   const dispatch = useDispatch();

@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
-import { rootReducer } from 'redux/reducers/rootReducer';
+
+import { rootReducer } from 'core/redux/reducers/rootReducer';
 
 import '../node_modules/antd/dist/antd.css';
 import './index.scss';

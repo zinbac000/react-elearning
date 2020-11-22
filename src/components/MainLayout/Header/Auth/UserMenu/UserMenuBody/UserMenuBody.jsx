@@ -26,6 +26,79 @@ const UserMenuBody = ({ handleSignout, onClose }) => {
     },
   ];
 
+  const userNavLink2 = [
+    {
+      header: 'Alert',
+      link: [
+        {
+          path: '/user/my-courses',
+          label: 'My courses',
+        },
+        {
+          path: '/404',
+          label: 'My cart',
+        },
+        {
+          path: '/404',
+          label: 'Wishlist',
+        },
+        {
+          path: '/404',
+          label: 'Teach on Knowland',
+        },
+      ],
+    },
+    [
+      {
+        path: '/user/account',
+        label: 'Account settings',
+      },
+      {
+        path: '/404',
+        label: 'Payment methods',
+      },
+      {
+        path: '/404',
+        label: 'Knowcode credits',
+      },
+      {
+        path: '/404',
+        label: 'Purchase history',
+      },
+    ],
+    [
+      {
+        path: '/404',
+        label: 'Notifications',
+      },
+      {
+        path: '/404',
+        label: 'Messages',
+      },
+    ],
+    [
+      {
+        path: '/404',
+        label: 'Public profile',
+      },
+      {
+        path: '/404',
+        label: 'Edit profile',
+      },
+    ],
+    [
+      {
+        path: '/404',
+        label: 'Help',
+      },
+      {
+        path: '/',
+        label: 'Logout',
+        handleSignout,
+      },
+    ],
+  ];
+
   const renderNavLink = () =>
     userNavLink.map((section, index) => (
       <Fragment key={index}>

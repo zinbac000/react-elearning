@@ -23,13 +23,20 @@
     width: 60%;
   }
 
+  :global(.ant-select) {
+    width: 100%;
+    @include screen(xl) {
+      width: 60%;
+    }
+  }
+
   :global(.ant-btn-primary) {
     @include size(5.6rem);
     background-color: $bg-headerSearchButton;
     padding: 0;
     border: none;
 
-    color: $txt-placeholder;
+    color: $txt-headerSearch;
 
     &:hover {
       background-color: transparent;

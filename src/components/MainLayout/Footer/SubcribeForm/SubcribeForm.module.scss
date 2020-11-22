@@ -15,6 +15,10 @@
     color: $txt-footerForm;
   }
 
+  :global(.ant-input) {
+    @include font-size($fs-footerFormField);
+  }
+
   :global(.ant-checkbox-wrapper) {
     @include font-size($fs-footerFormControl);
     font-weight: 700;

@@ -3,13 +3,13 @@ import useAuth from './useAuth';
 
 import SigninForm from './components/SigninForm';
 import SignupForm from './components/SignupForm';
+import Logo from 'components/UI/Logo/Logo';
 
 import signinImg from 'assets/img/signin.svg';
 import signupImg from 'assets/img/signup.svg';
-import classes from './Auth.module.scss';
-import Logo from 'components/UI/Logo/Logo';
 import logo from 'assets/img/logo.svg';
 
+import classes from './Auth.module.scss';
 const Auth = () => {
   const auth = useAuth();
 

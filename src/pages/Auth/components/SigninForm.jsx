@@ -11,7 +11,7 @@ import {
 
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { userActions } from 'redux/actions/user.actions';
+import { userActions } from 'core/redux/actions/user.actions';
 
 import classes from './Form.module.scss';
 
@@ -22,6 +22,7 @@ const SigninForm = ({ mode }) => {
   const onFinish = (values) => {
     dispatch(userActions.signin(values));
   };
+
   return (
     <Form
       className={[
@@ -29,7 +30,7 @@ const SigninForm = ({ mode }) => {
         classes.Form__Signin,
         mode ? classes.Form__Show : classes.Form__Hide,
       ].join(' ')}
-      name="sigin"
+      name="signin"
       initialValues={{
         remember: true,
       }}

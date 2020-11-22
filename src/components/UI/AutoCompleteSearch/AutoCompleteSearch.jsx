@@ -3,9 +3,9 @@ import { AutoComplete, Input } from 'antd';
 
 import classes from './AutoCompleteSearch.module.scss';
 import { useState } from 'react';
-import useToggle from 'Hook/useToggle';
+import useToggle from 'CustomHook/useToggle';
 
-const AutoCompleteSearch = ({ width, screenCls, onSearch, onFetch }) => {
+const AutoCompleteSearch = ({ screenCls, onSearch, onFetch }) => {
   const [options, setOptions] = useState([]);
   const [dropdown, setDropdownOn, setDropdownOff] = useToggle(false);
 
@@ -31,10 +31,6 @@ const AutoCompleteSearch = ({ width, screenCls, onSearch, onFetch }) => {
   return (
     <div className={[classes.AutoCompleteSearch, screenCls].join(' ')}>
       <AutoComplete
-        className={classes.AutoCompleteSearch}
-        style={{
-          width,
-        }}
         dropdownAlign={{ offset: [0, 12] }}
         options={options}
         onSearch={(value) => searchHandler(value)}

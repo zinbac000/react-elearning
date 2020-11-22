@@ -1,9 +1,8 @@
 @import 'src/scss/main';
 
-.DropdownAvatar {
-  @include size(3.8rem);
-  border-radius: 50%;
+.DropdownAvatar:global(.ant-avatar) {
   margin-left: 1.2rem;
+  cursor: pointer;
 }
 
 .UserNav {
@@ -17,11 +16,12 @@
     padding: 1.2rem 1.6rem 1.6rem;
   }
 
-  &__Avatar {
-    @include size(5.6rem);
-    border-radius: 50%;
-
+  &__Avatar:global(.ant-avatar) {
     margin-right: 1.6rem;
+
+    :global(.ant-avatar-string) {
+      font-size: 24px;
+    }
   }
 
   h4 {

@@ -19,12 +19,12 @@
     min-width: fit-content;
 
     @include font-size($fs-headerUserMenuTitle, 7);
-    color: $txt-white;
+    color: $txt-headerLink-hover;
     font-weight: 700;
 
     &:hover,
     &:focus {
-      color: $txt-white;
+      color: $txt-headerLink-hover;
     }
 
     @include screen(lg) {

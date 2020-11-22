@@ -1,12 +1,15 @@
 import React, { Fragment } from 'react';
+
 import { Link } from 'react-router-dom';
 
-import classes from './UserAuth.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+
 import UserMenu from '../UserMenu/UserMenu';
 import UserNav from '../UserNav/UserNav';
-import { ON_DESKTOP } from 'config/setting';
-import { useDispatch, useSelector } from 'react-redux';
-import { userActions } from 'redux/actions/user.actions';
+
+import { userActions } from 'core/redux/actions/user.actions';
+
+import classes from './UserAuth.module.scss';
 
 const UserAuth = ({ setDrawerOff, screenCls }) => {
   const { loggedIn } = useSelector((state) => state.authenticationReducer);
@@ -19,7 +22,7 @@ const UserAuth = ({ setDrawerOff, screenCls }) => {
 
   const renderAuth = () => {
     return loggedIn ? (
-      screenCls === ON_DESKTOP ? (
+      screenCls === 'onDesktop' ? (
         <UserNav handleSignout={handleSignout} />
       ) : (
         <UserMenu handleSignout={handleSignout} />

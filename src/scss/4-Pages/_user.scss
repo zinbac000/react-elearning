@@ -1,0 +1,63 @@
+/* -------------------- VARIABLE -------------------- */
+/*________ Auth ________*/
+/*Background*/
+$bg-user: bc('white');
+$bg-userActiveLink: bc('secondary-dark');
+$bg-userContainerBorder: bc('secondary-lighter');
+$bg-userSubmitBtn: bc('button-primary');
+$bg-userSubmitBtn-hover: bc('button-primary--hover');
+$bg-userCourseItemRate: bc('button-primary');
+$bg-userCourseItemSearch: bc('button-primary');
+$bg-userCourseItemScroll: bc('button-primary');
+$bg-userCourseItemScroll-hover: bc('button-primary--hover');
+
+/*Text colors*/
+$txt-userAvatar: tc('white');
+$txt-userActiveLink: tc('white');
+$txt-userSubmitBtn: tc('secondary');
+$txt-userCourseItemAuthor: tc('placeholder');
+$txt-userCourseItemSearch: tc('placeholder');
+
+/*Font size*/
+$fs-userAvatar: (
+  base: fsa('h3'),
+);
+
+$fs-userUsername: (
+  base: fsa('subtitle2'),
+);
+
+$fs-userMenuLink: (
+  md: fsa('subtitle2'),
+);
+
+$fs-userFormTitle: (
+  base: fsa('subtitle2'),
+  md: fsa('title3'),
+);
+
+$fs-userFormSubtitle: (
+  base: fsa('body1'),
+  md: fsa('subtitle2'),
+);
+
+$fs-userFormLabel: (
+  md: fsa('subtitle2'),
+);
+
+$fs-userSubmitBtn: (
+  base: fsa('body2'),
+  md: fsa('subtitle3'),
+);
+
+$fs-userCourseItemAuthor: (
+  base: fsa('body1'),
+  lg: fsa('subtitle3'),
+);
+
+$fs-userCourseItemRateIcon: (
+  base: fsa('body2'),
+  lg: fsa('subtitle1'),
+  xl: fsa('title6'),
+);
+/* -------------------- END VARIABLE -------------------- */

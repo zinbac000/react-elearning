@@ -1,0 +1,93 @@
+@import 'src/scss/main';
+
+.MyCoursesItem:global(.ant-card-bordered) {
+  @include screen(lg) {
+    @include flexbox();
+  }
+  &:global(.ant-card) {
+    margin: 0 auto 2rem;
+
+    border: 0.1rem solid $bg-userContainerBorder;
+    border-radius: 0.8rem;
+
+    @include screen(lg) {
+      width: 80%;
+    }
+  }
+
+  :global(.ant-card-cover) {
+    @include screen(lg) {
+      margin: 0;
+      transform: unset;
+
+      width: 30rem;
+    }
+
+    img {
+      @include size(100%, 16rem);
+      object-fit: cover;
+
+      border-top-left-radius: 0.7rem;
+      border-top-right-radius: 0.7rem;
+
+      @include screen(lg) {
+        @include size(30rem, 16rem);
+
+        border-radius: 0.7rem;
+      }
+    }
+  }
+
+  :global(.ant-card-body) {
+    padding: 1rem 1.6rem 2rem;
+
+    @include screen(lg) {
+      flex: 1;
+    }
+  }
+
+  :global(.ant-card-meta-detail) {
+    @include screen(lg) {
+      @include flexbox(null, space-between, column);
+    }
+  }
+
+  :global(.ant-card-meta-title) {
+    white-space: pre-wrap;
+  }
+
+  :global(.ant-card-meta-description) {
+    @include flexbox(flex-end, space-between);
+
+    .MyCoursesItem__Author {
+      @include font-size($fs-userCourseItemAuthor);
+      color: $txt-userCourseItemAuthor;
+      font-weight: 500;
+
+      margin-bottom: 0;
+    }
+
+    .MyCoursesItem__Rating:global(.ant-rate) {
+      @include flexbox(center);
+      height: 1.5rem;
+      color: $bg-userCourseItemRate;
+
+      @include screen(xl) {
+        height: 3rem;
+      }
+
+      span {
+        @include font-size($fs-userCourseItemRateIcon);
+      }
+
+      path {
+        stroke: $bg-userCourseItemRate;
+        stroke-width: 5rem;
+      }
+
+      :global(.ant-rate-star) {
+        margin-right: 0.4rem;
+      }
+    }
+  }
+}

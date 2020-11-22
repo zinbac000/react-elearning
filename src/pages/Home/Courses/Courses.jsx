@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Carousel } from 'antd';
 
-import CourseItem from './CourseItem/CourseItem';
+import CourseItem from './components/CourseItem/CourseItem';
 import classes from './Courses.module.scss';
 
 const settings = {
@@ -41,7 +41,7 @@ const settings = {
     },
 
     {
-      breakpoint: 400,
+      breakpoint: 536,
       settings: {
         rows: 1,
         slidesToShow: 1,

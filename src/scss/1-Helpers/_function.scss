@@ -1,6 +1,6 @@
-@function c($color) {
-  @if map-has-key($map: $Colors, $key: $color) {
-    @return map-get($map: $Colors, $key: $color);
+@function fsa($color) {
+  @if map-has-key($map: $fnSizes-a, $key: $color) {
+    @return map-get($map: $fnSizes-a, $key: $color);
   }
   @warn ("{$color} color doesn't exist");
   @return '';
@@ -27,14 +27,6 @@
     @return map-get($map: $fnSizes, $key: $font);
   }
   @warn ("{$font} font doesn't exist");
-  @return '';
-}
-
-@function bsh($name) {
-  @if map-has-key($map: $bShadows, $key: $name) {
-    @return map-get($map: $bShadows, $key: $name);
-  }
-  @warn ("{$name} box-shadow style doesn't exist");
   @return '';
 }
 

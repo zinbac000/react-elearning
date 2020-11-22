@@ -1,0 +1,77 @@
+@import '../../../../scss/main';
+
+.Account {
+  border: 0.1rem solid $bg-userContainerBorder;
+
+  :global(.ant-form-item-label) span {
+    @include font-size($fs-userFormLabel);
+  }
+
+  :global(.ant-input),
+  :global(.ant-input-password) {
+    padding: 0.8rem 1.2rem;
+
+    @include screen(md) {
+      padding: 1rem 1.2rem;
+    }
+  }
+
+  :global(.ant-input-group-addon) {
+    @include size(4rem);
+
+    @include screen(md) {
+      @include size(4.4rem);
+    }
+  }
+
+  &__FormWrapper,
+  :global(.ant-form) {
+    padding: 2rem;
+  }
+
+  &__FormTitle {
+    @include font-size($fs-userFormTitle);
+    text-align: center;
+    font-weight: 700;
+
+    margin-bottom: 0;
+  }
+
+  &__FormSubtitle {
+    @include font-size($fs-userFormSubtitle);
+    text-align: center;
+    margin: 0;
+  }
+
+  :global(.ant-divider) {
+    margin: 0;
+    border-color: $bg-userContainerBorder;
+  }
+
+  &__ChangePwdBtn:global(.ant-btn-primary) {
+    color: $txt-userSubmitBtn;
+    font-weight: 700;
+
+    padding: 0.9rem 1.4rem;
+    background-color: $bg-userSubmitBtn;
+    border: none;
+    height: auto;
+
+    @include screen(lg) {
+      padding: 1.2rem 1.6rem;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $txt-userSubmitBtn;
+      background-color: $bg-userSubmitBtn-hover;
+
+      filter: brightness(0.8);
+    }
+
+    span {
+      @include font-size($fs-userSubmitBtn, 3);
+    }
+  }
+}

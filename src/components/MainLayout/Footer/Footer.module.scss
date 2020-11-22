@@ -1,7 +1,20 @@
 @import 'src/scss/main';
+
 .Footer {
   background-color: $bg-footer;
   padding: 2rem;
+
+  @include screen(sm) {
+    @include flexbox(flex-start, space-between, row, wrap);
+  }
+
+  @include screen(lg) {
+    padding: 3rem 5% 2rem;
+  }
+
+  @include screen(xl) {
+    padding: 6rem 10% 3rem;
+  }
 
   &__Top {
     order: 3;
@@ -20,13 +33,13 @@
     border-radius: 0.4rem;
     padding: 0 0.8rem;
 
-    color: $txt-placeholder;
+    color: $txt-footerLanguage;
 
     &Select:global(.ant-select) {
       @include absolute(left 0);
       @include font-size($fs-footerLanguage);
 
-      color: $txt-placeholder;
+      color: $txt-footerLanguage;
 
       &:global(.ant-select-single:not(.ant-select-customize-input))
         :global(.ant-select-selector) {
@@ -116,17 +129,5 @@
         margin-bottom: 0;
       }
     }
-  }
-
-  @include screen(sm) {
-    @include flexbox(flex-start, space-between, row, wrap);
-  }
-
-  @include screen(lg) {
-    padding: 3rem 5% 2rem;
-  }
-
-  @include screen(xl) {
-    padding: 6rem 10% 3rem;
   }
 }

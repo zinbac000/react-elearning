@@ -1,0 +1,99 @@
+@import '../../../../scss/main';
+
+.MyCourses {
+  border: 0.1rem solid $bg-userContainerBorder;
+
+  &__Wrapper {
+    padding: 2rem;
+  }
+
+  &__Title {
+    @include font-size($fs-userFormTitle);
+    text-align: center;
+    font-weight: 700;
+
+    margin-bottom: 0;
+  }
+
+  &__Subtitle {
+    @include font-size($fs-userFormSubtitle);
+    text-align: center;
+
+    @include screen(md) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__Search {
+    :global(.ant-select) {
+      width: 100%;
+    }
+
+    :global(.ant-input-group) :global(.ant-input),
+    :global(.ant-btn-primary) {
+      border: 0.1rem solid $bg-userContainerBorder;
+      box-shadow: none;
+
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: $bg-userContainerBorder;
+      }
+    }
+
+    :global(.ant-input-group) :global(.ant-input) {
+      border-right: none;
+    }
+
+    :global(.ant-btn-primary) {
+      @include size(4rem);
+      background-color: $bg-headerSearchButton;
+      border-left: none;
+      padding: 0;
+
+      color: $txt-userCourseItemSearch;
+
+      &:hover {
+        background-color: $bg-userCourseItemSearch;
+        border-color: $bg-userContainerBorder;
+
+        color: $txt-userCourseItemSearch;
+      }
+    }
+  }
+
+  :global(.ant-divider) {
+    margin: 0;
+    border-color: $bg-userContainerBorder;
+  }
+
+  &__CardContainer {
+    overflow-y: scroll;
+    max-height: 48.4rem;
+
+    padding: 2rem 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include screen(lg) {
+      &::-webkit-scrollbar {
+        display: initial;
+        width: 0.6rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 0.2rem $bg-userContainerBorder;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $bg-userCourseItemScroll;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: $bg-userCourseItemScroll-hover;
+      }
+    }
+  }
+}
