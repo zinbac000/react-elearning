@@ -10,19 +10,22 @@ import UserNav from '../UserNav/UserNav';
 import { userActions } from 'core/redux/actions/user.actions';
 
 import classes from './UserAuth.module.scss';
+import { Grid } from 'antd';
+const { useBreakpoint } = Grid;
 
-const UserAuth = ({ setDrawerOff, screenCls }) => {
+const UserAuth = ({ setDrawerOff }) => {
   const { loggedIn } = useSelector((state) => state.authenticationReducer);
+  const { lg } = useBreakpoint();
   const dispatch = useDispatch();
 
-  const handleSignout = (e) => {
-    e.preventDefault();
+  const handleSignout = () => {
+    setDrawerOff && setDrawerOff();
     dispatch(userActions.signout());
   };
 
   const renderAuth = () => {
     return loggedIn ? (
-      screenCls === 'onDesktop' ? (
+      lg ? (
         <UserNav handleSignout={handleSignout} />
       ) : (
         <UserMenu handleSignout={handleSignout} />

@@ -1,37 +1,29 @@
+import { message } from 'antd';
 import { userConstants } from 'core/config/constants/user.constants';
 import { userService } from 'core/services/user.service';
 import { alertActions } from './alert.actions';
 
 const signin = ({ username, password, remember }) => {
-  const request = (payload) => ({
-    type: userConstants.SIGNIN_REQUEST,
-    payload,
-  });
   const success = (payload) => ({
     type: userConstants.SIGNIN_SUCCESS,
     payload,
   });
-  const failure = (error) => ({ type: userConstants.SIGNIN_FAILURE, error });
+
+  const failure = (error) => ({
+    type: userConstants.SIGNIN_FAILURE,
+    error,
+  });
 
   return (dispatch) => {
-    dispatch(request({ username }));
-    // userService
-    //   .signin(username, password, remember)
-    //   .then((response) => {
-    //     dispatch(success(response));
-    //   })
-    //   .catch((response) => {
-    //     dispatch(failure(response));
-    //   });
-
     userService
       .signin(username, password, remember)
       .then((user) => {
         dispatch(success(user));
+        message.success({ content: 'Login successful' });
       })
       .catch((error) => {
-        dispatch(failure(error.response.data));
-        dispatch(alertActions.error({ message: error.response.data }));
+        dispatch(failure(error.response?.data));
+        message.error({ content: error.response?.data });
       });
   };
 };

@@ -1,0 +1,27 @@
+@import 'src/scss/main';
+
+.Container {
+  height: 100vh;
+  background-color: $tundora;
+  user-select: none;
+
+  .Wrapper {
+    @include flexCenter;
+    flex-direction: column;
+
+    @include fixed(top 50% left 50%);
+    transform: translate(-50%, -60%);
+
+    .Oops {
+      font-size: 14rem;
+      letter-spacing: 0.2rem;
+
+      color: tc('primary');
+    }
+
+    h1,
+    p {
+      color: $white;
+    }
+  }
+}

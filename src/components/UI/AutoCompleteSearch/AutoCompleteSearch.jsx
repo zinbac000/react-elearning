@@ -5,7 +5,7 @@ import classes from './AutoCompleteSearch.module.scss';
 import { useState } from 'react';
 import useToggle from 'CustomHook/useToggle';
 
-const AutoCompleteSearch = ({ screenCls, onSearch, onFetch }) => {
+const AutoCompleteSearch = ({ onSearch, onFetch }) => {
   const [options, setOptions] = useState([]);
   const [dropdown, setDropdownOn, setDropdownOff] = useToggle(false);
 
@@ -15,29 +15,34 @@ const AutoCompleteSearch = ({ screenCls, onSearch, onFetch }) => {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
+
     timeoutId = setTimeout(() => {
-      onFetch(value).then((options) => {
-        console.log('fetched data');
+      onFetch(value).then((_options) => {
         setOptions(
-          options.map((value) => ({
-            label: <span key={value}>{value}</span>,
-            value,
+          _options.map(({ maKhoaHoc, tenKhoaHoc }) => ({
+            label: <span key={maKhoaHoc}>{tenKhoaHoc}</span>,
+            value: maKhoaHoc,
           })),
         );
       });
-    }, 300);
+    }, 400);
   };
 
   return (
-    <div className={[classes.AutoCompleteSearch, screenCls].join(' ')}>
+    <div className={[classes.AutoCompleteSearch].join(' ')}>
       <AutoComplete
         dropdownAlign={{ offset: [0, 12] }}
         options={options}
         onSearch={(value) => searchHandler(value)}
         open={dropdown}
         onChange={setDropdownOn}
-        onSelect={setDropdownOff}
+        onSelect={(value) => {
+          onSearch();
+          setDropdownOff();
+        }}
         onBlur={setDropdownOff}
+        allowClear={true}
+        notFoundContent
       >
         <Input.Search
           size="large"

@@ -1,14 +1,43 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Fragment } from 'react';
-
-import { Drawer } from 'antd';
-import { RightOutlined } from '@ant-design/icons';
-import UserMenuBody from './UserMenuBody/UserMenuBody';
-import classes from './UserMenu.module.scss';
+import { Link } from 'react-router-dom';
 import useToggle from 'CustomHook/useToggle';
+
+import { menu } from 'core/config/constants/menu.constants';
+import { Divider, Drawer, List } from 'antd';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+
+import classes from './UserMenu.module.scss';
 
 const UserMenu = ({ handleSignout }) => {
   const [drawer, setDrawerOn, setDrawerOff] = useToggle(false);
+
+  const { mobile } = menu;
+
+  const renderMenuLink = () =>
+    mobile.map((section, index) => (
+      <Fragment key={index}>
+        <List
+          header={
+            <div className={classes.UserMenu__Body__Heading}>
+              {section.header}
+            </div>
+          }
+          split={false}
+          dataSource={section.link}
+          renderItem={(item) => (
+            <Link
+              onClick={item.signoutFlag && handleSignout}
+              className={classes.UserMenu__Body__Link}
+              to={item.path}
+            >
+              {item.label}
+            </Link>
+          )}
+        />
+        {index !== mobile.length - 1 ? <Divider /> : null}
+      </Fragment>
+    ));
 
   return (
     <Fragment>
@@ -33,7 +62,13 @@ const UserMenu = ({ handleSignout }) => {
         onClose={setDrawerOff}
         className={classes.UserMenu__Drawer}
       >
-        <UserMenuBody handleSignout={handleSignout} onClose={setDrawerOff} />
+        <div className={classes.UserMenu__Body}>
+          <LeftOutlined onClick={setDrawerOff} />
+          <p>Menu</p>
+        </div>
+        <div className={classes.UserMenu__Body__Wrapper}>
+          {renderMenuLink()}
+        </div>
       </Drawer>
     </Fragment>
   );

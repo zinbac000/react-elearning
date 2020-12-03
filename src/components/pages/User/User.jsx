@@ -56,9 +56,8 @@ const User = () => {
         </Menu>
       </Col>
       <Switch>
-        <Route path="/user/account" component={Account} />
-        <Route path="/user/my-courses" component={MyCourses} />
-        <Redirect from="/user" to="/user/account" />
+        <Route exact path="/user/account" component={Account} />
+        <Route exact path="/user/my-courses" component={MyCourses} />
       </Switch>
     </Row>
   );

@@ -11,6 +11,31 @@
   max-height: unset;
 
   .ant-spin-dot {
-    top: 35%;
+    @include fixed(top 50% left 50%);
+  }
+}
+
+.ant-btn {
+  height: unset;
+
+  &.kc-primary {
+    background-color: $amber;
+    color: $tundora;
+
+    border: $ruby;
+    border-radius: 4px;
+    padding: 0.8rem 1.6rem;
+
+    font-weight: 500;
+
+    &:hover {
+      background-color: $bright-sun;
+    }
+  }
+}
+
+.sideMenu {
+  @include screen(lg) {
+    display: none;
   }
 }

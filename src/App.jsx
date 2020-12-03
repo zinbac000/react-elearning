@@ -1,44 +1,35 @@
 import React, { Fragment } from 'react';
 
-import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
-
-import { useSelector } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
 import { MainLayout } from 'templates/MainLayout/MainLayout';
 import { AuthLayout } from 'templates/AuthLayout/AuthLayout';
 
-import { Alert } from 'antd';
-
-import Home from 'pages/Home/Home';
-import Categories from 'pages/Categories/Categories';
-import User from 'pages/User/User';
-import Auth from 'pages/Auth/Auth';
+import Home from 'components/pages/Home/Home';
+import Categories from 'components/pages/Categories/Categories';
+import User from 'components/pages/User/User';
+import Auth from 'components/pages/Auth/Auth';
+import NotAvailable from 'components/pages/NotAvailable/NotAvailable';
 
 const App = () => {
-  const { message, type } = useSelector(
-    (rootReducer) => rootReducer.alertReducer,
-  );
-  const { loggedIn } = useSelector(
-    (rootReducer) => rootReducer.authenticationReducer,
-  );
-
   return (
     <Fragment>
-      {message && <Alert message={message} type={type} closable />}
-
       <Router>
         <Switch>
-          <MainLayout exact path="/" Component={Home} />
+          <Route path="/404" component={NotAvailable} />
           <MainLayout path="/categories" Component={Categories} />
-          <MainLayout path="/user" Component={User} />
+          <MainLayout path="/user/my-courses" Component={User} />
+          <MainLayout path="/user/account" Component={User} />
+          <MainLayout exact path="/" Component={Home} />
 
-          {loggedIn ? (
-            <Redirect to="/" />
-          ) : (
-            <AuthLayout path="/auth/:modeParams" Component={Auth} />
-          )}
+          <AuthLayout path="/auth/:modeParams" Component={Auth} />
 
-          <Redirect from="*" to="/" />
+          <Redirect from="*" to="/404" />
         </Switch>
       </Router>
     </Fragment>

@@ -28,7 +28,7 @@
   :global(.ant-btn-primary) {
     @include absolute(top 0 right 0);
     @include button-hover($bg-footerFormButton, $bg-footerFormButton-hover);
-    @include font-size($fs-footerFormBtn, 9);
+    @include font-size($fs-footerFormControl, 9);
 
     border-radius: 3rem;
     border: none;

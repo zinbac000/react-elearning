@@ -7,7 +7,7 @@
     background-color: $bg-headerUserMenu;
 
     @include screen(lg) {
-      @include flexbox(center, null, row);
+      @include flexbox(center, flex-end, row);
       background-color: initial;
       padding: 0;
     }

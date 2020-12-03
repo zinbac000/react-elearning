@@ -1,16 +1,22 @@
 import React from 'react';
 
-import { Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { usePageRouting } from 'CustomHook/usePageRouting';
 
 import { Spin } from 'antd';
+import { useSelector } from 'react-redux';
 
 // import classes from './AuthLayout.module.scss';
 
 export const AuthLayout = ({ Component, ...rest }) => {
   const [isLoading] = usePageRouting();
+  const { loggedIn } = useSelector(
+    (rootReducer) => rootReducer.authenticationReducer,
+  );
 
-  return (
+  return loggedIn ? (
+    <Redirect to="/" />
+  ) : (
     <Route
       {...rest}
       render={(props) => (

@@ -6,7 +6,7 @@ export const apiConstants = {
       info: '/QuanLyNguoiDung/ThongTinNguoiDung',
       edit: '/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
       enrollableCourse: '/QuanLyNguoiDung/LayDanhSachKhoaHocChuaGhiDanh',
-      waitlistCourse: '/QuanLyNguoiDung/LayDanhSachHocVienChoXetDuyet',
+      waitlistCourse: '/QuanLyNguoiDung/LayDanhSachKhoaHocChoXetDuyet',
     },
     superUserOnly: {
       role: '/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung',
@@ -16,6 +16,7 @@ export const apiConstants = {
       create: '/QuanLyNguoiDung/ThemNguoiDung',
       delete: '/QuanLyNguoiDung/XoaNguoiDung',
       listInCourse: '/QuanLyNguoiDung/LayDanhSachHocVienKhoaHoc',
+      waitlistUserByCourse: '/QuanLyNguoiDung/LayDanhSachHocVienChoXetDuyet',
     },
   },
 

@@ -1,122 +1,57 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import classes from './UserNav.module.scss';
 
-import { Menu, Dropdown, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
+import { Menu, Dropdown, Avatar } from 'antd';
+import { menu } from 'core/config/constants/menu.constants';
+
+import classes from './UserNav.module.scss';
 import { useSelector } from 'react-redux';
+import { nameExtractor } from 'core/utility/helper';
 
 const UserNav = ({ handleSignout }) => {
-  const { hoTen, email } = useSelector(
-    (rootReducer) => rootReducer.authenticationReducer.user,
-  );
-  const userNavLink = [
-    [
-      {
-        path: '/user/my-courses',
-        label: 'My courses',
-      },
-      {
-        path: '/404',
-        label: 'My cart',
-      },
-      {
-        path: '/404',
-        label: 'Wishlist',
-      },
-      {
-        path: '/404',
-        label: 'Teach on Knowland',
-      },
-    ],
-    [
-      {
-        path: '/user/account',
-        label: 'Account settings',
-      },
-      {
-        path: '/404',
-        label: 'Payment methods',
-      },
-      {
-        path: '/404',
-        label: 'Knowcode credits',
-      },
-      {
-        path: '/404',
-        label: 'Purchase history',
-      },
-    ],
-    [
-      {
-        path: '/404',
-        label: 'Notifications',
-      },
-      {
-        path: '/404',
-        label: 'Messages',
-      },
-    ],
-    [
-      {
-        path: '/404',
-        label: 'Public profile',
-      },
-      {
-        path: '/404',
-        label: 'Edit profile',
-      },
-    ],
-    [
-      {
-        path: '/404',
-        label: 'Help',
-      },
-      {
-        path: '/',
-        label: 'Logout',
-        handleSignout,
-      },
-    ],
-  ];
+  const { desktop } = menu;
+  const { user } = useSelector((state) => state.authenticationReducer);
 
-  const renderMenuItemGroup = userNavLink.map((section, index) => {
-    return (
-      <Menu.ItemGroup key={`gr-${index}`}>
-        {section.map((item, index) => (
-          <Menu.Item key={index}>
-            <Link to={item.path} onClick={item.handleSignout}>
-              {item.label}
-            </Link>
-          </Menu.Item>
-        ))}
-      </Menu.ItemGroup>
-    );
-  });
-
-  const menu = (
+  const overlayMenu = (
     <Menu>
       <Menu.Item
         key={classes.UserNav__Wrapper}
         className={classes.UserNav__Wrapper}
       >
         <Avatar className={classes.UserNav__Avatar} size={56}>
-          K
+          {nameExtractor(user.hoTen)}
         </Avatar>
         <div>
           <Link to="/user/account">
-            <h4>Hi, {hoTen}</h4>
+            <h4>Hi, {user.hoTen}</h4>
           </Link>
-          <span>{email}</span>
+          <span>{user.email}</span>
         </div>
       </Menu.Item>
-      {renderMenuItemGroup}
+
+      {desktop.map((section, index) => {
+        return (
+          <Menu.ItemGroup key={`gr-${index}`}>
+            {section.map((item, index) => (
+              <Menu.Item key={index}>
+                <Link
+                  to={item.path}
+                  onClick={item.signoutFlag && handleSignout}
+                >
+                  {item.label}
+                </Link>
+              </Menu.Item>
+            ))}
+          </Menu.ItemGroup>
+        );
+      })}
     </Menu>
   );
 
   return (
     <Dropdown
-      overlay={menu}
+      overlay={overlayMenu}
       overlayClassName={classes.UserNav}
       align={{
         offset: [20, 13],
@@ -124,7 +59,7 @@ const UserNav = ({ handleSignout }) => {
       placement="bottomRight"
     >
       <Avatar className={classes.DropdownAvatar} size={38}>
-        K
+        {nameExtractor(user.hoTen)}
       </Avatar>
     </Dropdown>
   );

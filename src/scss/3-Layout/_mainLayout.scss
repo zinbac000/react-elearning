@@ -22,25 +22,21 @@ $txt-headerDrawer: tc('primary-light');
 $txt-headerSearch: tc('placeholder');
 
 /*Font size*/
-$fs-headerIcon: (
-  base: fs('link'),
-  lg: fs('icon'),
-);
 $fs-headerLink: (
-  base: fs('h6'),
-  lg: fs('link-sm'),
+  base: fsa('subtitle1'),
+  lg: fsa('body2'),
 );
 $fs-headerMenuUser: (
-  base: fs('subtitle1'),
+  base: fsa('subtitle3'),
 );
 $fs-headerMenuEmail: (
-  base: fs('body'),
+  base: fsa('body2'),
 );
 $fs-headerUserMenuTitle: (
-  base: fs('h6'),
+  base: fsa('subtitle1'),
 );
 $fs-headerUserMenuHeading: (
-  base: fs('subtitle1'),
+  base: fsa('subtitle3'),
 );
 
 /*________ Footer ________*/
@@ -63,31 +59,27 @@ $txt-footerLanguageDropdown-selected: tc('button');
 
 /*Font size*/
 $fs-footerLink: (
-  base: fs('subtitle1'),
-  lg: fs('h6'),
+  base: fsa('subtitle3'),
+  lg: fsa('subtitle1'),
 );
 $fs-footerFormField: (
-  base: fs('h6'),
+  base: fsa('subtitle1'),
 );
 $fs-footerFormControl: (
-  base: fs('body'),
-  lg: fs('subtitle1'),
+  base: fsa('body2'),
+  lg: fsa('subtitle3'),
 );
 $fs-footerLanguage: (
-  base: fs('link'),
-  lg: fs('title'),
-);
-$fs-footerFormBtn: (
-  base: fs('body'),
-  lg: fs('subtitle1'),
+  base: fsa('body1'),
+  lg: fsa('subtitle2'),
 );
 $fs-footerCopyright: (
-  base: fs('body'),
-  lg: fs('subtitle2'),
+  base: fsa('body2'),
+  lg: fsa('body1'),
 );
 $fs-footerTitle: (
-  base: fs('h4'),
-  lg: fs('h3'),
+  base: fsa('title4'),
+  lg: fsa('title2'),
 );
 /* ---------------- END VARIABLE ---------------- */
 

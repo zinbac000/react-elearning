@@ -5,11 +5,10 @@ import Logo from 'components/UI/Logo/Logo';
 
 import logo from 'assets/img/logo.svg';
 
-import { ON_DESKTOP_MD } from 'core/config/setting';
-
 import { Select } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons';
 import classes from './Footer.module.scss';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { Option } = Select;
@@ -39,15 +38,15 @@ const Footer = () => {
       <div className={classes.Footer__Middle}>
         <p className={classes.Footer__Title}>Company</p>
         <div className={classes.Footer__List}>
-          <a href="#">About us</a>
-          <a href="#">Contact us</a>
-          <a href="#">Futured course</a>
-          <a href="#">Terms</a>
-          <a href="#">Privacy policy and cookie policy</a>
+          <Link to="/404">About us</Link>
+          <Link to="/404">Contact us</Link>
+          <Link to="/404">Futured course</Link>
+          <Link to="/404">Terms</Link>
+          <Link to="/404">Privacy policy and cookie policy</Link>
         </div>
       </div>
 
-      <div className={[classes.Footer__Form, ON_DESKTOP_MD].join(' ')}>
+      <div className={[classes.Footer__Form, 'onDesktop-md'].join(' ')}>
         <p className={classes.Footer__Title}>Subscribe to our newsletter</p>
         <SubcribeForm />
       </div>

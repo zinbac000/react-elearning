@@ -2,39 +2,56 @@ import axios from './axios';
 import { courseConstants } from 'core/config/constants/course.constants';
 import { apiConstants } from 'core/config/constants/api.constants';
 import { localStorageUtil } from 'core/utility/localStorage.utility';
+class CourseService {
+  constructor() {
+    this.account = localStorageUtil.getProfile()?.taiKhoan;
+  }
 
-const list = async () => {
-  try {
-    const res = await axios.get(
-      `${apiConstants.course.common.list}?MaNhom=${courseConstants.GROUP_ID}`,
-    );
+  list = async (keyword) => {
+    try {
+      const _keyword = keyword ? `&tenKhoaHoc=${keyword}` : '';
+      const response = await axios.get(
+        `${apiConstants.course.common.list}?MaNhom=${courseConstants.GROUP_ID}${_keyword}`,
+      );
 
-    return res.data;
-  } catch (error) {}
-};
+      return response.data;
+    } catch (error) {}
+  };
 
-const enrollableList = async () => {
-  try {
-    const res = await axios.post(
-      `${apiConstants.user.common.enrollableCourse}?TaiKhoan=${
-        localStorageUtil.getProfile().taiKhoan
-      }`,
-    );
+  enrollableList = async () => {
+    try {
+      if (this.account) {
+        const response = await axios.post(
+          `${apiConstants.user.common.enrollableCourse}?TaiKhoan=${this.account}`,
+        );
+        return response.data;
+      }
 
-    return res.data;
-  } catch (error) {}
-};
+      return;
+    } catch (error) {}
+  };
 
-const getCategoriesList = () => axios.get(`/QuanLyKhoaHoc/LayDanhMucKhoaHoc`);
+  listCategories = async () => {
+    try {
+      const response = await axios.get(apiConstants.course.common.category);
+      return response.data;
+    } catch (error) {}
+  };
 
-const getByCategory = (category) =>
-  axios.get(
-    `/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${category}&MaNhom=${courseConstants.GROUP_ID}`,
-  );
+  listWaitlistCourse = async () => {
+    try {
+      const data = { taiKhoan: this.account };
 
-export const courseService = {
-  list,
-  enrollableList,
-  getCategoriesList,
-  getByCategory,
-};
+      if (this.account) {
+        const response = await axios.post(
+          apiConstants.user.common.waitlistCourse,
+          data,
+        );
+        return response.data;
+      }
+      return;
+    } catch (error) {}
+  };
+}
+
+export const courseService = new CourseService();

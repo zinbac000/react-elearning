@@ -108,7 +108,7 @@
 
   &__Form {
     @include screen(md) {
-      @include flexbox(null, null, null, null, 2);
+      @include flexbox(null, null, column, null, 2);
     }
   }
 

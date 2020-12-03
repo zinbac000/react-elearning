@@ -52,8 +52,6 @@ export const MainLayout = ({ Component, ...rest }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log('courseList', courseList);
-
   return (
     <Route
       {...rest}

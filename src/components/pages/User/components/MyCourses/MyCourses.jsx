@@ -5,6 +5,7 @@ import { AutoComplete, Col, Divider, Input, Row } from 'antd';
 import classes from './MyCourses.module.scss';
 import { useSelector } from 'react-redux';
 import MyCoursesItem from '../MyCoursesItem/MyCoursesItem';
+import { userService } from 'core/services/user.service';
 
 const courseArr = ['android', 'java', 'ios'];
 
@@ -20,6 +21,16 @@ const searchResult = (query) => {
 const MyCourses = () => {
   const [options, setOptions] = useState([]);
   const { popular } = useSelector((state) => state.courseReducer);
+
+  const loadMyCourse = async () => {
+    try {
+      const { chiTietKhoaHocGhiDanh } = await userService.getInfo();
+
+      console.log(chiTietKhoaHocGhiDanh.map((course) => course.maKhoaHoc));
+    } catch (error) {}
+  };
+
+  loadMyCourse();
 
   const handleSearch = (value) => {
     setOptions(value ? searchResult(value) : []);

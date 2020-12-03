@@ -13,6 +13,7 @@ $iron: #d0d3d9;
 $dusty-gray: #9b9b9b;
 $rolling-stone: #757c84;
 $dove-gray: #6f6f6f;
+$ruby: #e0115f;
 $amber: #ffbf00;
 $bright-sun: #ffce3d;
 $champagne: #faebd7;
@@ -65,7 +66,9 @@ $txtColors: (
   'valid': $chateau-green,
   // --------------------------------------
   'white': $white,
-  'black': $black
+  'black': $black,
+  // --------------------------------------
+  'danger': $ruby
 );
 
 //--------- FONT SIZE ---------

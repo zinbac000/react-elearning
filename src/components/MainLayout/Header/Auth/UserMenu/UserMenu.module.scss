@@ -21,10 +21,57 @@
   &__Icon:global(.anticon) {
     margin-left: auto;
     color: $txt-headerMenuIcon;
-    @include font-size($fs-headerIcon);
   }
 
   &__Drawer {
     @include absolute();
+  }
+
+  &__Body {
+    @include flexbox(center);
+    height: 5.6rem;
+    padding: 0 1.6rem;
+    background-color: $bg-headerUserMenu;
+
+    & > :global(.anticon) {
+      color: $txt-headerMenuIcon;
+    }
+
+    p {
+      margin-left: 1.6rem;
+      margin-bottom: 0;
+
+      @include font-size($fs-headerUserMenuTitle, 6);
+      color: $txt-headerDrawer;
+      font-weight: 700;
+    }
+
+    &__Wrapper {
+      padding: 0 1.6rem;
+
+      :global(.ant-divider) {
+        margin: 0.8rem 0;
+        border-top-color: $bg-headerUserMenuDivider;
+      }
+    }
+
+    &__Heading {
+      color: $txt-headerDrawer;
+      @include font-size($fs-headerUserMenuHeading, 3);
+      font-weight: 700;
+    }
+
+    &__Link {
+      display: block;
+      padding: 0.8rem 0;
+
+      color: $txt-headerLink;
+      @include font-size($fs-headerLink);
+      font-weight: 500;
+
+      &:hover {
+        color: $txt-headerLink;
+      }
+    }
   }
 }
